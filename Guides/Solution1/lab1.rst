@@ -1,12 +1,7 @@
 Solution: VPN - Active Directory Authenticated 
 ======================================================
 
-The purpose of this lab is to leverage Access Guided Configuration (AGC) to 
-deploy an Identity Aware Proxy extended by Per Request Policies (PRP) access 
-controls. The Per Request Policies will restict access based on AD Group 
-Membership and the URI accessed. Students will configure the various aspects 
-of the application using strictly AGC, review the configuration and perform 
-tests of the deployment.
+This solution documents  all the necessary pieces required to setup a basic VPN for use with Active Directory Authentication.  
 
 Objective:
 ----------
