@@ -13,7 +13,7 @@ Host, where you will be able to access the BIG-IP management interfaces (HTTPS, 
 |                                                                                              |
 |    with the following credentials:                                                           |
 |                                                                                              |
-|    - **UserID: f5lab\user1** / **Password: user1**                                                 |
+|    - **UserID: f5lab\\user1** / **Password: user1**                                                 |
 |                                                                                              |
 | 2. Access the BIG-IP GUI via https://10.1.1.4  You can also double-click on the **bigip1**   |
 |                                                                                              |
@@ -52,8 +52,8 @@ components:
 +------------------------+-------------------------+-----------------------------------------+
 | Component              | VLAN/IP Address(es)     | Credentials                             | 
 +========================+=========================+=========================================+
-| jumpbox.f5lab.local    | - Management 10.1.1.10  | - Username: f5lab\user1 Password: user1 | 
-|                        | - External   10.1.10.10 | - Username: f5lab\user2 Password: user2 | 
+| jumpbox.f5lab.local    | - Management 10.1.1.10  | - Username: f5lab\\user1 Password: user1 | 
+|                        | - External   10.1.10.10 | - Username: f5lab\\user2 Password: user2 | 
 |                        | - Internal   10.1.20.10 |                                         |
 +------------------------+-------------------------+-----------------------------------------+
 | BIG-IP1.f5lab.local    | - Management 10.1.1.4   | - Username: admin Password: admin       | 
@@ -64,10 +64,10 @@ components:
 |                        | - External   10.1.10.5  |                                         | 
 |                        | - Internal   10.1.20.5  |                                         |
 +------------------------+-------------------------+-----------------------------------------+
-| dc.f5lab.local         | - Management 10.1.1.7   | - Username: f5lab\admin Password: admin | 
+| dc.f5lab.local         | - Management 10.1.1.7   | - Username: f5lab\\admin Password: admin | 
 |                        | - Internal   10.1.20.7  |                                         | 
 +------------------------+-------------------------+-----------------------------------------+
-| iis.f5lab.local        | - Management 10.1.1.6   | - Username: f5lab\admin Password: admin | 
+| iis.f5lab.local        | - Management 10.1.1.6   | - Username: f5lab\\admin Password: admin | 
 |                        | - Internal   10.1.20.6  |                                         | 
 +------------------------+-------------------------+-----------------------------------------+
 | web.f5lab.local        | - Management 10.1.1.9   |                                         | 
