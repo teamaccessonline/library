@@ -10,6 +10,16 @@ Objective:
 
 -  Gain an initial understanding of Active Directory AAA Objects
 
+API Calls:
+---------------------
+
+To see this configuration and test in Access Base blueprint run the API Calls in the X folder.
+
+- Create a Connectity Profile
+- Create the VPN virtual server and support objects
+- Update DNS
+
+
 Supporting Components:
 -----------------
 
