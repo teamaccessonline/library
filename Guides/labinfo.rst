@@ -1,8 +1,7 @@
 Getting Started
 ---------------
 
-Please follow the instructions provided by the instructor to start your
-lab and access your jump host.
+To gain access to a live sandboxed environment please contact your F5 Account Team.
 
 To access your dedicated student lab environment, you will require a web browser
 and Remote Desktop Protocol (RDP) client software. The web browser will be used to
