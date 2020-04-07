@@ -13,7 +13,7 @@ Host, where you will be able to access the BIG-IP management interfaces (HTTPS, 
 |                                                                                              |
 |    with the following credentials:                                                           |
 |                                                                                              |
-|    - **UserID: f5lab\user1** / **Password: user1**                                                 |
+|    - **UserID: f5lab\\user1** / **Password: user1**                                                 |
 |                                                                                              |
 | 2. Access the BIG-IP GUI via https://10.1.1.4  You can also double-click on the **bigip1**   |
 |                                                                                              |
