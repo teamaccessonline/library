@@ -16,7 +16,7 @@ If a given topic is not highlighted currently on this page or something is incor
    :caption: Contents:
    :glob:
    
-   intro*
+   labinfo*
    Solution*
    close*
    
