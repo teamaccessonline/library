@@ -8,26 +8,26 @@ and Remote Desktop Protocol (RDP) client software. The web browser will be used 
 access the Lab Training Portal. The RDP client will be used to connect to the Jump
 Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
-+----------------------------------------------------------------------------------------------+
-| 1. Establish a RDP connection to your provided lab Virtual Edition: **jumphost.f5lab.local** |
-|                                                                                              |
-|    with the following credentials:                                                           |
-|                                                                                              |
-|    - **UserID: f5lab\user1** / **Password: user1**                                                 |
-|                                                                                              |
-| 2. Access the BIG-IP GUI via https://10.1.1.4  You can also double-click on the **bigip1**   |
-|                                                                                              |
-|    bookmark from within Chrome.                                                              |
-|                                                                                              |
-| 3. Login into the BIG-IP Configuration Utility with the following credentials:               |
-|                                                                                              |
-|    - **UserID: admin** / **Password: admin**                                                 |
-|                                                                                              |
-+----------------------------------------------------------------------------------------------+
-| Note: All work for this lab will be performed exclusively from the provided lab environment. |
-|                                                                                              |
-|       No installation or interaction with your local system is required.                     |
-+----------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------+
+| 1. Establish a RDP connection to your provided lab Virtual Edition: **jumphost.f5lab.local**  |
+|                                                                                               |
+|    with the following credentials:                                                            |
+|                                                                                               |
+|    - **UserID: f5lab\\user1** / **Password: user1**                                           |
+|                                                                                               |
+| 2. Access the BIG-IP GUI via https://10.1.1.4  You can also double-click on the **bigip1**    |
+|                                                                                               |
+|    bookmark from within Chrome.                                                               |
+|                                                                                               |
+| 3. Login into the BIG-IP Configuration Utility with the following credentials:                |
+|                                                                                               |
+|    - **UserID: admin** / **Password: admin**                                                  |
+|                                                                                               |
++-----------------------------------------------------------------------------------------------+
+| Note: All work for this lab will be performed exclusively from the provided lab environment.  |
+|                                                                                               |
+|       No installation or interaction with your local system is required.                      |
++-----------------------------------------------------------------------------------------------+
 
 Lab Topology
 ~~~~~~~~~~~~
