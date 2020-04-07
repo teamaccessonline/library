@@ -14,9 +14,9 @@ Supporting Components:
 -----------------
 
 -  Virtual Server
-   - Client-side SSl Profile
-   - Connectivity profile
-   - Access Profile
+ - Client-side SSl Profile
+ - Connectivity profile
+ - Access Profile
       - Active Directory AAA Object
       - Network Access Resource
       - IPv4 Lease Pool
