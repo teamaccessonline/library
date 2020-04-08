@@ -1,0 +1,34 @@
+{
+	"id": "d8eccfce-4795-40c5-8bb7-6e578f0388d1",
+	"name": "APP2-Single-DC",
+	"values": [
+		{
+			"key": "BIGIP1_VIP1",
+			"value": "10.1.10.102",
+			"enabled": true
+		},
+		{
+			"key": "BIGIP1_VIP2",
+			"value": "10.1.10.103",
+			"enabled": true
+		},
+		{
+			"key": "BIGIP3_VIP1",
+			"value": "10.1.10.202",
+			"enabled": true
+		},
+		{
+			"key": "BIGIP3_VIP2",
+			"value": "10.1.10.203",
+			"enabled": true
+		},
+		{
+			"key": "DC2_APM",
+			"value": "false",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-04-08T12:08:55.764Z",
+	"_postman_exported_using": "Postman/7.21.2"
+}
