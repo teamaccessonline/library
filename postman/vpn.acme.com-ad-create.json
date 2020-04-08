@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "bigip1 - Test AS3 running",
+			"name": "bigip1-Test AS3 running",
 			"event": [
 				{
 					"listen": "test",
@@ -16,9 +16,6 @@
 							"",
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"pm.collectionVariables.set(\"APP_NAME\", \"vpn.acme.com\");",
-							"pm.collectionVariables.set(\"PARTITION_NAME\", \"vpn\");",
-							"pm.collectionVariables.set(\"PATH_NAME\", \"vpn\");",
 							"}",
 							"",
 							"",
@@ -70,7 +67,7 @@
 			"response": []
 		},
 		{
-			"name": "bigip1-vpn.acme.com-cp",
+			"name": "bigip1-Create Connectivity Profile",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -78,7 +75,7 @@
 						"id": "fc205d64-4a5d-4973-90bd-2e14f4e8aadc",
 						"exec": [
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\")",
+							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 							"",
 							"if (PRIOR_RESPONSE === 'OK') {",
 							"",
@@ -159,7 +156,7 @@
 			"response": []
 		},
 		{
-			"name": "bigip1 - AS3 - vpn.acme.com",
+			"name": "bigip1-Create Application using AS3",
 			"event": [
 				{
 					"listen": "test",
@@ -183,7 +180,7 @@
 						"id": "a62d4290-0025-40f1-94b0-46aa1a2467d7",
 						"exec": [
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\")",
+							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 							"",
 							"if (PRIOR_RESPONSE === 'OK') {",
 							"",
@@ -241,7 +238,7 @@
 			"response": []
 		},
 		{
-			"name": "bigip5 - Test AS3 running",
+			"name": "bigip5-Test AS3 is running",
 			"event": [
 				{
 					"listen": "test",
@@ -265,7 +262,7 @@
 						"id": "68aa3e71-2eee-440c-b01f-3b3228b226d5",
 						"exec": [
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\")",
+							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 							"",
 							"if (PRIOR_RESPONSE === 'OK') {",
 							"",
@@ -313,7 +310,7 @@
 			"response": []
 		},
 		{
-			"name": "bigip5 - DNS - vpn.acme.com",
+			"name": "bigip5-Create WideIP using AS3",
 			"event": [
 				{
 					"listen": "test",
@@ -364,7 +361,7 @@
 						"exec": [
 							"setTimeout(function(){}, 5000);",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\")",
+							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 							"",
 							"if (PRIOR_RESPONSE === 'OK') {",
 							"",
@@ -416,7 +413,7 @@
 			"response": []
 		},
 		{
-			"name": "bigip3 - Test AS3 running",
+			"name": "bigip3-Test AS3 is running",
 			"event": [
 				{
 					"listen": "test",
@@ -492,7 +489,7 @@
 			"response": []
 		},
 		{
-			"name": "bigip3-vpn.acme.com-cp",
+			"name": "bigip3-Create Connectivity Profile",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -500,7 +497,7 @@
 						"id": "fc205d64-4a5d-4973-90bd-2e14f4e8aadc",
 						"exec": [
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\")",
+							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 							"",
 							"if (PRIOR_RESPONSE === 'OK') {",
 							"",
@@ -576,7 +573,7 @@
 			"response": []
 		},
 		{
-			"name": "bigip3-AS3-vpn.acme.com",
+			"name": "bigip3-Create Application using AS3",
 			"event": [
 				{
 					"listen": "test",
@@ -600,7 +597,7 @@
 						"id": "a62d4290-0025-40f1-94b0-46aa1a2467d7",
 						"exec": [
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\")",
+							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 							"",
 							"if (PRIOR_RESPONSE === 'OK') {",
 							"",
@@ -658,7 +655,7 @@
 			"response": []
 		},
 		{
-			"name": "Update GSLB Pool with BIGIP3",
+			"name": "bigip5-Add bigip3 Application to WideIP Pool",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -783,27 +780,27 @@
 	],
 	"variable": [
 		{
-			"id": "d2ec00be-6ad6-4dbc-b4d8-f55769e7ade8",
+			"id": "92ba3002-cbe5-46a9-bb08-2ef358d645ce",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "8d62ecc3-02f7-4910-b850-4a9e6e089f5b",
+			"id": "73e3474f-9220-433c-a5e7-1f0f719c8714",
 			"key": "APP_NAME",
-			"value": "",
+			"value": "vpn.acme.com",
 			"type": "string"
 		},
 		{
-			"id": "86ab09af-24ab-4bef-8e69-d1674a4eaaff",
+			"id": "ecbbed81-11a8-4991-b71a-f9574a993b65",
 			"key": "PARTITION_NAME",
-			"value": "",
+			"value": "vpn",
 			"type": "string"
 		},
 		{
-			"id": "951bd0c4-d39e-40f5-ae67-856c5488f635",
+			"id": "77dd1644-8e44-4eb6-9c3b-63f844ab3df1",
 			"key": "PATH_NAME",
-			"value": "",
+			"value": "vpn",
 			"type": "string"
 		}
 	],
