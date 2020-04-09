@@ -1,4 +1,4 @@
-Team Access Online Solution Guides
+Solution Guides
 =====================================
 
 Welcome
