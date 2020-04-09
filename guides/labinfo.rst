@@ -1,5 +1,5 @@
-Getting Started
----------------
+Getting to the Environment
+--------------------------------
 
 To gain access to a live sandboxed environment please contact your F5 Account Team.
 
