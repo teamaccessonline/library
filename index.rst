@@ -4,12 +4,7 @@ Team Access Online
 Welcome
 -------
 
-The documents located on this site are  maintained by the APM SME's at F5, please do not open support cases regarding issues. If you experience an issue or would like to see a specific deployment scenario added to this site please open an issue on Github Repo.   We will do our best to prioritize the development of the content based on demand.
-
-The guides located on this page are designed to provide an overview of a working example on a topic.  
-
-
-
+The documents located on this site are  maintained by the F5 APM SMEs. Please do not open support cases regarding issues. If you experience an issue or would like to see a specific deployment scenario added to this site please open an issue on Github Repo.   We will do our best to prioritize the development of the content based on demand.
 
 
 .. toctree::
