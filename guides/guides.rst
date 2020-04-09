@@ -15,7 +15,6 @@ https://github.com/teamaccessonline/solutions/tree/master/guides/Template
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Contents:
    :glob:
    
