@@ -18,7 +18,7 @@ The guides located on this page are designed to provide an overview of a working
    :caption: Contents:
    :glob:
    
-   Guides/guides.rst
+   guides/guides.rst
    irules/irules.rst
    policies/policies.rst
    postman/postman.rst
