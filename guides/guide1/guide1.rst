@@ -10,20 +10,39 @@ Objective:
 
 -  Gain an initial understanding of Active Directory AAA Objects
 
-API Calls:
+Demo Evironment Components use:
 ---------------------
 
-To see this configuration and test in Access Base blueprint run the API Calls in the X folder.
-
-- Create a Connectity Profile
-- Create the VPN virtual server and support objects
-- Update DNS
 
 
-Supporting Components:
+Postman Collection
+^^^^^^^^^^^^^^^^^^^^
+
+vpn.acme.com-ad-create.json
+vpn.acme.com-ad-delete.json
+
+irules
+^^^^^^^^^
+
+idp_selection.irule
+
+APM Profile 
+^^^^^^^^^^^^
+profile_Common_vpn.acme.com-psp.conf.tar
+
+
+BIG-IP Versions Supported
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+note:: Supported does not mean this configuration is not supported on other than BIG-IP verions annotated.  This simply refers to versions the SMEs have tested and build Policies for.
+
+15.1
+
+BIG-IP Components used:
 -----------------
 
--  Virtual Server
+
+Virtual Server
  - Client-side SSl Profile
  - Connectivity profile
  - Access Profile
