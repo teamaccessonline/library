@@ -1,4 +1,4 @@
-Getting to know the Environment
+Getting to Know the Environment
 --------------------------------
 
 To gain access to a live sandboxed environment please contact your F5 Account Team.
