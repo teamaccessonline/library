@@ -17,6 +17,6 @@ If a given topic is not highlighted currently on this page or something is incor
    :glob:
    
    labinfo*
-   Solution*
+   guide*
    close*
    
