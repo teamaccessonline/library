@@ -13,30 +13,25 @@ Objective:
 Demo Evironment Components use:
 ---------------------
 
+  Postman Collection
+  ^^^^^^^^^^^^^^^^^^^^
+
+  vpn.acme.com-ad-create.json
+  vpn.acme.com-ad-delete.json
+
+  irules
+  ^^^^^^^^^
+
+  idp_selection.irule
+
+  APM Profile 
+  ^^^^^^^^^^^^
+  profile_Common_vpn.acme.com-psp.conf.tar
 
 
-Postman Collection
-^^^^^^^^^^^^^^^^^^^^
-
-vpn.acme.com-ad-create.json
-vpn.acme.com-ad-delete.json
-
-irules
-^^^^^^^^^
-
-idp_selection.irule
-
-APM Profile 
-^^^^^^^^^^^^
-profile_Common_vpn.acme.com-psp.conf.tar
-
-
-BIG-IP Versions Supported
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-note:: Supported does not mean this configuration is not supported on other than BIG-IP verions annotated.  This simply refers to versions the SMEs have tested and build Policies for.
-
-15.1
+  BIG-IP Versions Tested
+  ^^^^^^^^^^^^^^^^^^^^^^
+  15.1
 
 BIG-IP Components used:
 -----------------
