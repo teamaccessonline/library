@@ -43,8 +43,8 @@ BIG-IP Components used:
       + IPv4 Lease Pool
       + Webtop
       
-
-
+Configuration Comments
+------------------------
 
 Policy Walk-Through
 ----------------------
