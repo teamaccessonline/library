@@ -15,13 +15,11 @@ Demo Evironment Components use:
 
 Postman Collection
 ^^^^^^^^^^^^^^^^^^^^
-
   - vpn.acme.com-ad-create.json
   - vpn.acme.com-ad-delete.json
 
 irules
-^^^^^^^^^
-
+^^^^^^^^
   - idp_selection.irule
 
 APM Profile 
@@ -36,15 +34,14 @@ BIG-IP Versions Tested
 BIG-IP Components used:
 -----------------
 
-
-Virtual Server
+* Virtual Server
  - Client-side SSl Profile
  - Connectivity profile
  - Access Profile
-      - Active Directory AAA Object
-      - Network Access Resource
-      - IPv4 Lease Pool
-      - Webtop
+      + Active Directory AAA Object
+      + Network Access Resource
+      + IPv4 Lease Pool
+      + Webtop
 
 
 
