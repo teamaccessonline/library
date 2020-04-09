@@ -13,7 +13,7 @@ The guides located on this page are designed to provide an overview of a working
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :numbered:
    :caption: Contents:
    :glob:
