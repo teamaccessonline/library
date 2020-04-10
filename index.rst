@@ -18,3 +18,4 @@ https://github.com/teamaccessonline/solutions/issues
    policies/policies.rst
    postman/postman.rst
    solutions/solutions.rst
+   contribute/contribute.rst
