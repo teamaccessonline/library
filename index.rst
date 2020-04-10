@@ -10,7 +10,7 @@ https://github.com/teamaccessonline/solutions/issues
 
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Topics:
    :glob:
    
    guides/guides.rst
