@@ -56,13 +56,12 @@ Policy Walk-Through
 1. In this policy a user enters their credentials in the loogon page agent.  
 2. Those credentials are collected, stored as the default system session variables of session.logon.last.username and session.logon.last.password.                                
 3. The user proceeds down the logon page fallback branch to the AD Auth Agent              
-4. The AD Auth Agent validates the the username and password session variables against the configured AD Domain Controller. 
-5.
-  a. If successful, the user proceeds down the Successful Branch                             
-  b. The user assigned resourced defined in the Advanced Resource Assign Agent               
-7. The user is granted access via the Allow Terminal                                       
-5. If unuccessful, the user proceeds down the failback branch                              
-6. The user is denied access via the Deny Terminal                                         
+4. The AD Auth Agent validates the the username and password session variables against the configured AD Domain Controller.
+ a. If successful, the user proceeds down the Successful Branch
+ b. The user assigned resourced defined in the Advanced Resource Assign Agent               
+5. The user is granted access via the Allow Terminal
+ a.If unuccessful, the user proceeds down the failback branch
+ b. The user is denied access via the Deny Terminal                                         
 
 |image001|                                                                                      
 
@@ -89,7 +88,7 @@ Supporting APM Objects
 -----------------------
 
 Network Access Resource
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Properties page contains the Caption name **VPN**.  This is the name displayed to a user                            
 
@@ -102,21 +101,21 @@ The Properties page contains the Caption name **VPN**.  This is the name display
 
 
 Lease Pool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^
 A single address of **10.1.20.254** is assigned inside the lease pool.                                                    
 
 |image007|                                                                                   
 
 
 Webtop Sections
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 A single section is configured to display a custom name.                                                                  
 
 |image008|                                                                                   
 
 
 Webtop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^
 - A Full Webtop was defined with modified default settings.                                  
 - The Minimize to Tray box was checked to ensure when a user connects to the VPN the Webtop is not displayed               
 
