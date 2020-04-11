@@ -142,31 +142,22 @@ Supporting APM Objects: Webtop
 
 
 .. |image001| image:: media/001.png
-   :width: 4.5in
-   :height: 0.74in
+
 .. |image002| image:: media/002.png
-   :width: 4.5in
-   :height: 3.37in 
+
 .. |image003| image:: media/003.png
-   :width: 4.5in
-   :height: 0.74in
+
 .. |image004| image:: media/004.png
-   :width: 4.5in
-   :height: 3.37in
+
 .. |image005| image:: media/005.png
-   :width: 4.5in
-   :height: 0.74in
+
 .. |image006| image:: media/006.png
-   :width: 4.5in
-   :height: 3.37in
+
 .. |image007| image:: media/007.png
-   :width: 4.5in
-   :height: 0.74in
+
 .. |image008| image:: media/008.png
-   :width: 4.5in
-   :height: 3.37in
+
 .. |image009| image:: media/009.png
-   :width: 4.5in
-   :height: 3.37in
+
    
 
