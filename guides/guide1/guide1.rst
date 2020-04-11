@@ -60,10 +60,10 @@ Policy Walk-Through
 |  4.   The AD Auth Agent validates the the username and password session variables against    |
 |       the configured AD Domain Controller.                                                   |
 |  5a.  If successful, the user proceeds down the Successful Branch                            |
-|  6a. The user assigned resourced defined in the Advanced Resource Assign Agent               |
-|  7.  The user is granted access via the Allow Terminal                                       |
-|  5b. If unuccessful, the user proceeds down the failback branch                              |
-|  6b. The user is denied access via the Deny Terminal                                         |
+|  6a.  The user assigned resourced defined in the Advanced Resource Assign Agent               |
+|  7.   The user is granted access via the Allow Terminal                                       |
+|  5b.  If unuccessful, the user proceeds down the failback branch                              |
+|  6b.  The user is denied access via the Deny Terminal                                         |
 |                                                                                              |
 |                                                                                              |                             
 +----------------------------------------------------------------------------------------------+
@@ -104,7 +104,7 @@ Supporting APM Objects: Network Access Resource
 
 +----------------------------------------------------------------------------------------------+
 | The Properties page contains the Caption name **VPN**.  This is the name displayed to a      |
-|    user.                                                                                     |
+| user                                                                                         |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image005|                                                                                   |
