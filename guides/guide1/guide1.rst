@@ -56,11 +56,11 @@ Policy Walk-Through
 #. Those credentials are collected, stored as the default system session variables of session.logon.last.username and session.logon.last.password.                                
 #. The user proceeds down the logon page fallback branch to the AD Auth Agent              
 #. The AD Auth Agent validates the the username and password session variables against the configured AD Domain Controller.
-   #. If successful, the user proceeds down the Successful Branch
-      #. The user assigned resourced defined in the Advanced Resource Assign Agent
-      #. The user is granted access via the Allow Terminal
-   #. If unuccessful, the user proceeds down the failback branch
-      #. The user is denied access via the Deny Terminal                                         
+ #. If successful, the user proceeds down the Successful Branch
+  #. The user assigned resourced defined in the Advanced Resource Assign Agent
+  #. The user is granted access via the Allow Terminal
+ #. If unuccessful, the user proceeds down the failback branch
+  #. The user is denied access via the Deny Terminal                                         
 
 |image001|                                                                                      
 
