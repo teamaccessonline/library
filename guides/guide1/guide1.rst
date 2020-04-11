@@ -59,7 +59,7 @@ Policy Walk-Through
 4. The AD Auth Agent validates the the username and password session variables against the configured AD Domain Controller.
  A. If successful, the user proceeds down the Successful Branch
   a. The user assigned resourced defined in the Advanced Resource Assign Agent
-  b.The user is granted access via the Allow Terminal
+  b. The user is granted access via the Allow Terminal
  B. If unuccessful, the user proceeds down the failback branch
   a. The user is denied access via the Deny Terminal                                         
 
