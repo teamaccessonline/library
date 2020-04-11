@@ -53,36 +53,42 @@ Policy Walk-Through
 ----------------------
 
 +----------------------------------------------------------------------------------------------+
-| 1. Login to your provided lab Virtual Edition: **bigp1.f5lab.local**                         |
+|  1.   In this policy a user enters their credentials in the loogon page agent.               |
+|  2.   Those credentials are collected, stored as the default system session variables of     | 
+|       session.logon.last.username and session.logon.last.password.                           |
+|  3.   The user proceeds down the logon page fallback branch to the AD Auth Agent             |
+|  4.   The AD Auth Agent validates the the username and password session variables against    |
+|       the configured AD Domain Controller.                                                   |
+|  5a.  If successful, the user proceeds down the Successful Branch                            |
+|  6a. The user assigned resourced defined in the Advanced Resource Assign Agent               |
+|  7.  The user is granted access via the Allow Terminal                                       |
+|  5b. If unuccessful, the user proceeds down the failback branch                              |
+|  6b. The user is denied access via the Deny Terminal                                         |
 |                                                                                              |
-| 2. Navigate to:  **Access -> Guided Configuration**                                          |
-|                                                                                              |
-| 3. Click the **Zero Trust** graphic as shown.                                                |
+|                                                                                              |                             
 +----------------------------------------------------------------------------------------------+
 | |image001|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 4. Click on the **Identity Aware Proxy**  dialogue box click under **Zero Trust**            |
+| 4. The Logon Page contains only the default setting                                          |
 |                                                                                              |
-|    in the navigation as shown.                                                               | 
+|                                                                                              | 
 +----------------------------------------------------------------------------------------------+
 | |image002|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 5. Review the **Identity Aware Proxy Application** configuration example presented.          |
+| 5. The AD Auth Agent uses a defined the  AD AAA Server object that user will be              |
+|    authenticated against.  All Setting are the default.                                      |
 |                                                                                              |
-| 6. Scroll through and review the remaining element of the dialogue box to the bottom of the  |
-|                                                                                              |
-|    screen and click "Next"                                                                   |
 +----------------------------------------------------------------------------------------------+
 | |image003|                                                                                   |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 5. Review the **Identity Aware Proxy Application** configuration example presented.          |
+| 5. The Advanced resource Assign Agent defines the resources     |
 |                                                                                              |
 | 6. Scroll through and review the remaining element of the dialogue box to the bottom of the  |
 |                                                                                              |
@@ -141,6 +147,11 @@ Supporting APM Objects: Webtop
 +----------------------------------------------------------------------------------------------+
 | |image009|                                                                                   |
 +----------------------------------------------------------------------------------------------+
+
+
+The Policy from a user's perspective
+-------------------------------------
+
 
 
 
