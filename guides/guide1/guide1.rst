@@ -70,8 +70,12 @@ Policy Walk-Through
 | |image001|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
+
+Policy Agent Configuration
+----------------------------
+
 +----------------------------------------------------------------------------------------------+
-| 4. The Logon Page contains only the default setting                                          |
+| 1. The Logon Page contains only the default setting                                          |
 |                                                                                              |
 |                                                                                              | 
 +----------------------------------------------------------------------------------------------+
@@ -79,7 +83,7 @@ Policy Walk-Through
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 5. The AD Auth Agent uses a defined the  AD AAA Server object that user will be              |
+| 2. The AD Auth Agent uses a defined the  AD AAA Server object that user will be              |
 |    authenticated against.  All Setting are the default.                                      |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
@@ -88,31 +92,30 @@ Policy Walk-Through
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 5. The Advanced resource Assign Agent defines the resources     |
+| 3. The Advanced resource Assign Agent grants a user access to assigned in the screenshot     |        
 |                                                                                              |
-| 6. Scroll through and review the remaining element of the dialogue box to the bottom of the  |
-|                                                                                              |
-|    screen and click "Next"                                                                   |
 +----------------------------------------------------------------------------------------------+
 | |image004|                                                                                   |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 
 Supporting APM Objects: Network Access Resource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| 1. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**                    |
+| 1.The Properties page contains the Caption name **VPN**.  This is the name displayed to a    |
+|    user.                                                                                     |
 |                                                                                              |
-| 2. Click **Save & Next** at the bottom of the dialogue window.                               |
 +----------------------------------------------------------------------------------------------+
 | |image005|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 1. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**                    |
+| 1. The Network Settings tab assigns the **lease pool** of ip addresses that will be used for |
+|    the VPN                                                                                   |
 |                                                                                              |
-| 2. Click **Save & Next** at the bottom of the dialogue window.                               |
+| 2. Split Tunneling is configured to permit only the **10.1.20.0/24 subnet range inside the   |
+|    VPN                                                                                       | 
 +----------------------------------------------------------------------------------------------+
 | |image006|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -121,19 +124,18 @@ Supporting APM Objects: Lease Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| 1. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**                    |
+| 1. A single address of **10.1.20.254** is assigned inside the lease pool.                    |
 |                                                                                              |
-| 2. Click **Save & Next** at the bottom of the dialogue window.                               |
 +----------------------------------------------------------------------------------------------+
 | |image007|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 Supporting APM Objects: Webtop Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 +----------------------------------------------------------------------------------------------+
-| 1. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**                    |
+| 1. A single section is configured to display a custom name.                                  |
 |                                                                                              |
-| 2. Click **Save & Next** at the bottom of the dialogue window.                               |
 +----------------------------------------------------------------------------------------------+
 | |image008|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -141,9 +143,10 @@ Supporting APM Objects: Webtop Sections
 Supporting APM Objects: Webtop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 +----------------------------------------------------------------------------------------------+
-| 1. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**                    |
+| 1. A Full Webtop was defined with modified default settings.                                 |
+| 2. The Minimize to Tray box was checked to ensure when a user connects to the VPN the Webtop |
+|    is not displayed                                                                          |
 |                                                                                              |
-| 2. Click **Save & Next** at the bottom of the dialogue window.                               |
 +----------------------------------------------------------------------------------------------+
 | |image009|                                                                                   |
 +----------------------------------------------------------------------------------------------+
