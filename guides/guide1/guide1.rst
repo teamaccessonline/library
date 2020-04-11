@@ -53,17 +53,17 @@ Policy Walk-Through
 ----------------------
 
 +----------------------------------------------------------------------------------------------+
-|  1.   In this policy a user enters their credentials in the loogon page agent.               |
-|  2.   Those credentials are collected, stored as the default system session variables of     | 
-|       session.logon.last.username and session.logon.last.password.                           |
-|  3.   The user proceeds down the logon page fallback branch to the AD Auth Agent             |
-|  4.   The AD Auth Agent validates the the username and password session variables against    |
-|       the configured AD Domain Controller.                                                   |
-|  5a.  If successful, the user proceeds down the Successful Branch                            |
-|  6a.  The user assigned resourced defined in the Advanced Resource Assign Agent              |
-|  7.   The user is granted access via the Allow Terminal                                      |
-|  5b.  If unuccessful, the user proceeds down the failback branch                             |
-|  6b.  The user is denied access via the Deny Terminal                                        |
+| 1.   In this policy a user enters their credentials in the loogon page agent.                |
+| 2.   Those credentials are collected, stored as the default system session variables of      | 
+| session.logon.last.username and session.logon.last.password.                                 |
+| 3.   The user proceeds down the logon page fallback branch to the AD Auth Agent              |
+| 4.   The AD Auth Agent validates the the username and password session variables against     |
+| the configured AD Domain Controller.                                                         |
+| 5a.  If successful, the user proceeds down the Successful Branch                             |
+| 6a.  The user assigned resourced defined in the Advanced Resource Assign Agent               |
+| 7.   The user is granted access via the Allow Terminal                                       |
+| 5b.  If unuccessful, the user proceeds down the failback branch                              |
+| 6b.  The user is denied access via the Deny Terminal                                         |
 |                                                                                              |
 |                                                                                              |                             
 +----------------------------------------------------------------------------------------------+
@@ -75,7 +75,7 @@ Policy Agent Configuration
 ----------------------------
 
 +----------------------------------------------------------------------------------------------+
-|  The Logon Page contains only the default setting                                            |
+| The Logon Page contains only the default setting                                            |
 |                                                                                              |
 |                                                                                              | 
 +----------------------------------------------------------------------------------------------+
@@ -84,7 +84,7 @@ Policy Agent Configuration
 
 +----------------------------------------------------------------------------------------------+
 | The AD Auth Agent uses a defined the  AD AAA Server object that user will be                 |
-|    authenticated against.  All Setting are the default.                                      |
+| authenticated against.  All Setting are the default.                                      |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image003|                                                                                   |
@@ -112,10 +112,10 @@ Supporting APM Objects: Network Access Resource
 
 +----------------------------------------------------------------------------------------------+
 | - The Network Settings tab assigns the **lease pool** of ip addresses that will be used for  |
-|    the VPN                                                                                   |
+| the VPN                                                                                      |
 |                                                                                              |
 | - Split Tunneling is configured to permit only the **10.1.20.0/24 subnet range inside the    |
-|    VPN                                                                                       | 
+| VPN                                                                                          | 
 +----------------------------------------------------------------------------------------------+
 | |image006|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -145,7 +145,7 @@ Supporting APM Objects: Webtop
 +----------------------------------------------------------------------------------------------+
 | - A Full Webtop was defined with modified default settings.                                  |
 | - The Minimize to Tray box was checked to ensure when a user connects to the VPN the Webtop  |
-|    is not displayed                                                                          |
+| is not displayed                                                                             |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image009|                                                                                   |
