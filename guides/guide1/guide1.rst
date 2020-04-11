@@ -10,6 +10,9 @@ Objective:
 
 -  Gain an initial understanding of Active Directory AAA Objects
 
+Configuration Comments
+------------------------
+
 Demo Evironment Components use:
 ---------------------
 
@@ -42,9 +45,9 @@ BIG-IP Components used:
       + Network Access Resource
       + IPv4 Lease Pool
       + Webtop
+      + Webtop Sections
       
-Configuration Comments
-------------------------
+
 
 Policy Walk-Through
 ----------------------
