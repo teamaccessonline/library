@@ -21,7 +21,7 @@ Postman Collection
   - vpn.acme.com-ad-create.json
   - vpn.acme.com-ad-delete.json
 
-irules
+irule(s)
 ^^^^^^^^
   - idp_selection.irule
 
@@ -59,7 +59,7 @@ Policy Walk-Through
  1. If successful, the user proceeds down the Successful Branch
   1. The user assigned resourced defined in the Advanced Resource Assign Agent
   2. The user is granted access via the Allow Terminal
- 2. If unuccessful, the user proceeds down the failback branch
+ 2. If unsuccessful, the user proceeds down the failback branch
   1. The user is denied access via the Deny Terminal                                         
 
 |image001|                                                                                      
@@ -129,21 +129,13 @@ The Policy from a user's perspective
 
 
 .. |image001| image:: media/001.png
-
 .. |image002| image:: media/002.png
-
 .. |image003| image:: media/003.png
-
 .. |image004| image:: media/004.png
-
 .. |image005| image:: media/005.png
-
 .. |image006| image:: media/006.png
-
 .. |image007| image:: media/007.png
-
 .. |image008| image:: media/008.png
-
 .. |image009| image:: media/009.png
 
    
