@@ -75,7 +75,7 @@ Policy Agent Configuration
 ----------------------------
 
 +----------------------------------------------------------------------------------------------+
-|  The Logon Page contains only the default setting                                          |
+|  The Logon Page contains only the default setting                                            |
 |                                                                                              |
 |                                                                                              | 
 +----------------------------------------------------------------------------------------------+
@@ -83,7 +83,7 @@ Policy Agent Configuration
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| The AD Auth Agent uses a defined the  AD AAA Server object that user will be              |
+| The AD Auth Agent uses a defined the  AD AAA Server object that user will be                 |
 |    authenticated against.  All Setting are the default.                                      |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
@@ -92,7 +92,7 @@ Policy Agent Configuration
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| The Advanced resource Assign Agent grants a user access to assigned in the screenshot     |        
+| The Advanced resource Assign Agent grants a user access to assigned in the screenshot        |        
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image004|                                                                                   |
@@ -103,7 +103,7 @@ Supporting APM Objects: Network Access Resource
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| The Properties page contains the Caption name **VPN**.  This is the name displayed to a    |
+| The Properties page contains the Caption name **VPN**.  This is the name displayed to a      |
 |    user.                                                                                     |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
@@ -111,10 +111,10 @@ Supporting APM Objects: Network Access Resource
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| - The Network Settings tab assigns the **lease pool** of ip addresses that will be used for |
+| - The Network Settings tab assigns the **lease pool** of ip addresses that will be used for  |
 |    the VPN                                                                                   |
 |                                                                                              |
-| - Split Tunneling is configured to permit only the **10.1.20.0/24 subnet range inside the   |
+| - Split Tunneling is configured to permit only the **10.1.20.0/24 subnet range inside the    |
 |    VPN                                                                                       | 
 +----------------------------------------------------------------------------------------------+
 | |image006|                                                                                   |
@@ -124,7 +124,7 @@ Supporting APM Objects: Lease Pool
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| A single address of **10.1.20.254** is assigned inside the lease pool.                    |
+| A single address of **10.1.20.254** is assigned inside the lease pool.                       |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image007|                                                                                   |
@@ -134,7 +134,7 @@ Supporting APM Objects: Webtop Sections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| A single section is configured to display a custom name.                                  |
+| A single section is configured to display a custom name.                                     |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image008|                                                                                   |
@@ -143,8 +143,8 @@ Supporting APM Objects: Webtop Sections
 Supporting APM Objects: Webtop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 +----------------------------------------------------------------------------------------------+
-| - A Full Webtop was defined with modified default settings.                                 |
-| - The Minimize to Tray box was checked to ensure when a user connects to the VPN the Webtop |
+| - A Full Webtop was defined with modified default settings.                                  |
+| - The Minimize to Tray box was checked to ensure when a user connects to the VPN the Webtop  |
 |    is not displayed                                                                          |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
