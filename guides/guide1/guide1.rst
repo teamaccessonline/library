@@ -60,7 +60,7 @@ Policy Walk-Through
  a. If successful, the user proceeds down the Successful Branch
  b. The user assigned resourced defined in the Advanced Resource Assign Agent               
 5. The user is granted access via the Allow Terminal
- a.If unuccessful, the user proceeds down the failback branch
+ a. If unuccessful, the user proceeds down the failback branch
  b. The user is denied access via the Deny Terminal                                         
 
 |image001|                                                                                      
