@@ -23,6 +23,7 @@ Host, where you will be able to access the BIG-IP management interfaces (HTTPS, 
 |           Postman Collection to run                                                           |
 |                                                                                               |
 | 5. Access the appropriate BIG-IP using the credentials below                                  |
+|                                                                                               |
 |    - **UserID: admin** / **Password: admin**                                                  |
 |                                                                                               |
 +-----------------------------------------------------------------------------------------------+
