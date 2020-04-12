@@ -19,7 +19,7 @@ First and foremost please access each of the five hyperlinks listed below prior 
    c_irules.rst
    c_guides.rst
    c_policies.rst
-   c_conventions.rst
+   c_naming.rst
 
 
 .. _Pushing_content:
