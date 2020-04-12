@@ -8,6 +8,18 @@ The guides located on this page are designed to provide an overview of a working
 
 If a given topic is not highlighted currently on this page or something is incorrectly documented , please open an issue on Github.  We will do our best to prioritize the development of the content based on demand.  These documents are maintained by the APM SME's at F5, please do not open support cases regarding issues.
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+   :glob:
+   
+   c_postman.rst
+   c_irules.rst
+   c_guides.rst
+   c_policies.rst
+
+
+
 Pushing Content to Github
 ---------------------------
 
@@ -15,10 +27,10 @@ Pushing Content to Github
 #. Type cd c:/labfiles/solutions
 #. Perform "git pull" to get latest repo
 #. Copy files to their relevent folders on c:\\labfiles\\solutions
-   a. Postman Collections - Create and delete collections
-   b. Irules
-   c. Solution guide
-   d. APM Policy
+   - Postman Collections - A Create and delete collections
+   - iRules
+   - Solution guide
+   - APM Policy
 #. Return to git client
 #. Set your username "git config user.name [your username]"
 #. Verity username was changed "git config user.name"
@@ -36,16 +48,6 @@ Pushing Content to Github
 #. Git branch -d [name of your new branch]
 
 
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Contents:
-   :glob:
-   
-   c_postman.rst
-   c_irules.rst
-   c_guides.rst
-   c_policies.rst
 
 
 
