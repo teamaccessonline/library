@@ -38,7 +38,8 @@ BIG-IP Components used:
 -----------------
 
 * Virtual Server
- - Client-side SSl Profile
+ - HTTP Profile
+ - Client-side SSL Profile
  - Connectivity profile
  - Access Profile
       + Active Directory AAA Object
