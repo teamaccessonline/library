@@ -1,2 +1,2 @@
-How to Contribute a Guide
-----------------------------
+How to Contribute Solution Guide
+-----------------------------------
