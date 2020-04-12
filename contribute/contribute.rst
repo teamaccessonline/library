@@ -27,10 +27,10 @@ Pushing Content to Github
 #. Type cd c:/labfiles/solutions
 #. Perform "git pull" to get latest repo
 #. Copy files to their relevent folders on c:\\labfiles\\solutions
-   - Postman Collections - A Create and delete collections
-   - iRules
-   - Solution guide
-   - APM Policy
+    - Postman Collections - A Create and delete collections
+    - iRules
+    - Solution guide
+    - APM Policy
 #. Return to git client
 #. Set your username "git config user.name [your username]"
 #. Verity username was changed "git config user.name"
