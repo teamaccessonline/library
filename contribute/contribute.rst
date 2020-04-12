@@ -11,14 +11,14 @@ If a given topic is not highlighted currently on this page or something is incor
 
 
 .. toctree::
-   :maxdepth: 2
-   :numbered:
+   :maxdepth: 1
    :caption: Contents:
    :glob:
    
-   labinfo*
-   Solution*
-   close*
+   c_postman.rst
+   c_irules.rst
+   c_guide.rst
+   c_policy.rst
 
 
 
