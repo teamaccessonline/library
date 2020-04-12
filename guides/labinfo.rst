@@ -5,22 +5,24 @@ To gain access to a live sandboxed environment please contact your F5 Account Te
 
 To access your dedicated student lab environment, you will require a web browser
 and Remote Desktop Protocol (RDP) client software. The web browser will be used to
-access the Lab Training Portal. The RDP client will be used to connect to the Jump
+access the Lab Environement. The RDP client will be used to connect to the Jump
 Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
 +-----------------------------------------------------------------------------------------------+
-| 1. Establish a RDP connection to your provided lab Virtual Edition: **jumphost.f5lab.local**  |
-|                                                                                               |
-|    with the following credentials:                                                            |
+| 1. Establish a RDP connection to **jumphost.f5lab.local**  with the following credentials:    |                           
 |                                                                                               |
 |    - **UserID: f5lab\\user1** / **Password: user1**                                           |
 |                                                                                               |
-| 2. Access the BIG-IP GUI via https://10.1.1.4  You can also double-click on the **bigip1**    |
+| 2. Open the Command Prompt                                                                    |
 |                                                                                               |
-|    bookmark from within Chrome.                                                               |
+| 3. Type **cd c:\\labfiles\\solutions\\postman**                                               |
 |                                                                                               |
-| 3. Login into the BIG-IP Configuration Utility with the following credentials:                |
+| 4, Type **Newman run [name of postman collection] -e [name of environment variables] -k**     |
 |                                                                                               |
+| ..note::  Reference the solution guide you with to deploy to determine the approiate Postman  |
+|           Collection to run                                                                   |
+|                                                                                               |
+| 5. Access the appropriate BIG-IP using the crednetials below                                  |
 |    - **UserID: admin** / **Password: admin**                                                  |
 |                                                                                               |
 +-----------------------------------------------------------------------------------------------+
@@ -64,7 +66,15 @@ components:
 |                        | - External   10.1.10.5  |                                          | 
 |                        | - Internal   10.1.20.5  |                                          |
 +------------------------+-------------------------+------------------------------------------+
-| dc.f5lab.local         | - Management 10.1.1.7   | - Username: f5lab\\admin Password: admin | 
+| BIG-IP5.f5lab.local    | - Management 10.1.1.11  | - Username: admin Password: admin        | 
+|                        | - External   10.1.10.11 |                                          | 
+|                        | - Internal   10.1.20.11 |                                          |
++------------------------+-------------------------+------------------------------------------+
+| BIG-IP7.f5lab.local    | - Management 10.1.1.12  | - Username: admin Password: admin        | 
+|                        | - External   10.1.10.12 |                                          | 
+|                        | - Internal   10.1.20.12 |                                          |
++------------------------+-------------------------+------------------------------------------+
+| dc1.f5lab.local         | - Management 10.1.1.7  | - Username: f5lab\\admin Password: admin | 
 |                        | - Internal   10.1.20.7  |                                          | 
 +------------------------+-------------------------+------------------------------------------+
 | iis.f5lab.local        | - Management 10.1.1.6   | - Username: f5lab\\admin Password: admin | 
