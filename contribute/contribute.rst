@@ -11,30 +11,29 @@ If a given topic is not highlighted currently on this page or something is incor
 Pushing Content to Github
 ---------------------------
 
-1. Open git client
-2. Type cd c:/labfiles/ls
-3. solutions
-4. Perform "git pull" to get latest repo
-5. Copy files to their relevent folders on c:\\labfiles\\solutions
+#. Open git client
+#. Type cd c:/labfiles/solutions
+#. Perform "git pull" to get latest repo
+#. Copy files to their relevent folders on c:\\labfiles\\solutions
    a. Postman Collections - Create and delete collections
    b. Irules
    c. Solution guide
    d. APM Policy
-6. Return to git client
-7. Set your username "git config user.name [your username] "
-8. Verity username was changed "git config user.name"
-9. Set email address "git config user.email "Your Email Address"
-10. Verify email address "git config user.email"
-11. Create a new branch by typing git checkout -b [name of your new branch]
-12. Push new branch to github "git push origin [name of your new branch]
-13. Git add .
-14. Git commit -a  -m [commit notes]
-15. Git push -u origin [name of your new branch]
-16. F5 SMEs will validate the documentation and test the configuration. If a changes are required they will annotated in the     branch.  
-17. Once branch is merged in to master you can do the following
-18. Git checkout master
-19. Git pull
-20. Git branch -d [name of your new branch]
+#. Return to git client
+#. Set your username "git config user.name [your username]"
+#. Verity username was changed "git config user.name"
+#. Set email address "git config user.email "Your Email Address"
+#. Verify email address "git config user.email"
+#. Create a new branch by typing git checkout -b [name of your new branch]
+#. Push new branch to github "git push origin [name of your new branch]
+#. Git add .
+#. Git commit -a  -m [commit notes]
+#. Git push -u origin [name of your new branch]
+#. F5 SMEs will validate the documentation and test the configuration. If a changes are required they will annotated in the     branch.  
+#. Once branch is merged in to master you can do the following
+#. Git checkout master
+#. Git pull
+#. Git branch -d [name of your new branch]
 
 
 
