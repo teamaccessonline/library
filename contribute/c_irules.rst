@@ -6,4 +6,4 @@ iRules are commonly used component for APM Solutions.  If your solultion require
 #. Comment overly complex iRules. Not everyone is an iRule Expert and sometime following the logic inside of a complex    irule is difficult. 
 #. Upload the irule using an **.irule** extension.
 
-:ref:`Pushing Content to Github`
+:ref:`Pushing_content`
