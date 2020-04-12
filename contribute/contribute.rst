@@ -44,8 +44,8 @@ Pushing Content to Github
    
    c_postman.rst
    c_irules.rst
-   c_guide.rst
-   c_policy.rst
+   c_guides.rst
+   c_policies.rst
 
 
 
