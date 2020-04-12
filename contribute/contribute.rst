@@ -4,9 +4,11 @@ How to contribute
 Welcome
 -------
 
-The guides located on this page are designed to provide an overview of a working example on a topic.  
+If you are reading this page, I would like to start off by saying "Thank, You".  You will hopefully one of many individuals that have decided that contributing to this framework is the right thing to do for F5'ers, Partners, and customers going forward.  This repo was designed as a way for everyone that configures the APM product to share their solutions with the rest of the community.  
 
-If a given topic is not highlighted currently on this page or something is incorrectly documented , please open an issue on Github.  We will do our best to prioritize the development of the content based on demand.  These documents are maintained by the APM SME's at F5, please do not open support cases regarding issues.
+First and foremost please access each of the five hyperlinks listed below prior to getting started this.  This will save you time in the long run because a number of templates are available inside the repo.  If you deviate from the naming conventions it will cause you extra work and force you edit the Postmans more than you may need to. 
+
+
 
 .. toctree::
    :maxdepth: 1
@@ -17,6 +19,7 @@ If a given topic is not highlighted currently on this page or something is incor
    c_irules.rst
    c_guides.rst
    c_policies.rst
+   c_conventions.rst
 
 
 .. _Pushing_content:
