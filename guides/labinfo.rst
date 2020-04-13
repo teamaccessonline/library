@@ -19,8 +19,8 @@ Host, where you will be able to access the BIG-IP management interfaces (HTTPS, 
 |                                                                                               |
 | 4. Type **Newman run [name of postman collection] -e [name of environment variables] -k**     |
 |                                                                                               |
-| ..note::  Reference the solution guide you with to deploy to determine the appropriate        |
-|           Postman Collection to run                                                           |
+| ..note::  Reference each Solution Guide's Postman Collection section to deploy to determine   |
+|           the appropriate Postman Collection to run                                           |
 |                                                                                               |
 | 5. Access the appropriate BIG-IP using the credentials below                                  |
 |                                                                                               |
