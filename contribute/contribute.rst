@@ -40,7 +40,7 @@ Pushing Content to Github
 #. Return to git client
 #. Set your username "git config user.name [your username]"
 #. Verity username was changed "git config user.name"
-#. Set email address "git config user.email "Your Email Address"
+#. Set email address "git config user.email [Your Email Address]
 #. Verify email address "git config user.email"
 #. Create a new branch by typing git checkout -b [name of your new branch]
 #. Push new branch to github "git push origin [name of your new branch]
