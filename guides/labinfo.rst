@@ -75,7 +75,7 @@ components:
 |                        | - External   10.1.10.12 |                                          | 
 |                        | - Internal   10.1.20.12 |                                          |
 +------------------------+-------------------------+------------------------------------------+
-| dc1.f5lab.local         | - Management 10.1.1.7  | - Username: f5lab\\admin Password: admin | 
+| dc1.f5lab.local        | - Management 10.1.1.7   | - Username: f5lab\\admin Password: admin | 
 |                        | - Internal   10.1.20.7  |                                          | 
 +------------------------+-------------------------+------------------------------------------+
 | iis.f5lab.local        | - Management 10.1.1.6   | - Username: f5lab\\admin Password: admin | 
