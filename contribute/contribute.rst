@@ -9,13 +9,13 @@ If you are reading this page, I would like to start off by saying "Thank, You". 
 First and foremost please access each of the five hyperlinks listed below prior to getting started.  This will save you time in the long run because a number of templates are available inside the repo.  If you deviate from the naming conventions it will cause you extra work and force you edit the Postman collections more than you may need to. 
 
 
-   :ref:`get_to_know`
+
 .. toctree::
    :maxdepth: 1
-   :caption: Contents:
+   :caption: Content:
    :glob:
  
- 
+   /guides/labinfo.rst
    c_postman.rst
    c_irules.rst
    c_guides.rst
