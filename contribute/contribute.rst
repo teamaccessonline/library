@@ -26,7 +26,9 @@ First and foremost please access each of the five hyperlinks listed below prior 
 
 .. _Pushing_content:
 
-Pushing Content to Github
+Pushing Content to Github 
+
+Corey is awesome.
 ---------------------------
 
 #. Open git client
