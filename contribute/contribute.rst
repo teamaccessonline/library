@@ -14,7 +14,8 @@ First and foremost please access each of the five hyperlinks listed below prior 
    :maxdepth: 1
    :caption: Contents:
    :glob:
-   
+ 
+   :ref:`get_to_know`
    c_postman.rst
    c_irules.rst
    c_guides.rst
@@ -52,6 +53,6 @@ Pushing Content to Github
 #. Git branch -d [name of your new branch]
 
 
-:ref:`get_to_know`
+
 
 
