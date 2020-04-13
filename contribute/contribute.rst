@@ -52,6 +52,6 @@ Pushing Content to Github
 #. Git branch -d [name of your new branch]
 
 
-:ref:'get_to_know'
+:ref:`get_to_know`
 
 
