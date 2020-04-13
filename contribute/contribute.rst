@@ -29,9 +29,9 @@ Pushing Content to Github
 ---------------------------
 
 #. Open git client
-#. Type cd c:/labfiles/solutions
+#. Type cd c://labfiles//solutions
 #. Perform "git pull" to get latest repo
-#. Copy files to their relevent folders on c:\\labfiles\\solutions
+#. Copy files to their relevent folders on c://labfiles//solutions
      - Postman Collections - A Create and delete collections
      - iRules
      - Solution guide
