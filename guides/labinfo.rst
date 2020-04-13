@@ -92,6 +92,9 @@ components:
 Lab User Accounts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+::todo.. Document user1 and user2 attributes.  Document kerberos SSO user account.  Doucment OU structure.  Document Group Structure.
+
+
 Internal DNS Resolution
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
