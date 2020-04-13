@@ -15,13 +15,13 @@ First and foremost please access each of the five hyperlinks listed below prior 
    :caption: Contents:
    :glob:
  
-   :ref:`get_to_know`
+ 
    c_postman.rst
    c_irules.rst
    c_guides.rst
    c_policies.rst
    c_naming.rst
-
+   :ref:`get_to_know`
 
 .. _Pushing_content:
 
