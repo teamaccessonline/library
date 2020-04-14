@@ -18,7 +18,7 @@ Demo Evironment Components use:
 
 Access Blueprint Revision
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-1
+  - 1
 
 Postman Collection(s)
 ^^^^^^^^^^^^^^^^^^^^
