@@ -16,6 +16,10 @@ Configuration Comments
 Demo Evironment Components use:
 ---------------------
 
+Access Blueprint Revision
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1
+
 Postman Collection(s)
 ^^^^^^^^^^^^^^^^^^^^
   - vpn.acme.com-ad-create.json
