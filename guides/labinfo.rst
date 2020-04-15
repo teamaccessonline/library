@@ -73,6 +73,9 @@ Internal DNS Resolution
 Lab Websites
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+Active Directory APIs
+~~~~~~~~~~~~~~~~~~~~~~~~
+
 ::todo..  Need to document all 
 
 .. |image000| image:: media/image000.png
