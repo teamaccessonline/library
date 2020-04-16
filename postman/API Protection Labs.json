@@ -1,0 +1,1069 @@
+{
+	"info": {
+		"_postman_id": "128d16d7-6dcf-4292-84fc-cef5d86f05b8",
+		"name": "API Protection Labs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lab Setup",
+			"item": [
+				{
+					"name": "Create DNS Resolver",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1af57299-f27d-4ca6-a81d-c3506bc757ce",
+								"exec": [
+									"pm.collectionVariables.set(\"APP_NAME\", \"api.acme.com\");",
+									"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
+									"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\":\"internal-dns-resolver\", \r\n \"forwardZones\": [\r\n                {\r\n                    \"name\": \".\",\r\n                    \"nameservers\": [\r\n                        {\r\n                            \"name\": \"10.1.20.7:53\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/net/dns-resolver",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"net",
+								"dns-resolver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip5-Add bigip1 application VS to Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c11a1b39-8b32-47e6-9c97-b9821f8a0f1c",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"Virtual Server added to Server\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"Virtual Server Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "229d4c4d-b8e4-45e4-afc6-2965fd348d09",
+								"exec": [
+									"setTimeout(function(){}, 2000);",
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{APP_NAME}}\",\r\n\"destination\": \"10.1.10.102:443\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"11"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"gtm",
+								"server",
+								"~Common~bigip1.f5lab.local",
+								"virtual-servers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip5-Create WideIP using AS3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c5d9d73-0a81-4ce1-8cb6-7f16a1f13db6",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"}",
+									"",
+									"pm.test(\"Wide IP Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11833355-78cd-4452-9c74-ab50af37b2f5",
+								"exec": [
+									"setTimeout(function(){}, 5000);",
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{APP_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"11"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"appsvcs",
+								"declare"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip5-Create Client Side SSL Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c5d9d73-0a81-4ce1-8cb6-7f16a1f13db6",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"}",
+									"",
+									"pm.test(\"Wide IP Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11833355-78cd-4452-9c74-ab50af37b2f5",
+								"exec": [
+									"setTimeout(function(){}, 5000);",
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"acme.com\",\r\n   \"cert\": \"/Common/acme.com-wildcard\",\r\n   \"key\": \"/Common/acme.com-wildcard\",\r\n   \"clientCertCa\": \"/Common/ca.f5lab.local.crt\",\r\n   \"caFile\": \"/Common/ca.f5lab.local.crt\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/ltm/profile/client-ssl/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm",
+								"profile",
+								"client-ssl",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip5-Create Client Side SSL Profile Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9c5d9d73-0a81-4ce1-8cb6-7f16a1f13db6",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"}",
+									"",
+									"pm.test(\"Wide IP Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11833355-78cd-4452-9c74-ab50af37b2f5",
+								"exec": [
+									"setTimeout(function(){}, 5000);",
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{APP_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"11"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"appsvcs",
+								"declare"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Lab API Requests",
+			"item": [
+				{
+					"name": "GET-Retrieve User Attributes-No JWT-Fail",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/aduser/get?useridentity=user1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"aduser",
+								"get"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "user1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Retrieve User Attribute-JWT-Pass",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/aduser/get?useridentity=user1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"aduser",
+								"get"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "user1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Set User Attributes-JWT-Pass",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/aduser/set?useridentity=user1&DriverLicense=123456",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"aduser",
+								"set"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "user1"
+								},
+								{
+									"key": "DriverLicense",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Create User-JWT-Pass",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/aduser/create?userIdentity=smith&employeeNumber=100&Name='Bob A. Smith'&Givenname=Bob&Surname=Smith&UserPrincipalName=smith@f5lab.local&OU=IT&Password=F@k3P@assw0rd&email=b.smith@acme.com",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"aduser",
+								"create"
+							],
+							"query": [
+								{
+									"key": "userIdentity",
+									"value": "smith"
+								},
+								{
+									"key": "employeeNumber",
+									"value": "100"
+								},
+								{
+									"key": "Name",
+									"value": "'Bob A. Smith'"
+								},
+								{
+									"key": "Givenname",
+									"value": "Bob"
+								},
+								{
+									"key": "Surname",
+									"value": "Smith"
+								},
+								{
+									"key": "UserPrincipalName",
+									"value": "smith@f5lab.local"
+								},
+								{
+									"key": "OU",
+									"value": "IT"
+								},
+								{
+									"key": "Password",
+									"value": "F@k3P@assw0rd"
+								},
+								{
+									"key": "email",
+									"value": "b.smith@acme.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Set Invalid Attributes-JWT-Fail",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/aduser/set?useridentity=user3&DriverLicense246802",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"aduser",
+								"set"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "user3"
+								},
+								{
+									"key": "DriverLicense246802",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST-Set User Attributes-JWT-Fail",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/aduser/set?useridentity=user1&DriverLicense=hacker",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"aduser",
+								"set"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "user1"
+								},
+								{
+									"key": "DriverLicense",
+									"value": "hacker"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Invalid URI-JWT-Fail",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/hacker/attack/u.txt",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"hacker",
+								"attack",
+								"u.txt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH-Change User Password-JWT",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/aduser/password?useridentity=user2&password=changeme",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"aduser",
+								"password"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "user2"
+								},
+								{
+									"key": "password",
+									"value": "changeme"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Retrieve Phone and Mail Attributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"vulnerable"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "hackeduser"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Change Password",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser&password=letmein",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"vulnerable"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "hackeduser"
+								},
+								{
+									"key": "password",
+									"value": "letmein"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Update Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser&memberof=Domain Admins",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"vulnerable"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "hackeduser"
+								},
+								{
+									"key": "memberof",
+									"value": "Domain Admins"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-Retrieve CN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser&cn=",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"vulnerable"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "hackeduser"
+								},
+								{
+									"key": "cn",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET- SSRF Attack - Dummy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser&uri=http://dummy.restapiexample.com/api/v1/employees",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"vulnerable"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "hackeduser"
+								},
+								{
+									"key": "uri",
+									"value": "http://dummy.restapiexample.com/api/v1/employees"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET- SSRF Attack - unprotected-json",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser&uri=http://unprotected-json.f5lab.local/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"vulnerable"
+							],
+							"query": [
+								{
+									"key": "useridentity",
+									"value": "hackeduser"
+								},
+								{
+									"key": "uri",
+									"value": "http://unprotected-json.f5lab.local/"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET-inject PowerShell",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.acme.com/vulnerable?inject=|powershell badprogram.ps1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"acme",
+								"com"
+							],
+							"path": [
+								"vulnerable"
+							],
+							"query": [
+								{
+									"key": "inject",
+									"value": "|powershell badprogram.ps1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0f02afc2-b0ad-4411-9f21-f781d7a63dd7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a86110a-c0f2-40eb-9af6-c7249405d09f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Delete Lab Components",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "23409f3a-8085-4974-936e-868b94ce5b59",
+			"key": "PRIOR_RESPONSE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "1371fdcd-134b-418d-b92b-d94b939c142e",
+			"key": "APP_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "9dee0ee7-67c5-4552-afd4-c5a21bff3a40",
+			"key": "PARTITION_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "6a2c61be-0503-4f7f-ba42-b8ca03e2ea18",
+			"key": "PATH_NAME",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
