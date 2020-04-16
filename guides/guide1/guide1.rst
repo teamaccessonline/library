@@ -42,8 +42,8 @@ BIG-IP Components used:
 -----------------
 
 * Virtual Server
- - HTTP Profile
- - Client-side SSL Profile
+ - HTTP Profile -https://support.f5.com/csp/article/K4707
+ - Client-side SSL Profile -https://support.f5.com/csp/article/K14783
  - Connectivity profile
  - Access Profile
       + Active Directory AAA Object
