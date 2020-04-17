@@ -1,0 +1,47 @@
+[
+  {
+    "RequestType": "GET",
+    "RequestURL": "/",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/GET/Get-Default-Response.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/get",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/GET/Get-ADUserAttr.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/set",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/GET/Set-DriverLic.ps1"
+  },
+  {
+    "RequestType": "PATCH",
+    "RequestURL": "/aduser/password",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/PATCH/Set-ADUserPassword.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/unlock",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/GET/Unlock-ADUser.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/cert",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/GET/Get-ADUserCert.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/vulnerable",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/GET/Get-ADUserVulnerable.ps1"
+  },
+  {
+    "RequestType": "POST",
+    "RequestURL": "/aduser/create",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/POST/Post-Create-ADUser.ps1"
+  },
+  {
+    "RequestType": "GET",
+    "RequestURL": "/aduser/create",
+    "RequestCommand": "c:/solutions/RestPS/endPoints/GET/Create-ADUser.ps1"
+  }
+]
