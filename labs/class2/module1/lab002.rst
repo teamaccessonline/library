@@ -24,18 +24,19 @@ Task - Create the cert_sso Access Profile
 
    |image7|
 
-.. |image0| image:: /_static/module1/image000.png
+
+.. |image0| image:: media/image000.png
 	:width: 800px
-.. |image1| image:: /_static/module1/image001.png
-.. |image2| image:: /_static/module1/image002.png
+.. |image1| image:: media/image001.png
+.. |image2| image:: media/image002.png
 	:width: 800px
-.. |image3| image:: /_static/module1/image003.png
-.. |image4| image:: /_static/module1/image004.png
+.. |image3| image:: media/image003.png
+.. |image4| image:: media/image004.png
 	:width: 700px
-.. |image5| image:: /_static/module1/image005.png
-.. |image6| image:: /_static/module1/image006.png
+.. |image5| image:: media/image005.png
+.. |image6| image:: media/image006.png
 	:width: 800px
-.. |image7| image:: /_static/module1/image007.png
+.. |image7| image:: media/image007.png
 
 
 
