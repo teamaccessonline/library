@@ -18,7 +18,7 @@ Task - Configure Active Directory AAA
 |image11|
 
 
-.. |image11| image:: /_static/class1/module1/image011.png
 
+.. |image11| image:: media/image011.png
 
 
