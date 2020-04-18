@@ -65,14 +65,14 @@ Task - Configure Contextual Access for ocspauth_header Group
 
    |image27|
 
+.. |image21| image:: media/image021.png
+.. |image22| image:: media/image022.png
+.. |image23| image:: media/image023.png
+.. |image24| image:: media/image024.png
+.. |image25| image:: media/image025.png
+.. |image26| image:: media/image026.png
+.. |image27| image:: media/image027.png
+.. |image28| image:: media/image028.png
+.. |image29| image:: media/image029.png
 
-.. |image21| image:: /_static/class1/module2/image021.png
-.. |image22| image:: /_static/class1/module2/image022.png
-.. |image23| image:: /_static/class1/module2/image023.png
-.. |image24| image:: /_static/class1/module2/image024.png
-.. |image25| image:: /_static/class1/module2/image025.png
-.. |image26| image:: /_static/class1/module2/image026.png
-.. |image27| image:: /_static/class1/module2/image027.png
-.. |image28| image:: /_static/class1/module2/image028.png
-.. |image29| image:: /_static/class1/module2/image029.png
 
