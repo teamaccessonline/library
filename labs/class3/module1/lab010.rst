@@ -20,9 +20,9 @@ The default **remediation Page** URL uses the hostname site **request.com**.  Th
 
 #. On the Logon Protection menu, Click **Save & Next**
 
-.. |image29| image:: /_static/class1/module1/image029.png
+.. |image29| image:: media/image029.png
 	:width: 1000px
-.. |image30| image:: /_static/class1/module1/image030.png
+.. |image30| image:: media/image030.png
 	:width: 1000px
 
 
