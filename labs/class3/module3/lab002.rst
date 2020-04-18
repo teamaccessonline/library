@@ -50,16 +50,14 @@ Task - Add the HTTP Connector Request
 
 
 
-.. |image12| image:: /_static/class1/module3/image012.png
+
+.. |image12| image:: media/image012.png
 	:width: 800px
-.. |image14| image:: /_static/class1/module3/image014.png
-.. |image15| image:: /_static/class1/module3/image015.png
+.. |image14| image:: media/image014.png
+.. |image15| image:: media/image015.png
 	:width: 1200px
-.. |image16| image:: /_static/class1/module3/image016.png
-.. |image17| image:: /_static/class1/module3/image017.png
-.. |image18| image:: /_static/class1/module3/image018.png
-.. |image19| image:: /_static/class1/module3/image019.png
-.. |image20| image:: /_static/class1/module3/image020.png
-
-
-
+.. |image16| image:: media/image016.png
+.. |image17| image:: media/image017.png
+.. |image18| image:: media/image018.png
+.. |image19| image:: media/image019.png
+.. |image20| image:: media/image020.png
