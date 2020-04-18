@@ -48,11 +48,11 @@ Task - Configure Virtual Server
 |image35|
 
 
-.. |image32| image:: /_static/module1/image032.png
-.. |image33| image:: /_static/module1/image033.png
+.. |image32| image:: media/image032.png
+.. |image33| image:: media/image033.png
 	:width: 800px
-.. |image34| image:: /_static/module1/image034.png
+.. |image34| image:: media/image034.png
 	:width: 800px
-.. |image35| image:: /_static/module1/image035.png
+.. |image35| image:: media/image035.png
 	:width: 800px
 
