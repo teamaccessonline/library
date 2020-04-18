@@ -26,8 +26,8 @@ Task - Review the APM Policy Created by the PUA Build Script
 
 
 
+.. |image20| image:: media/image020.png
+.. |image21| image:: media/image021.png
+.. |image22| image:: media/image022.png
+.. |image23| image:: media/image023.png
 
-.. |image20| image:: /_static/module2/image020.png
-.. |image21| image:: /_static/module2/image021.png
-.. |image22| image:: /_static/module2/image022.png
-.. |image23| image:: /_static/module2/image023.png
