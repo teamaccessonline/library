@@ -34,10 +34,9 @@ Task - Explore the configuration file setting
 #. Close the configuration file without saving it
 
 
-.. |image0| image:: /_static/class1/module4/image000.png
-.. |image1| image:: /_static/class1/module4/image001.png
-.. |image2| image:: /_static/class1/module4/image002.png
-.. |image3| image:: /_static/class1/module4/image003.png
-.. |image4| image:: /_static/class1/module4/image004.png
-
+.. |image0| image:: media/image000.png
+.. |image1| image:: media/image001.png
+.. |image2| image:: media/image002.png
+.. |image3| image:: media/image003.png
+.. |image4| image:: media/image004.png
 
