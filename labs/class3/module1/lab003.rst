@@ -25,9 +25,9 @@ Task - Create a virtual server
    |image10|
 
 
-.. |image8| image:: /_static/class1/module1/image008.png
+.. |image8| image:: media/image008.png
 	:width: 1200px
-.. |image9| image:: /_static/class1/module1/image009.png
-.. |image10| image:: /_static/class1/module1/image010.png
+.. |image9| image:: media/image009.png
+.. |image10| image:: media/image010.png
 	:width: 800px
 
