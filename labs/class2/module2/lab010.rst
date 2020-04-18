@@ -45,10 +45,9 @@ Task - Modifying the BIG-IP radius secret
 
 
 
+.. |image80| image:: media/image080.png
+.. |image81| image:: media/image081.png
+.. |image82| image:: media/image082.png
+.. |image83| image:: media/image083.png
+.. |image84| image:: media/image084.png
 
-
-.. |image80| image:: /_static/module2/image080.png
-.. |image81| image:: /_static/module2/image081.png
-.. |image82| image:: /_static/module2/image082.png
-.. |image83| image:: /_static/module2/image083.png
-.. |image84| image:: /_static/module2/image084.png
