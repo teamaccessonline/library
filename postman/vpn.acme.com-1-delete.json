@@ -911,31 +911,31 @@
 	],
 	"variable": [
 		{
-			"id": "c4d42adf-6028-42b6-98e8-b3651e3e3b4d",
+			"id": "b372ec5f-0aa2-4dbd-baa5-e096ce669ab5",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b9eca48a-db7c-4234-89d7-958ac5609dbe",
+			"id": "f0564178-b776-450b-9cdf-550059962441",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "c629d904-f32b-4e65-96f0-abad1973edeb",
+			"id": "9cb5c5f8-8d6b-4b7e-b5c4-355503b5c119",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "bf9bbe82-8b0a-4bba-8651-78152a7e59f7",
+			"id": "37e2069b-ebb8-42e2-990b-29da3a5532ff",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "5a4482b4-6995-41c3-8901-01be8a6f9998",
+			"id": "d5cedaf6-075b-4091-8afb-7fd7874039ed",
 			"key": "PARITITION_NAME",
 			"value": "",
 			"type": "string"

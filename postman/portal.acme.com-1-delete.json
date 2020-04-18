@@ -899,25 +899,25 @@
 	],
 	"variable": [
 		{
-			"id": "ab5d4a9e-a8f7-4b71-87dc-03908c1d2f13",
+			"id": "f6e49edd-184b-469b-b4c7-10988257c19e",
 			"key": "APP_NAME",
 			"value": "portal.acme.com",
 			"type": "string"
 		},
 		{
-			"id": "80a372c6-8f4d-48ab-b406-aec6d9cdb379",
+			"id": "1b20e99a-8a44-48a6-8b01-275eb8400621",
 			"key": "PARTITION_NAME",
 			"value": "portal",
 			"type": "string"
 		},
 		{
-			"id": "ef6faa73-6d9f-4858-8ec8-b2ad52f4c547",
+			"id": "6d8ff62a-646c-4d76-a4df-c1318a8579e9",
 			"key": "PATH_NAME",
 			"value": "portal",
 			"type": "string"
 		},
 		{
-			"id": "a0dc7174-81b8-45e3-bd31-519d4bda9a76",
+			"id": "b4bcdb09-7598-428a-8e9d-f64effd0f34e",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"

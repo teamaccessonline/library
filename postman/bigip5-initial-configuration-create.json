@@ -534,25 +534,25 @@
 	],
 	"variable": [
 		{
-			"id": "423bea78-46a7-4c03-a897-49e5c048d3e1",
+			"id": "58839023-1483-42d8-93ee-aaa198bbfe90",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "34d68bc5-7b53-48fd-ba26-ec53cca520e0",
+			"id": "7b429e42-46db-4f49-a7a0-be00a39e26b6",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4952a5f3-9c5e-419d-8e63-e860f95401e8",
+			"id": "9e003777-1a51-4571-bd5d-99ecfa176a67",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4b2c9f0a-1f50-44f5-b96d-accf9782f52e",
+			"id": "414d9ea8-505f-40f8-91c9-ae2cf4fcb43c",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"

@@ -423,7 +423,21 @@
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});"
+							"});",
+							"",
+							"",
+							"var DC2_APM = pm.environment.get(\"DC2_APM\");",
+							"",
+							"if (DC2_APM === 'true') {",
+							"",
+							"} else {",
+							"postman.setNextRequest(null);",
+							"pm.test(\"Environment Variable set to Single Data Center APM \", function () {",
+							"    pm.expect(pm.environment.get(\"DC2_APM\")).to.equal(\"false\");",
+							"});",
+							"}",
+							"",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -503,18 +517,6 @@
 							"pm.test(\"AS3 is running\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"",
-							"var DC2_APM = pm.environment.get(\"DC2_APM\");",
-							"",
-							"if (DC2_APM === 'true') {",
-							"",
-							"} else {",
-							"postman.setNextRequest(null);",
-							"pm.test(\"Environment Variable set to Single Data Center APM \", function () {",
-							"    pm.expect(pm.environment.get(\"DC2_APM\")).to.equal(\"false\");",
-							"});",
-							"}",
-							"",
 							""
 						],
 						"type": "text/javascript"
@@ -1026,25 +1028,25 @@
 	],
 	"variable": [
 		{
-			"id": "0cd09734-6446-4672-bf57-7838cec94b61",
+			"id": "73fd8c1a-f89f-4e41-a7dd-9032c6b00f35",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "772caa13-1eab-44fb-92f9-598b15515e22",
+			"id": "fdd5c539-c5b1-4fd2-aeb6-6f639eccdaec",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a8d9ad78-8d4c-4b9e-a9ae-d6d4c5c57e23",
+			"id": "3a801c26-5225-479b-8c98-7fe66cee1d28",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "bec16b11-ae12-4854-a11a-5fb729335216",
+			"id": "da2247f9-25b0-46c4-a8f5-0c7208fcf19b",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"

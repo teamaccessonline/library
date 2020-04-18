@@ -422,7 +422,19 @@
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});"
+							"});",
+							"",
+							"",
+							"var DC2_APM = pm.environment.get(\"DC2_APM\");",
+							"",
+							"if (DC2_APM === 'true') {",
+							"",
+							"} else {",
+							"postman.setNextRequest(null);",
+							"pm.test(\"Environment Variable set to Single Data Center APM \", function () {",
+							"    pm.expect(pm.environment.get(\"DC2_APM\")).to.equal(\"false\");",
+							"});",
+							"}"
 						],
 						"type": "text/javascript"
 					}
@@ -1019,25 +1031,25 @@
 	],
 	"variable": [
 		{
-			"id": "b63e6b54-a2fd-4c2f-8eea-e2f5c29871ae",
+			"id": "14d51e4d-ad6c-4c12-ba56-2ba4d9470ab5",
 			"key": "APP_NAME",
 			"value": "portal.acme.com",
 			"type": "string"
 		},
 		{
-			"id": "22740071-1881-4ecc-9346-e1a6a12bc1da",
+			"id": "1d0c8cd7-e9b5-41b1-85c5-33c51dc7f680",
 			"key": "PARTITION_NAME",
 			"value": "portal",
 			"type": "string"
 		},
 		{
-			"id": "b22e1f8e-04d1-476d-af65-515f3f09f40e",
+			"id": "765d5490-d8c8-4888-8f32-3adf4e2aa13d",
 			"key": "PATH_NAME",
 			"value": "portal",
 			"type": "string"
 		},
 		{
-			"id": "7f046832-1649-423f-b6a9-b5d5bc61bd89",
+			"id": "01127406-bb04-4355-89f2-7663a306a279",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
