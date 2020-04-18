@@ -52,14 +52,14 @@ Task - Login to header-iap.acme.com using user2
    |image36|
 
 
+.. |image30| image:: media/image030.png
+.. |image31| image:: media/image031.png
+.. |image32| image:: media/image032.png
+.. |image33| image:: media/image033.png
+.. |image34| image:: media/image034.png
+.. |image35| image:: media/image035.png
+.. |image36| image:: media/image036.png
+.. |image37| image:: media/image037.png
 
-.. |image30| image:: /_static/class1/module2/image030.png
-.. |image31| image:: /_static/class1/module2/image031.png
-.. |image32| image:: /_static/class1/module2/image032.png
-.. |image33| image:: /_static/class1/module2/image033.png
-.. |image34| image:: /_static/class1/module2/image034.png
-.. |image35| image:: /_static/class1/module2/image035.png
-.. |image36| image:: /_static/class1/module2/image036.png
-.. |image37| image:: /_static/class1/module2/image037.png
 
 
