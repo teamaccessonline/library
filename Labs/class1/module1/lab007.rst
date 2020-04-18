@@ -1,0 +1,226 @@
+Lab 1.7 - Onboard a New API
+=============================
+
+Organizations change. With this change, new APIs are introduced requiring modifications to the API Gateway. In this section you will learn how to add additional paths.
+
+Task 1 - Verify no access to API
+-----------------------------------
+
+1. From Postman, select the request **PATCH-Change User Password-JWT**
+
+|image63|
+
+2. Select the **Authorization** tab
+
+3. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+|image33|
+
+4. The **Token** field is now populated
+
+|image34|
+
+5. Click **Send**
+
+
+6. You receive a **403 Forbidden** response status code because the the new API has not been published at the Gateway
+
+|image39|
+
+
+Task 2 - Add the new API path
+--------------------------------
+
+1. From the browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
+
+|image48|
+
+2. Click **API-Protection**
+
+|image64|
+
+3. Click **Paths**
+
+|image65|
+
+4. Click **Create**
+
+|image66|
+
+5. The URI **/aduser/password**
+
+6. Select the Method **PATCH**
+
+7. Click **Add**
+
+|image67|
+
+8. Click **Save**
+
+|image68|
+
+
+Task 3 - Test Access to the new path
+---------------------------------------
+
+
+1. From Postman, select the request **PATCH-Change User Password-JWT**
+
+|image45|
+
+2. Select the **Authorization** tab
+
+3. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+|image33|
+
+4. The **Token** field is now populated
+
+|image34|
+
+5. Click **Send**
+
+6. You receive a **200 OK** that the endpoint is now published.
+
+|image102|
+
+
+
+.. |image0| image:: /_static/class1/module1/image000.png
+	:width: 800px
+.. |image1| image:: /_static/class1/module1/image001.png	
+.. |image2| image:: /_static/class1/module1/image002.png
+.. |image3| image:: /_static/class1/module1/image003.png
+.. |image4| image:: /_static/class1/module1/image004.png
+.. |image5| image:: /_static/class1/module1/image005.png
+	:width: 800px
+.. |image6| image:: /_static/class1/module1/image006.png
+	:width: 800px	
+.. |image7| image:: /_static/class1/module1/image007.png
+.. |image8| image:: /_static/class1/module1/image008.png
+.. |image9| image:: /_static/class1/module1/image009.png
+.. |image10| image:: /_static/class1/module1/image010.png
+.. |image11| image:: /_static/class1/module1/image011.png
+.. |image12| image:: /_static/class1/module1/image012.png
+	:width: 800px	
+.. |image13| image:: /_static/class1/module1/image013.png
+	:width: 800px	
+.. |image14| image:: /_static/class1/module1/image014.png
+	:width: 800px	
+.. |image15| image:: /_static/class1/module1/image015.png
+	:width: 800px	
+.. |image16| image:: /_static/class1/module1/image016.png
+	:width: 800px	
+.. |image17| image:: /_static/class1/module1/image017.png
+	:width: 800px
+.. |image18| image:: /_static/class1/module1/image018.png
+.. |image19| image:: /_static/class1/module1/image019.png
+.. |image20| image:: /_static/class1/module1/image020.png
+.. |image21| image:: /_static/class1/module1/image021.png
+	:width: 700px
+.. |image22| image:: /_static/class1/module1/image022.png
+.. |image23| image:: /_static/class1/module1/image023.png
+.. |image24| image:: /_static/class1/module1/image024.png
+.. |image25| image:: /_static/class1/module1/image025.png
+.. |image26| image:: /_static/class1/module1/image026.png
+.. |image27| image:: /_static/class1/module1/image027.png
+	:width: 600px
+.. |image28| image:: /_static/class1/module1/image028.png
+.. |image29| image:: /_static/class1/module1/image029.png
+.. |image31| image:: /_static/class1/module1/image031.png
+.. |image32| image:: /_static/class1/module1/image032.png
+.. |image33| image:: /_static/class1/module1/image033.png
+	:width: 800px
+.. |image34| image:: /_static/class1/module1/image034.png
+.. |image35| image:: /_static/class1/module1/image035.png
+.. |image36| image:: /_static/class1/module1/image036.png
+.. |image37| image:: /_static/class1/module1/image037.png
+.. |image38| image:: /_static/class1/module1/image038.png
+.. |image39| image:: /_static/class1/module1/image039.png
+.. |image40| image:: /_static/class1/module1/image040.png
+.. |image41| image:: /_static/class1/module1/image041.png
+.. |image42| image:: /_static/class1/module1/image042.png
+.. |image43| image:: /_static/class1/module1/image043.png
+.. |image44| image:: /_static/class1/module1/image044.png
+.. |image45| image:: /_static/class1/module1/image045.png
+.. |image46| image:: /_static/class1/module1/image046.png
+.. |image47| image:: /_static/class1/module1/image047.png
+.. |image48| image:: /_static/class1/module1/image048.png
+.. |image49| image:: /_static/class1/module1/image049.png
+	:width: 800px
+.. |image50| image:: /_static/class1/module1/image050.png
+.. |image51| image:: /_static/class1/module1/image051.png
+.. |image52| image:: /_static/class1/module1/image052.png
+.. |image53| image:: /_static/class1/module1/image053.png
+.. |image54| image:: /_static/class1/module1/image054.png
+.. |image55| image:: /_static/class1/module1/image055.png
+.. |image56| image:: /_static/class1/module1/image056.png
+	:width: 800px
+.. |image57| image:: /_static/class1/module1/image057.png
+.. |image58| image:: /_static/class1/module1/image058.png
+.. |image59| image:: /_static/class1/module1/image059.png
+.. |image60| image:: /_static/class1/module1/image060.png
+.. |image61| image:: /_static/class1/module1/image061.png
+	:width: 800px
+.. |image62| image:: /_static/class1/module1/image062.png
+.. |image63| image:: /_static/class1/module1/image063.png
+.. |image64| image:: /_static/class1/module1/image064.png
+.. |image65| image:: /_static/class1/module1/image065.png
+.. |image66| image:: /_static/class1/module1/image066.png
+	:width: 800px
+.. |image67| image:: /_static/class1/module1/image067.png
+.. |image68| image:: /_static/class1/module1/image068.png
+.. |image69| image:: /_static/class1/module1/image069.png
+	:width: 800px
+.. |image70| image:: /_static/class1/module1/image070.png
+	:width: 1000px
+.. |image71| image:: /_static/class1/module1/image071.png
+.. |image72| image:: /_static/class1/module1/image072.png
+.. |image73| image:: /_static/class1/module1/image073.png
+.. |image75| image:: /_static/class1/module1/image075.png
+.. |image77| image:: /_static/class1/module1/image077.png
+.. |image79| image:: /_static/class1/module1/image079.png
+.. |image80| image:: /_static/class1/module1/image080.png
+	:width: 1200px
+.. |image81| image:: /_static/class1/module1/image081.png
+	:width: 1000px
+.. |image82| image:: /_static/class1/module1/image082.png
+	:width: 800px
+.. |image83| image:: /_static/class1/module1/image083.png
+	:width: 1200px
+.. |image84| image:: /_static/class1/module1/image084.png
+	:width: 800px
+.. |image85| image:: /_static/class1/module1/image085.png
+	:width: 1200px
+.. |image86| image:: /_static/class1/module1/image086.png
+	:width: 1200px
+.. |image87| image:: /_static/class1/module1/image087.png
+	:width: 1200px
+.. |image88| image:: /_static/class1/module1/image088.png
+	:width: 800px
+.. |image89| image:: /_static/class1/module1/image089.png
+.. |image90| image:: /_static/class1/module1/image090.png
+	:width: 800px
+.. |image91| image:: /_static/class1/module1/image091.png
+	:width: 800px
+.. |image92| image:: /_static/class1/module1/image092.png
+	:width: 800px
+.. |image93| image:: /_static/class1/module1/image093.png
+	:width: 800px
+.. |image94| image:: /_static/class1/module1/image094.png
+	:width: 800px
+.. |image95| image:: /_static/class1/module1/image095.png
+	:width: 800px
+.. |image96| image:: /_static/class1/module1/image096.png
+	:width: 800px
+.. |image97| image:: /_static/class1/module1/image097.png
+	:width: 800px
+.. |image98| image:: /_static/class1/module1/image098.png
+	:width: 800px
+.. |image99| image:: /_static/class1/module1/image099.png
+	:width: 800px
+.. |image101| image:: /_static/class1/module1/image101.png
+.. |image103| image:: /_static/class1/module1/image103.png
+	:width: 800px
+.. |image102| image:: /_static/class1/module1/image102.png
+

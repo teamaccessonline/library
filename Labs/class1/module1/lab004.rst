@@ -1,0 +1,240 @@
+Lab 1.4 - Test Course-Grained Access
+========================================
+
+In this section, you will sample API requests to the new created api.acme.com virtual server to test functionality
+
+
+Task 1 - Send a valid GET without JWT to retrieve user1's attributes
+-----------------------------------------------------------------------
+
+1. From the Jumpbox, open **Postman**
+
+|image23|
+
+2. Expand the **API Protection** Collection
+
+3. Select the request **GET-Retrieve User Attributes-No JWT-Fail**
+
+|image24|
+
+4. Click **Send**
+
+|image25|
+
+5. You receive a **403 Forbidden** response status code since you do not have a valid JWT
+
+|image26|
+
+Task 2 - Send a valid GET with JWT to retrieve user1\'s attributes
+-------------------------------------------------------------------
+
+1. Select the request **GET-Retrieve User Attributes-JWT-Pass**
+
+|image42|
+
+2. Select the **Authorization** tab
+
+|image43|
+
+3. Click **Get New Access Token**
+
+|image44|
+
+4. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified
+
+5. Click **Request Token**
+
+|image27|
+
+6. Login using Username: **user1**, Password: **user1**
+
+|image28|
+
+7. Scroll down to the token and click **Use Token**
+
+|image29|
+
+8. Notice the **Access Token** field is now populated
+
+|image34|
+
+9. Click **Send**
+
+10. You receive a **200 OK** response status code with attributes for user1 in the body of the response
+
+|image31|
+
+
+Task 3 - Send a valid GET with JWT to set user1's employeeNumber
+------------------------------------------------------------------
+
+1. Select the request **GET-Set User Attributes-JWT-Pass**
+
+|image32|
+
+2. Select the **Authorization** tab
+
+3. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+|image33|
+
+4. The **Token** field is now populated
+
+|image34|
+
+5. Click **Send**
+
+.. note :: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name.
+
+.. note :: You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
+
+6. You receive a **200 OK** response status code with a response body that contains user1's employeeNumber **123456**
+
+|image35|
+
+
+Task 4 - Send a valid GET with JWT to create a user
+-----------------------------------------------------
+
+1. Select the request **GET-Create User-JWT-Pass**
+
+|image45|
+
+2. Select the **Authorization** tab
+
+3. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+|image33|
+
+
+4. Click **Send**
+
+.. note :: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name.
+
+.. note :: You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
+
+5. You receive a **200 OK** response status code with a response body that contains Bob Smith's user attributes
+|image46|
+
+
+Task 4 - Send invalid GET request with JWT to set a nonexistent user's attributes
+------------------------------------------------------------------------------------
+
+1. Select the request **GET-Set Invalid Attributes-JWT-Fail**
+
+|image36|
+
+2. Select the **Authorization** tab
+
+3. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+4. The **Token** field is now populated
+
+5. Click **Send**
+
+.. note :: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name.
+
+.. note :: you can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
+
+6. You receive a **400 Bad Request** response status code. The request successfully passed through the API Gateway, but the server failed to process the request.
+
+|image37|
+
+
+Task 6 - Send a POST request to a valid URI to set User1's attributes
+-----------------------------------------------------------------------
+
+1. Select the request **POST-Set User Attributes-JWT-Fail**
+
+|image38|
+
+2. Select the **Authorization** tab
+
+3. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+4. The **Token** field is now populated
+
+5. Click **Send**
+
+6. You receive a **403 Forbidden** response status code. This is expected because the POST Method was not specified in the API Protection Profile for the path /aduser/get
+
+|image39|
+
+Task 7 - Send a GET request to an invalid URI
+-----------------------------------------------
+
+1. Select the request **GET-Invalid URI-JWT-Fail**
+
+|image40|
+
+2. Select the **Authorization** tab
+
+3. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+4. The **Token** field is now populated
+
+5. Click **Send**
+
+6. You receive a **403 Forbidden** response status code. This is expected because the path //hacker//attack was not specified in the API Protection Profile
+
+|image39|
+
+
+
+.. |image0| image:: /_static/class1/module1/image000.png
+	:width: 800px
+.. |image1| image:: /_static/class1/module1/image001.png	
+.. |image2| image:: /_static/class1/module1/image002.png
+.. |image3| image:: /_static/class1/module1/image003.png
+.. |image4| image:: /_static/class1/module1/image004.png
+.. |image5| image:: /_static/class1/module1/image005.png
+	:width: 800px
+.. |image6| image:: /_static/class1/module1/image006.png
+	:width: 800px	
+.. |image7| image:: /_static/class1/module1/image007.png
+.. |image8| image:: /_static/class1/module1/image008.png
+.. |image9| image:: /_static/class1/module1/image009.png
+.. |image10| image:: /_static/class1/module1/image010.png
+.. |image11| image:: /_static/class1/module1/image011.png
+.. |image12| image:: /_static/class1/module1/image012.png
+	:width: 800px	
+.. |image13| image:: /_static/class1/module1/image013.png
+	:width: 800px	
+.. |image14| image:: /_static/class1/module1/image014.png
+	:width: 800px	
+.. |image15| image:: /_static/class1/module1/image015.png
+	:width: 800px	
+.. |image16| image:: /_static/class1/module1/image016.png
+	:width: 800px	
+.. |image17| image:: /_static/class1/module1/image017.png
+	:width: 800px
+.. |image18| image:: /_static/class1/module1/image018.png
+.. |image19| image:: /_static/class1/module1/image019.png
+.. |image20| image:: /_static/class1/module1/image020.png
+.. |image21| image:: /_static/class1/module1/image021.png
+	:width: 700px
+.. |image22| image:: /_static/class1/module1/image022.png
+.. |image23| image:: /_static/class1/module1/image023.png
+.. |image24| image:: /_static/class1/module1/image024.png
+.. |image25| image:: /_static/class1/module1/image025.png
+.. |image26| image:: /_static/class1/module1/image026.png
+.. |image27| image:: /_static/class1/module1/image027.png
+	:width: 600px
+.. |image28| image:: /_static/class1/module1/image028.png
+.. |image29| image:: /_static/class1/module1/image029.png
+.. |image31| image:: /_static/class1/module1/image031.png
+.. |image32| image:: /_static/class1/module1/image032.png
+.. |image33| image:: /_static/class1/module1/image033.png
+	:width: 800px
+.. |image34| image:: /_static/class1/module1/image034.png
+.. |image35| image:: /_static/class1/module1/image035.png
+.. |image36| image:: /_static/class1/module1/image036.png
+.. |image37| image:: /_static/class1/module1/image037.png
+.. |image38| image:: /_static/class1/module1/image038.png
+.. |image39| image:: /_static/class1/module1/image039.png
+.. |image40| image:: /_static/class1/module1/image040.png
+.. |image42| image:: /_static/class1/module1/image042.png
+.. |image43| image:: /_static/class1/module1/image043.png
+.. |image44| image:: /_static/class1/module1/image044.png
+.. |image45| image:: /_static/class1/module1/image045.png
+.. |image46| image:: /_static/class1/module1/image046.png

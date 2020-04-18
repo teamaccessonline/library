@@ -1,0 +1,109 @@
+Lab 1.2 - Create an API Protection Profile
+=============================================
+
+The API Protection profile is a combination of APM and AWAF features to protect any API.
+
+
+Task 1 - Create an API Protection Profile
+-------------------------------------------
+
+1. From the web browser, click on the **Access** tab located on the left side
+
+|image0|
+
+2. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
+
+|image11|
+
+.. note :: json file is located on the jumpbox in c:\\Labfiles\\Agility2020-API Protection
+
+3. Enter the following parameters:
+
+- Name: **api-protection**
+- OpenAPI File: **Active Directory OpenAPI.json**
+- DNS Resolver: **prebuilt-dns-resolver**
+- Authorization: **OAuth 2.0**
+
+4. Click **Add**
+
+5. Click **Save**
+
+|image12|
+
+
+Task 2 - Explore the Path Configuration
+-----------------------------------------
+
+6. Note the Spec file contained four paths to various URIs
+
+7. Each URI only supports the Method GET
+
+8. The APIs server URL is http://adapi.f5lab.local:81
+
+|image13|
+
+
+Task 3 - Associate a JWT Provider
+----------------------------------
+
+9. Click **Access Control** from the top ribbon
+
+10. Click **Edit (Per Request Policy)**
+
+|image14|
+
+11. Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access control.  We will implement it later in the lab
+
+12. Click the **+ (plus symbol)** next the Subroutine **OAuth Scope Check AuthZ** to expand its properties:
+
+|image15|
+
+.. note :: The OAuth scope agent currently has a red asterisk since no provider is associated with it.
+
+13. Click **OAuth Scope**
+
+|image16|
+
+14. Enter the following parameters:
+
+- Token Validation Mode: **Internal**
+- JWT Provider List: **as-jwt-provider**
+- Response: **api-protection_auto_response1**
+
+15. Click **Save**
+
+|image17|
+
+
+
+.. |image0| image:: /_static/class1/module1/image000.png
+	:width: 800px
+.. |image1| image:: /_static/class1/module1/image001.png
+	
+.. |image2| image:: /_static/class1/module1/image002.png
+.. |image3| image:: /_static/class1/module1/image003.png
+.. |image4| image:: /_static/class1/module1/image004.png
+.. |image5| image:: /_static/class1/module1/image005.png
+	:width: 800px
+.. |image6| image:: /_static/class1/module1/image006.png
+	:width: 800px	
+.. |image7| image:: /_static/class1/module1/image007.png
+
+.. |image8| image:: /_static/class1/module1/image008.png
+.. |image9| image:: /_static/class1/module1/image009.png
+.. |image10| image:: /_static/class1/module1/image010.png
+.. |image11| image:: /_static/class1/module1/image011.png
+.. |image12| image:: /_static/class1/module1/image012.png
+	:width: 800px	
+.. |image13| image:: /_static/class1/module1/image013.png
+	:width: 800px	
+.. |image14| image:: /_static/class1/module1/image014.png
+	:width: 800px	
+.. |image15| image:: /_static/class1/module1/image015.png
+	:width: 800px	
+.. |image16| image:: /_static/class1/module1/image016.png
+	:width: 800px	
+.. |image17| image:: /_static/class1/module1/image017.png
+	:width: 800px
+	
+
