@@ -83,16 +83,17 @@ Task - Create a HTTP Connector Request
 
 
 
-.. |image0| image:: /_static/class1/module3/image000.png
-.. |image1| image:: /_static/class1/module3/image001.png
-.. |image2| image:: /_static/class1/module3/image002.png
-.. |image3| image:: /_static/class1/module3/image003.png
-.. |image4| image:: /_static/class1/module3/image004.png
-.. |image5| image:: /_static/class1/module3/image005.png
-.. |image6| image:: /_static/class1/module3/image006.png
-.. |image7| image:: /_static/class1/module3/image007.png
-.. |image8| image:: /_static/class1/module3/image008.png
-.. |image9| image:: /_static/class1/module3/image009.png
-.. |image10| image:: /_static/class1/module3/image010.png
-.. |image11| image:: /_static/class1/module3/image011.png
 
+
+.. |image0| image:: media/image000.png
+.. |image1| image:: media/image001.png
+.. |image2| image:: media/image002.png
+.. |image3| image:: media/image003.png
+.. |image4| image:: media/image004.png
+.. |image5| image:: media/image005.png
+.. |image6| image:: media/image006.png
+.. |image7| image:: media/image007.png
+.. |image8| image:: media/image008.png
+.. |image9| image:: media/image009.png
+.. |image10| image:: media/image010.png
+.. |image11| image:: media/image011.png
