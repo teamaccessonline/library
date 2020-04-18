@@ -86,19 +86,19 @@ Task 4 - Create a JWT Provider
 
 |image10|
 
-.. |image0| image:: /_static/class1/module1/image000.png
+.. |image0| image:: image000.png
 	:width: 800px
-.. |image1| image:: /_static/class1/module1/image001.png
+.. |image1| image:: image001.png
 	
-.. |image2| image:: /_static/class1/module1/image002.png
-.. |image3| image:: /_static/class1/module1/image003.png
-.. |image4| image:: /_static/class1/module1/image004.png
-.. |image5| image:: /_static/class1/module1/image005.png
+.. |image2| image:: image002.png
+.. |image3| image:: image003.png
+.. |image4| image:: image004.png
+.. |image5| image:: image005.png
 	:width: 800px
-.. |image6| image:: /_static/class1/module1/image006.png
+.. |image6| image:: image006.png
 	:width: 800px	
-.. |image7| image:: /_static/class1/module1/image007.png
+.. |image7| image:: image007.png
 
-.. |image8| image:: /_static/class1/module1/image008.png
-.. |image9| image:: /_static/class1/module1/image009.png
-.. |image10| image:: /_static/class1/module1/image010.png
+.. |image8| image:: image008.png
+.. |image9| image:: image009.png
+.. |image10| image:: image010.png
