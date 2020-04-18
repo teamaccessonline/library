@@ -25,8 +25,7 @@ Task - Accessing the BIG-IP via APM Webtop
    |image13|
 
 
-
-.. |image10| image:: /_static/module2/image010.png
-.. |image11| image:: /_static/module2/image011.png
-.. |image12| image:: /_static/module2/image012.png
-.. |image13| image:: /_static/module2/image013.png
+.. |image10| image:: media/image010.png
+.. |image11| image:: media/image011.png
+.. |image12| image:: media/image012.png
+.. |image13| image:: media/image013.png
