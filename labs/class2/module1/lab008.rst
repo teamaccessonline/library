@@ -190,40 +190,40 @@ Task - Attach the PRP to the mTLS Virtual Server
 |image84|
 
 
-.. |image54| image:: /_static/module1/image054.png
+.. |image54| image:: media/image054.png
 	:width: 800px
-.. |image55| image:: /_static/module1/image055.png
-.. |image56| image:: /_static/module1/image056.png
-.. |image57| image:: /_static/module1/image057.png
-.. |image58| image:: /_static/module1/image058.png
-.. |image59| image:: /_static/module1/image059.png
+.. |image55| image:: media/image055.png
+.. |image56| image:: media/image056.png
+.. |image57| image:: media/image057.png
+.. |image58| image:: media/image058.png
+.. |image59| image:: media/image059.png
 	:width: 800px
-.. |image60| image:: /_static/module1/image060.png
+.. |image60| image:: media/image060.png
 	:width: 1000px
-.. |image61| image:: /_static/module1/image061.png
-.. |image62| image:: /_static/module1/image062.png
-.. |image63| image:: /_static/module1/image063.png
-.. |image64| image:: /_static/module1/image064.png
-.. |image65| image:: /_static/module1/image065.png
-.. |image66| image:: /_static/module1/image066.png
-.. |image67| image:: /_static/module1/image067.png
-.. |image68| image:: /_static/module1/image068.png
-.. |image69| image:: /_static/module1/image069.png
-.. |image70| image:: /_static/module1/image070.png
-.. |image71| image:: /_static/module1/image071.png
-.. |image72| image:: /_static/module1/image072.png
-.. |image73| image:: /_static/module1/image073.png
-.. |image74| image:: /_static/module1/image074.png
-.. |image75| image:: /_static/module1/image075.png
-.. |image76| image:: /_static/module1/image076.png
-.. |image77| image:: /_static/module1/image077.png
-.. |image78| image:: /_static/module1/image078.png
-.. |image79| image:: /_static/module1/image079.png
-.. |image80| image:: /_static/module1/image080.png
-.. |image81| image:: /_static/module1/image081.png
-.. |image82| image:: /_static/module1/image082.png
-.. |image83| image:: /_static/module1/image083.png
-.. |image84| image:: /_static/module1/image084.png
+.. |image61| image:: media/image061.png
+.. |image62| image:: media/image062.png
+.. |image63| image:: media/image063.png
+.. |image64| image:: media/image064.png
+.. |image65| image:: media/image065.png
+.. |image66| image:: media/image066.png
+.. |image67| image:: media/image067.png
+.. |image68| image:: media/image068.png
+.. |image69| image:: media/image069.png
+.. |image70| image:: media/image070.png
+.. |image71| image:: media/image071.png
+.. |image72| image:: media/image072.png
+.. |image73| image:: media/image073.png
+.. |image74| image:: media/image074.png
+.. |image75| image:: media/image075.png
+.. |image76| image:: media/image076.png
+.. |image77| image:: media/image077.png
+.. |image78| image:: media/image078.png
+.. |image79| image:: media/image079.png
+.. |image80| image:: media/image080.png
+.. |image81| image:: media/image081.png
+.. |image82| image:: media/image082.png
+.. |image83| image:: media/image083.png
+.. |image84| image:: media/image084.png
 
 
 
