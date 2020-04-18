@@ -10,4 +10,5 @@ Task - Skip Application Group Section
 
 |image28|
 
-.. |image28| image:: /_static/class1/module1/image028.png
+.. |image28| image:: media/image028.png
+
