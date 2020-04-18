@@ -53,13 +53,14 @@ Task - Adding Device to the PUA Webtop
    |image79|
 
 
-.. |image70| image:: /_static/module2/image070.png
-.. |image71| image:: /_static/module2/image071.png
-.. |image72| image:: /_static/module2/image072.png
-.. |image73| image:: /_static/module2/image073.png
-.. |image74| image:: /_static/module2/image074.png
-.. |image75| image:: /_static/module2/image075.png
-.. |image76| image:: /_static/module2/image076.png
-.. |image77| image:: /_static/module2/image077.png
-.. |image78| image:: /_static/module2/image078.png
-.. |image79| image:: /_static/module2/image079.png
+
+.. |image70| image:: media/image070.png
+.. |image71| image:: media/image071.png
+.. |image72| image:: media/image072.png
+.. |image73| image:: media/image073.png
+.. |image74| image:: media/image074.png
+.. |image75| image:: media/image075.png
+.. |image76| image:: media/image076.png
+.. |image77| image:: media/image077.png
+.. |image78| image:: media/image078.png
+.. |image79| image:: media/image079.png
