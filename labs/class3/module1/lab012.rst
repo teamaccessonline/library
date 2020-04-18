@@ -81,15 +81,14 @@ Task - Enable Windows Firewall
    |image41|
 
 
-
-.. |image32| image:: /_static/class1/module1/image032.png
-.. |image33| image:: /_static/class1/module1/image033.png
-.. |image34| image:: /_static/class1/module1/image034.png
-.. |image35| image:: /_static/class1/module1/image035.png
-.. |image36| image:: /_static/class1/module1/image036.png
-.. |image37| image:: /_static/class1/module1/image037.png
-.. |image38| image:: /_static/class1/module1/image038.png
-.. |image39| image:: /_static/class1/module1/image039.png
-.. |image40| image:: /_static/class1/module1/image040.png
-.. |image41| image:: /_static/class1/module1/image041.png
+.. |image32| image:: media/image032.png
+.. |image33| image:: media/image033.png
+.. |image34| image:: media/image034.png
+.. |image35| image:: media/image035.png
+.. |image36| image:: media/image036.png
+.. |image37| image:: media/image037.png
+.. |image38| image:: media/image038.png
+.. |image39| image:: media/image039.png
+.. |image40| image:: media/image040.png
+.. |image41| image:: media/image041.png
 
