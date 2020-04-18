@@ -55,21 +55,21 @@ Task 1 - Implement Static Parameter values
 
 
 
-.. |image116| image:: /_static/class1/module2/image116.png
+.. |image116| image:: media/image116.png
 	:width: 400px
-.. |image117| image:: /_static/class1/module2/image117.png
+.. |image117| image:: media/image117.png
 	:width: 400px
-.. |image118| image:: /_static/class1/module2/image118.png
+.. |image118| image:: media/image118.png
 	:width: 800px
-.. |image119| image:: /_static/class1/module2/image119.png
+.. |image119| image:: media/image119.png
 	:width: 800px
-.. |image120| image:: /_static/class1/module2/image120.png
+.. |image120| image:: media/image120.png
 	:width: 800px
-.. |image121| image:: /_static/class1/module2/image121.png
+.. |image121| image:: media/image121.png
 	:width: 800px
-.. |image122| image:: /_static/class1/module2/image122.png
+.. |image122| image:: media/image122.png
 	:width: 800px
-.. |image123| image:: /_static/class1/module2/image123.png
+.. |image123| image:: media/image123.png
 	:width: 800px
-.. |image124| image:: /_static/class1/module2/image124.png
+.. |image124| image:: media/image124.png
 	:width: 800px
