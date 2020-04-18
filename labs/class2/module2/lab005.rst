@@ -114,24 +114,24 @@ Here is the completed macro.
 
    |image135|
 
+.. |image30| image:: media/image030.png
+.. |image31| image:: media/image031.png
+.. |image32| image:: media/image032.png
+.. |image33| image:: media/image033.png
+.. |image34| image:: media/image034.png
+.. |image35| image:: media/image035.png
+.. |image36| image:: media/image036.png
+.. |image37| image:: media/image037.png
+.. |image38| image:: media/image038.png
+.. |image39| image:: media/image039.png
+.. |image130| image:: media/image130.png
+.. |image131| image:: media/image131.png
+.. |image132| image:: media/image132.png
+.. |image133| image:: media/image133.png
+.. |image134| image:: media/image134.png
+.. |image135| image:: media/image135.png
+.. |image136| image:: media/image136.png
+.. |image137| image:: media/image137.png
+.. |image138| image:: media/image138.png
+.. |image139| image:: media/image139.png
 
-.. |image30| image:: /_static/module2/image030.png
-.. |image31| image:: /_static/module2/image031.png
-.. |image32| image:: /_static/module2/image032.png
-.. |image33| image:: /_static/module2/image033.png
-.. |image34| image:: /_static/module2/image034.png
-.. |image35| image:: /_static/module2/image035.png
-.. |image36| image:: /_static/module2/image036.png
-.. |image37| image:: /_static/module2/image037.png
-.. |image38| image:: /_static/module2/image038.png
-.. |image39| image:: /_static/module2/image039.png
-.. |image130| image:: /_static/module2/image130.png
-.. |image131| image:: /_static/module2/image131.png
-.. |image132| image:: /_static/module2/image132.png
-.. |image133| image:: /_static/module2/image133.png
-.. |image134| image:: /_static/module2/image134.png
-.. |image135| image:: /_static/module2/image135.png
-.. |image136| image:: /_static/module2/image136.png
-.. |image137| image:: /_static/module2/image137.png
-.. |image138| image:: /_static/module2/image138.png
-.. |image139| image:: /_static/module2/image139.png
