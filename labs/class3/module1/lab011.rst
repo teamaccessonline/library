@@ -14,7 +14,8 @@ Task - Deploy the configuration
 
 #. Once the deployment is complete, click **Finish**
 
-.. |image31| image:: /_static/class1/module1/image031.png
+
+.. |image31| image:: media/image031.png
 	:width: 800px
 
 
