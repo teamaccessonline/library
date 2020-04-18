@@ -1,0 +1,103 @@
+Lab 2.6 - Creating an APM Policy - CAC Authentication
+--------------------------------------------------------
+
+In this section, you will build a macro to request the user certificate.
+
+Task - Build CAC AUTH Macro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Click the **Add New Macro** button
+
+   |image30|
+
+#. Give the macro a name and click **save**
+
+   |image40|
+
+#. Open the newly created macro by clicking the plus sign by the name: **CAC Auth**
+
+   |image41|
+
+#. Click the Authentication tab across the top, select **On-Demand Cert Auth**, and click **Add Item**
+
+   |image42|
+
+#. Leave the Auth mode set to the default Request, and click save
+
+   |image43|
+
+#. Click the plus sign beside the Successful branch
+
+   |image44|
+
+#. Click the tab **Macros** across the top, select the **GET UPN from CAC** button in the main page, and click Add Item
+
+   |image45|
+
+#. Click the plus sign on the found branch
+
+   |image46|
+
+#. Select **Macros** across the top, select the **LDAP_Query** button in the main page, and click Add Item
+
+   |image47|
+
+#. Click the plus sign on the fallback branch after the On-Demand Cert Auth
+
+   |image48|
+
+#. Click the tabl **General Purpose** across the top, select **Message Box** in the main page, and click Add Item
+
+   |image49|
+
+#. Provide a name for the message box, enter message, and click save
+
+   |image140|
+
+#. Click Edit Terminals
+
+   |image141|
+
+#. Change the default name from Out to Success, and click **Add Terminal**
+
+   |image142|
+
+#. Change the default name to Failure
+
+   |image143|
+
+#. Click the down arrow beside the Failure box to change the order. The Success terminal should be on top. Click **Save**
+
+   |image147|
+
+#. Click the terminals on the Not Found, Failure, Fallback branches and change them from Success to Failure. Remember to click Save!
+
+   |image144|
+
+   |image145|
+
+.. note:: The completed CAC Auth Macro
+
+   |image146|
+
+
+
+.. |image30| image:: /_static/module2/image030.png
+.. |image40| image:: /_static/module2/image040.png
+.. |image41| image:: /_static/module2/image041.png
+.. |image42| image:: /_static/module2/image042.png
+.. |image43| image:: /_static/module2/image043.png
+.. |image44| image:: /_static/module2/image044.png
+.. |image45| image:: /_static/module2/image045.png
+.. |image46| image:: /_static/module2/image046.png
+.. |image47| image:: /_static/module2/image047.png
+.. |image48| image:: /_static/module2/image048.png
+.. |image49| image:: /_static/module2/image049.png
+.. |image140| image:: /_static/module2/image140.png
+.. |image141| image:: /_static/module2/image141.png
+.. |image142| image:: /_static/module2/image142.png
+.. |image143| image:: /_static/module2/image143.png
+.. |image144| image:: /_static/module2/image144.png
+.. |image145| image:: /_static/module2/image145.png
+.. |image146| image:: /_static/module2/image146.png
+.. |image147| image:: /_static/module2/image147.png

@@ -1,0 +1,54 @@
+Lab 2.11 - Verification Testing
+-------------------------------------
+
+Task - Test the updated Webtop
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Access the webtop via http://pua.acme.com
+
+#. A Warning Banner page (customizable) should appear, click the **Click here to continue** link.
+
+   |image90|
+
+#. Select the certificate for user1 and click OK
+
+   |image91|
+
+#. Observer the updated webtop with Host01
+
+   |image92|
+
+#. Click the BIG-IP icon, and observer the username in the bottom left corner
+
+   |image93|
+
+#. Close the browser window and return to webtop
+
+
+#. Click the Host01 icon
+
+   |image92|
+
+#. Observer the the username at the bottom left corner
+
+   |image94|
+
+
+#. Escalate Priviledges
+
+   - type **sudo -i**
+   - click the **Menu** button
+   - click click **Credentials** button
+
+   |image95|
+
+.. note::
+   The Credentials button sends the password to terminal
+
+
+.. |image90| image:: /_static/module2/image090.png
+.. |image91| image:: /_static/module2/image091.png
+.. |image92| image:: /_static/module2/image092.png
+.. |image93| image:: /_static/module2/image093.png
+.. |image94| image:: /_static/module2/image094.png
+.. |image95| image:: /_static/module2/image095.png
