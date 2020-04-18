@@ -21,7 +21,8 @@ Task - Explore the Device Certificate
 #. Click **OK** and close the Certificate management window 
 
 
-.. |image7| image:: /_static/class1/module4/image007.png
-.. |image8| image:: /_static/class1/module4/image008.png
-.. |image9| image:: /_static/class1/module4/image009.png
+
+.. |image7| image:: media/image007.png
+.. |image8| image:: media/image008.png
+.. |image9| image:: media/image009.png
 
