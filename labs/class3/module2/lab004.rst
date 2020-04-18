@@ -33,14 +33,9 @@ Task - Configure Application header-iap.acme.com
 
 
 
-
-
-
-
-.. |image11| image:: /_static/class1/module2/image011.png
-.. |image12| image:: /_static/class1/module2/image012.png
-.. |image13| image:: /_static/class1/module2/image013.png
-.. |image14| image:: /_static/class1/module2/image014.png
-
+.. |image11| image:: media/image011.png
+.. |image12| image:: media/image012.png
+.. |image13| image:: media/image013.png
+.. |image14| image:: media/image014.png
 
 
