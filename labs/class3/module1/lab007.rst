@@ -15,6 +15,5 @@ Task - Create basic-iap.acme.com application
 
 
 
-
-.. |image22| image:: /_static/class1/module1/image022.png
+.. |image22| image:: media/image022.png
 	:width: 1000px
