@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Projects are solutions that are currently being created.  Projects take priority over enhancements to solutions that currently exist.
+Projects are solutions that are currently being created.  Projects take priority over enhancements to solutions that currently exist. This templates excludes requests for a services via a container.  
 
 **Is this request part of current project?**
 If yes, provide the project name
