@@ -20,6 +20,7 @@ Task - Create the Pool
 
    |image31|
 
-.. |image30| image:: /_static/module1/image030.png
-.. |image31| image:: /_static/module1/image031.png
+
+.. |image30| image:: media/image030.png
+.. |image31| image:: media/image031.png
 	:width: 800px
