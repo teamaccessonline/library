@@ -74,7 +74,7 @@ Task 3 - Associate a JWT Provider
 
 |image17|
 
-. |image0| image:: media/image000.png
+.. |image0| image:: media/image000.png
 	:width: 800px
 .. |image1| image:: media/image001.png
 	
