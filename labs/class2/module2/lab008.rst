@@ -39,11 +39,10 @@ Task - Update the SSL Profile
    |image66|
 
 
-
-.. |image60| image:: /_static/module2/image060.png
-.. |image61| image:: /_static/module2/image061.png
-.. |image62| image:: /_static/module2/image062.png
-.. |image63| image:: /_static/module2/image063.png
-.. |image64| image:: /_static/module2/image064.png
-.. |image65| image:: /_static/module2/image065.png
-.. |image66| image:: /_static/module2/image066.png
+.. |image60| image:: media/image060.png
+.. |image61| image:: media/image061.png
+.. |image62| image:: media/image062.png
+.. |image63| image:: media/image063.png
+.. |image64| image:: media/image064.png
+.. |image65| image:: media/image065.png
+.. |image66| image:: media/image066.png
