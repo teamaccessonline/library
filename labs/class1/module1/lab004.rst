@@ -180,61 +180,60 @@ Task 7 - Send a GET request to an invalid URI
 |image39|
 
 
-
-.. |image0| image:: /_static/class1/module1/image000.png
+.. |image0| image:: media/image000.png
 	:width: 800px
-.. |image1| image:: /_static/class1/module1/image001.png	
-.. |image2| image:: /_static/class1/module1/image002.png
-.. |image3| image:: /_static/class1/module1/image003.png
-.. |image4| image:: /_static/class1/module1/image004.png
-.. |image5| image:: /_static/class1/module1/image005.png
+.. |image1| image:: media/image001.png	
+.. |image2| image:: media/image002.png
+.. |image3| image:: media/image003.png
+.. |image4| image:: media/image004.png
+.. |image5| image:: media/image005.png
 	:width: 800px
-.. |image6| image:: /_static/class1/module1/image006.png
+.. |image6| image:: media/image006.png
 	:width: 800px	
-.. |image7| image:: /_static/class1/module1/image007.png
-.. |image8| image:: /_static/class1/module1/image008.png
-.. |image9| image:: /_static/class1/module1/image009.png
-.. |image10| image:: /_static/class1/module1/image010.png
-.. |image11| image:: /_static/class1/module1/image011.png
-.. |image12| image:: /_static/class1/module1/image012.png
+.. |image7| image:: media/image007.png
+.. |image8| image:: media/image008.png
+.. |image9| image:: media/image009.png
+.. |image10| image:: media/image010.png
+.. |image11| image:: media/image011.png
+.. |image12| image:: media/image012.png
 	:width: 800px	
-.. |image13| image:: /_static/class1/module1/image013.png
+.. |image13| image:: media/image013.png
 	:width: 800px	
-.. |image14| image:: /_static/class1/module1/image014.png
+.. |image14| image:: media/image014.png
 	:width: 800px	
-.. |image15| image:: /_static/class1/module1/image015.png
+.. |image15| image:: media/image015.png
 	:width: 800px	
-.. |image16| image:: /_static/class1/module1/image016.png
+.. |image16| image:: media/image016.png
 	:width: 800px	
-.. |image17| image:: /_static/class1/module1/image017.png
+.. |image17| image:: media/image017.png
 	:width: 800px
-.. |image18| image:: /_static/class1/module1/image018.png
-.. |image19| image:: /_static/class1/module1/image019.png
-.. |image20| image:: /_static/class1/module1/image020.png
-.. |image21| image:: /_static/class1/module1/image021.png
+.. |image18| image:: media/image018.png
+.. |image19| image:: media/image019.png
+.. |image20| image:: media/image020.png
+.. |image21| image:: media/image021.png
 	:width: 700px
-.. |image22| image:: /_static/class1/module1/image022.png
-.. |image23| image:: /_static/class1/module1/image023.png
-.. |image24| image:: /_static/class1/module1/image024.png
-.. |image25| image:: /_static/class1/module1/image025.png
-.. |image26| image:: /_static/class1/module1/image026.png
-.. |image27| image:: /_static/class1/module1/image027.png
+.. |image22| image:: media/image022.png
+.. |image23| image:: media/image023.png
+.. |image24| image:: media/image024.png
+.. |image25| image:: media/image025.png
+.. |image26| image:: media/image026.png
+.. |image27| image:: media/image027.png
 	:width: 600px
-.. |image28| image:: /_static/class1/module1/image028.png
-.. |image29| image:: /_static/class1/module1/image029.png
-.. |image31| image:: /_static/class1/module1/image031.png
-.. |image32| image:: /_static/class1/module1/image032.png
-.. |image33| image:: /_static/class1/module1/image033.png
+.. |image28| image:: media/image028.png
+.. |image29| image:: media/image029.png
+.. |image31| image:: media/image031.png
+.. |image32| image:: media/image032.png
+.. |image33| image:: media/image033.png
 	:width: 800px
-.. |image34| image:: /_static/class1/module1/image034.png
-.. |image35| image:: /_static/class1/module1/image035.png
-.. |image36| image:: /_static/class1/module1/image036.png
-.. |image37| image:: /_static/class1/module1/image037.png
-.. |image38| image:: /_static/class1/module1/image038.png
-.. |image39| image:: /_static/class1/module1/image039.png
-.. |image40| image:: /_static/class1/module1/image040.png
-.. |image42| image:: /_static/class1/module1/image042.png
-.. |image43| image:: /_static/class1/module1/image043.png
-.. |image44| image:: /_static/class1/module1/image044.png
-.. |image45| image:: /_static/class1/module1/image045.png
-.. |image46| image:: /_static/class1/module1/image046.png
+.. |image34| image:: media/image034.png
+.. |image35| image:: media/image035.png
+.. |image36| image:: media/image036.png
+.. |image37| image:: media/image037.png
+.. |image38| image:: media/image038.png
+.. |image39| image:: media/image039.png
+.. |image40| image:: media/image040.png
+.. |image42| image:: media/image042.png
+.. |image43| image:: media/image043.png
+.. |image44| image:: media/image044.png
+.. |image45| image:: media/image045.png
+.. |image46| image:: media/image046.png
