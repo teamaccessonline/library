@@ -9,13 +9,13 @@ assignees: ''
 
 Projects are solutions that are currently being created.  Projects take priority over enhancements to solutions that currently exist.
 
-**Is this request part of current project*
+**Is this request part of current project?**
 If yes, provide the project name
 
-**is this an enhancement to current solution**
+**is this an enhancement to current solution?**
 If yes, provide the solution name
 
-**Describe the enhancement
+**Describe the enhancement**
 A clear and concise description of what you want to happen.
 
 **Describe alternatives you've considered**
