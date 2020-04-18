@@ -52,14 +52,13 @@ Task - Access mtls.acme.com with static certificate
    |image51|
 
 
-.. |image43| image:: /_static/module1/image043.png
-.. |image44| image:: /_static/module1/image044.png
+.. |image43| image:: media/image043.png
+.. |image44| image:: media/image044.png
 	:width: 800px
-.. |image45| image:: /_static/module1/image045.png
+.. |image45| image:: media/image045.png
 
-.. |image48| image:: /_static/module1/image048.png
-.. |image49| image:: /_static/module1/image049.png
-.. |image50| image:: /_static/module1/image050.png
+.. |image48| image:: media/image048.png
+.. |image49| image:: media/image049.png
+.. |image50| image:: media/image050.png
 	:width: 800px
-.. |image51| image:: /_static/module1/image051.png
-
+.. |image51| image:: media/image051.png
