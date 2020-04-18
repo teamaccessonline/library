@@ -228,7 +228,7 @@ Task - Running Installation Script
       [admin@bigip1:Active:Standalone]
 
 
+.. |image01| image:: media/image001.png
+.. |image02| image:: media/image002.png
+.. |image03| image:: media/image003.png
 
-.. |image01| image:: /_static/module2/image001.png
-.. |image02| image:: /_static/module2/image002.png
-.. |image03| image:: /_static/module2/image003.png
