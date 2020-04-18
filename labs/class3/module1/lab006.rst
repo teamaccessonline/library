@@ -29,8 +29,9 @@ Task - Create a HTTP basic SSO object
 
    |image21|
 
-.. |image18| image:: /_static/class1/module1/image018.png
-.. |image19| image:: /_static/class1/module1/image019.png
-.. |image20| image:: /_static/class1/module1/image020.png
-.. |image21| image:: /_static/class1/module1/image021.png
+
+.. |image18| image:: media/image018.png
+.. |image19| image:: media/image019.png
+.. |image20| image:: media/image020.png
+.. |image21| image:: media/image021.png
 
