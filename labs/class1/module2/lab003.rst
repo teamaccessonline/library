@@ -152,39 +152,39 @@ Click **Change**
 |module2Lab3Task1-image18|
 
 
-..  |module2Lab3Task1-image18| image:: /_static/class1/module2/module2Lab3Task1-image18.png
+..  |module2Lab3Task1-image18| image:: media/module2Lab3Task1-image18.png
         :width: 800px
-..  |module2Lab3Task1-image17| image:: /_static/class1/module2/module2Lab3Task1-image17.png
+..  |module2Lab3Task1-image17| image:: media/module2Lab3Task1-image17.png
         :width: 800px
-..  |module2Lab3Task1-image16| image:: /_static/class1/module2/module2Lab3Task1-image16.png
+..  |module2Lab3Task1-image16| image:: media/module2Lab3Task1-image16.png
         :width: 400px
-..  |module2Lab3Task1-image15| image:: /_static/class1/module2/module2Lab3Task1-image15.png
+..  |module2Lab3Task1-image15| image:: media/module2Lab3Task1-image15.png
         :width: 400px
-..  |module2Lab3Task1-image14| image:: /_static/class1/module2/module2Lab3Task1-image14.png
+..  |module2Lab3Task1-image14| image:: media/module2Lab3Task1-image14.png
         :width: 400px
-..  |module2Lab3Task1-image13| image:: /_static/class1/module2/module2Lab3Task1-image13.png
+..  |module2Lab3Task1-image13| image:: media/module2Lab3Task1-image13.png
         :width: 800px
-..  |module2Lab3Task1-image12| image:: /_static/class1/module2/module2Lab3Task1-image12.png
+..  |module2Lab3Task1-image12| image:: media/module2Lab3Task1-image12.png
         :width: 800px
-..  |module2Lab3Task1-image11| image:: /_static/class1/module2/module2Lab3Task1-image11.png
+..  |module2Lab3Task1-image11| image:: media/module2Lab3Task1-image11.png
         :width: 800px
-..  |module2Lab3Task1-image10| image:: /_static/class1/module2/module2Lab3Task1-image10.png
+..  |module2Lab3Task1-image10| image:: media/module2Lab3Task1-image10.png
         :width: 800px
-..  |module2Lab3Task1-image9| image:: /_static/class1/module2/module2Lab3Task1-image9.png
+..  |module2Lab3Task1-image9| image:: media/module2Lab3Task1-image9.png
         :width: 800px
-..  |module2Lab3Task1-image8| image:: /_static/class1/module2/module2Lab3Task1-image8.png
+..  |module2Lab3Task1-image8| image:: media/module2Lab3Task1-image8.png
         :width: 100px
-..  |module2Lab3Task1-image7| image:: /_static/class1/module2/module2Lab3Task1-image7.png
+..  |module2Lab3Task1-image7| image:: media/module2Lab3Task1-image7.png
         :width: 200px
-..  |module2Lab3Task1-image6| image:: /_static/class1/module2/module2Lab3Task1-image6.png
+..  |module2Lab3Task1-image6| image:: media/module2Lab3Task1-image6.png
         :width: 800px
-..  |module2Lab3Task1-image5| image:: /_static/class1/module2/module2Lab3Task1-image5.png
+..  |module2Lab3Task1-image5| image:: media/module2Lab3Task1-image5.png
         :width: 800px
-..  |module2Lab3Task1-image4| image:: /_static/class1/module2/module2Lab3Task1-image4.png
+..  |module2Lab3Task1-image4| image:: media/module2Lab3Task1-image4.png
         :width: 400px
-..  |module2Lab3Task1-image3| image:: /_static/class1/module2/module2Lab3Task1-image3.png
+..  |module2Lab3Task1-image3| image:: media/module2Lab3Task1-image3.png
         :width: 800px
-..  |module2Lab3Task1-image2| image:: /_static/class1/module2/module2Lab3Task1-image2.png
+..  |module2Lab3Task1-image2| image:: media/module2Lab3Task1-image2.png
         :width: 100px
-..  |module2Lab3Task1-image1| image:: /_static/class1/module2/module2Lab3Task1-image1.png
+..  |module2Lab3Task1-image1| image:: media/module2Lab3Task1-image1.png
         :width: 800px
