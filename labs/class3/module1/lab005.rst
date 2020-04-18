@@ -32,13 +32,16 @@ Task - Configure a RADIUS AAA Server
 
    |image17|
 
-.. |image13| image:: /_static/class1/module1/image013.png
+
+.. |image13| image:: media/image013.png
 	:width: 800px
-.. |image14| image:: /_static/class1/module1/image014.png
+.. |image14| image:: media/image014.png
 	:width: 800px
-.. |image15| image:: /_static/class1/module1/image015.png
+.. |image15| image:: media/image015.png
 	:width: 400px
-.. |image16| image:: /_static/class1/module1/image016.png
-.. |image17| image:: /_static/class1/module1/image017.png
+.. |image16| image:: media/image016.png
+.. |image17| image:: media/image017.png
 	:width: 400px
+
+
 
