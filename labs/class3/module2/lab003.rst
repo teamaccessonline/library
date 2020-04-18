@@ -26,9 +26,10 @@ Task - Create Custom Header
    |image10|
 
 
-.. |image7| image:: /_static/class1/module2/image007.png
-.. |image8| image:: /_static/class1/module2/image008.png
-.. |image9| image:: /_static/class1/module2/image009.png
-.. |image10| image:: /_static/class1/module2/image010.png
+.. |image7| image:: media/image007.png
+.. |image8| image:: media/image008.png
+.. |image9| image:: media/image009.png
+.. |image10| image:: media/image010.png
+
 
 
