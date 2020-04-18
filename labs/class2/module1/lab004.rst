@@ -1,0 +1,102 @@
+Lab 1.4. - Create the SSL Profiles
+------------------------------------
+
+In this section, you will define the virtual server IP address and its SSL profile settings.
+
+Task - Create a Client SSL Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Navigate to **Local Traffic >> Profiles >> SSL >> Client**, then click the **+** (plus symbol) to create a new **SSL Profile**
+
+   |image23|
+
+#. Enter the name **client_certsso**
+#. **Check** the **custom** box to the right of **Certificate Key Chain**
+#. Click **add**
+
+   |image24|
+
+#. Select **acme.com-wildcard.crt** from the **certificate** dropdown box
+#. Select **acme.com-wildcard.key** from the **key** dropdown box
+#. Click **Add**
+
+   |image25|
+
+#. **Check** the **custom** box to the right of **Client Certificate Constrained Delegation**
+#. Select **Enabled** from the **Client Certificate Constrained Delegation** dropdown box
+#. Click **Finished**
+
+   |image26|
+
+
+#. Click **Finished**
+
+Task - Create a Server SSL Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Navigate to **Local Traffic >> Profiles >> SSL >> Server**, then click the **+** (plus symbol) to create a new SSL Profile
+
+   |image27|
+
+#. Enter **server_certsso** for profile name
+#. **Check** the two custom boxes next to **Certificate** and **Key**
+#. Select **F5CertSSO.f5lab.local.crt** from the **certificate** dropbox box
+#. Select **F5CertSSO.f5lab.local.key** from the **key** dropdown box
+
+   |image28|
+
+#. Check the **custom** box about the **Client Certificate Constrained Delegation** box
+#. Select **Enabled** from the **Client Certificate Constrained Delegation** dropdown box
+#. Select **F5SubCA.f5lab.local.crt** from the **CA Certificate** dropdown box
+#. Select **F5SubCA.f5lab.local.key** from the **CA Key dropdown** box
+#. **Click** Finished
+
+   |image29|
+
+.. |image0| image:: /_static/module1/image000.png
+	:width: 800px
+.. |image1| image:: /_static/module1/image001.png
+.. |image2| image:: /_static/module1/image002.png
+	:width: 800px
+.. |image3| image:: /_static/module1/image003.png
+.. |image4| image:: /_static/module1/image004.png
+	:width: 700px
+.. |image5| image:: /_static/module1/image005.png
+.. |image6| image:: /_static/module1/image006.png
+	:width: 800px
+.. |image7| image:: /_static/module1/image007.png
+.. |image8| image:: /_static/module1/image008.png
+.. |image9| image:: /_static/module1/image009.png
+.. |image10| image:: /_static/module1/image010.png
+.. |image11| image:: /_static/module1/image011.png
+.. |image12| image:: /_static/module1/image012.png
+.. |image13| image:: /_static/module1/image013.png
+.. |image14| image:: /_static/module1/image014.png
+.. |image15| image:: /_static/module1/image015.png
+	:width: 800px
+.. |image16| image:: /_static/module1/image016.png
+.. |image17| image:: /_static/module1/image017.png
+.. |image18| image:: /_static/module1/image018.png
+	:width: 800px
+.. |image19| image:: /_static/module1/image019.png
+.. |image20| image:: /_static/module1/image020.png
+.. |image21| image:: /_static/module1/image021.png
+.. |image22| image:: /_static/module1/image022.png
+.. |image23| image:: /_static/module1/image023.png
+.. |image24| image:: /_static/module1/image024.png
+	:width: 800px
+.. |image25| image:: /_static/module1/image025.png
+.. |image26| image:: /_static/module1/image026.png
+	:width: 800px
+.. |image27| image:: /_static/module1/image027.png
+.. |image28| image:: /_static/module1/image028.png
+	:width: 1000px
+.. |image29| image:: /_static/module1/image029.png
+	:width: 1000px
+.. |image36| image:: /_static/module1/image036.png
+.. |image37| image:: /_static/module1/image037.png
+.. |image38| image:: /_static/module1/image038.png
+.. |image39| image:: /_static/module1/image039.png
+.. |image40| image:: /_static/module1/image040.png
+.. |image41| image:: /_static/module1/image041.png
+.. |image42| image:: /_static/module1/image042.png
