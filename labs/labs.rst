@@ -5,7 +5,6 @@ Welcome
 -------
 
 
-|repoinfo|
 
 .. toctree::
    :maxdepth: 1
