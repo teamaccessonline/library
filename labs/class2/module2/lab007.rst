@@ -74,16 +74,16 @@ Task - Update the Initial Access Policy
    |image152|
 
 
-.. |image50| image:: /_static/module2/image050.png
-.. |image51| image:: /_static/module2/image051.png
-.. |image52| image:: /_static/module2/image052.png
-.. |image53| image:: /_static/module2/image053.png
-.. |image54| image:: /_static/module2/image054.png
-.. |image55| image:: /_static/module2/image055.png
-.. |image56| image:: /_static/module2/image056.png
-.. |image57| image:: /_static/module2/image057.png
-.. |image58| image:: /_static/module2/image058.png
-.. |image59| image:: /_static/module2/image059.png
-.. |image150| image:: /_static/module2/image150.png
-.. |image151| image:: /_static/module2/image151.png
-.. |image152| image:: /_static/module2/image152.png
+.. |image50| image:: media/image050.png
+.. |image51| image:: media/image051.png
+.. |image52| image:: media/image052.png
+.. |image53| image:: media/image053.png
+.. |image54| image:: media/image054.png
+.. |image55| image:: media/image055.png
+.. |image56| image:: media/image056.png
+.. |image57| image:: media/image057.png
+.. |image58| image:: media/image058.png
+.. |image59| image:: media/image059.png
+.. |image150| image:: media/image150.png
+.. |image151| image:: media/image151.png
+.. |image152| image:: media/image152.png
