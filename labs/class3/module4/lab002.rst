@@ -16,7 +16,10 @@ Task - Locate the F5 Access Guard Service
 
 #. Close the services screen.
 
-.. |image5| image:: /_static/class1/module4/image005.png
-.. |image6| image:: /_static/class1/module4/image006.png
+
+.. |image5| image:: media/image005.png
+.. |image6| image:: media/image006.png
+
+
 
 
