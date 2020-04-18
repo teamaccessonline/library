@@ -82,22 +82,22 @@ Task - Build CAC AUTH Macro
 
 
 
-.. |image30| image:: /_static/module2/image030.png
-.. |image40| image:: /_static/module2/image040.png
-.. |image41| image:: /_static/module2/image041.png
-.. |image42| image:: /_static/module2/image042.png
-.. |image43| image:: /_static/module2/image043.png
-.. |image44| image:: /_static/module2/image044.png
-.. |image45| image:: /_static/module2/image045.png
-.. |image46| image:: /_static/module2/image046.png
-.. |image47| image:: /_static/module2/image047.png
-.. |image48| image:: /_static/module2/image048.png
-.. |image49| image:: /_static/module2/image049.png
-.. |image140| image:: /_static/module2/image140.png
-.. |image141| image:: /_static/module2/image141.png
-.. |image142| image:: /_static/module2/image142.png
-.. |image143| image:: /_static/module2/image143.png
-.. |image144| image:: /_static/module2/image144.png
-.. |image145| image:: /_static/module2/image145.png
-.. |image146| image:: /_static/module2/image146.png
-.. |image147| image:: /_static/module2/image147.png
+.. |image30| image:: media/image030.png
+.. |image40| image:: media/image040.png
+.. |image41| image:: media/image041.png
+.. |image42| image:: media/image042.png
+.. |image43| image:: media/image043.png
+.. |image44| image:: media/image044.png
+.. |image45| image:: media/image045.png
+.. |image46| image:: media/image046.png
+.. |image47| image:: media/image047.png
+.. |image48| image:: media/image048.png
+.. |image49| image:: media/image049.png
+.. |image140| image:: media/image140.png
+.. |image141| image:: media/image141.png
+.. |image142| image:: media/image142.png
+.. |image143| image:: media/image143.png
+.. |image144| image:: media/image144.png
+.. |image145| image:: media/image145.png
+.. |image146| image:: media/image146.png
+.. |image147| image:: media/image147.png
