@@ -40,13 +40,11 @@ Task - Create ocspauth_header Group
 
 
 
-
-.. |image15| image:: /_static/class1/module2/image015.png
-.. |image16| image:: /_static/class1/module2/image016.png
-.. |image17| image:: /_static/class1/module2/image017.png
-.. |image18| image:: /_static/class1/module2/image018.png
-.. |image19| image:: /_static/class1/module2/image019.png
-.. |image20| image:: /_static/class1/module2/image020.png
-
+.. |image15| image:: media/image015.png
+.. |image16| image:: media/image016.png
+.. |image17| image:: media/image017.png
+.. |image18| image:: media/image018.png
+.. |image19| image:: media/image019.png
+.. |image20| image:: media/image020.png
 
 
