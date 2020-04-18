@@ -84,20 +84,21 @@ Task - Access basic-iap.acme.com
 
 
 
-.. |image21| image:: /_static/class1/module3/image021.png
-.. |image22| image:: /_static/class1/module3/image022.png
-.. |image23| image:: /_static/class1/module3/image023.png
-.. |image24| image:: /_static/class1/module3/image024.png
-.. |image25| image:: /_static/class1/module3/image025.png
-.. |image26| image:: /_static/class1/module3/image026.png
-.. |image27| image:: /_static/class1/module3/image027.png
-.. |image28| image:: /_static/class1/module3/image028.png
-.. |image29| image:: /_static/class1/module3/image029.png
+
+.. |image21| image:: media/image021.png
+.. |image22| image:: media/image022.png
+.. |image23| image:: media/image023.png
+.. |image24| image:: media/image024.png
+.. |image25| image:: media/image025.png
+.. |image26| image:: media/image026.png
+.. |image27| image:: media/image027.png
+.. |image28| image:: media/image028.png
+.. |image29| image:: media/image029.png
 	:width: 1000px
-.. |image30| image:: /_static/class1/module3/image030.png
-.. |image31| image:: /_static/class1/module3/image031.png
-.. |image32| image:: /_static/class1/module3/image032.png
-.. |image33| image:: /_static/class1/module3/image033.png
-.. |image34| image:: /_static/class1/module3/image034.png
+.. |image30| image:: media/image030.png
+.. |image31| image:: media/image031.png
+.. |image32| image:: media/image032.png
+.. |image33| image:: media/image033.png
+.. |image34| image:: media/image034.png
 
 
