@@ -12,6 +12,8 @@ This class covers the following topics related to Identity Aware Proxy:
 
 Expected time to complete: **1 hour**
 
+UDF blueprint version: **1**
+
 .. toctree::
    :maxdepth: 1
    :glob:
