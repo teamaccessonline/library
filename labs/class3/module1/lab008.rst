@@ -1,4 +1,4 @@
-Lab 1.9 - Application Groups
+Lab 1.8 - Application Groups
 ------------------------------------------------
 
 Application Groups will be covered in a later section of the lab.
