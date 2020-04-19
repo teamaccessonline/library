@@ -100,11 +100,11 @@
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-											"pm.test(\"Server-Side SSL Profile Created\", function () {",
+											"pm.test(\"APM AAA AD Object Created\", function () {",
 											"    pm.response.to.have.status(200);",
 											"});",
 											"} else ",
-											"pm.test(\"Server-Side SSL Profile Exists\", function () {",
+											"pm.test(\"APM AAA AD Object Exists\", function () {",
 											"    pm.response.to.have.status(409);",
 											"});",
 											"",
@@ -201,11 +201,11 @@
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-											"pm.test(\"DNS Resolver Created\", function () {",
+											"pm.test(\"APM AAA OCSP Responder Created\", function () {",
 											"    pm.response.to.have.status(200);",
 											"});",
 											"} else ",
-											"pm.test(\"DNS Resolver Exists\", function () {",
+											"pm.test(\"APM AAA OCSP Responder Exists\", function () {",
 											"    pm.response.to.have.status(409);",
 											"});",
 											"",
@@ -1343,43 +1343,43 @@
 	],
 	"variable": [
 		{
-			"id": "aab105c1-abba-48b0-a450-de2aed207b3e",
+			"id": "62905bc1-70d9-462e-9753-b68c5c79a74f",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4013018e-4fe6-4ef0-b36d-30ba2439c465",
+			"id": "dfb7f250-bd73-4894-a307-fa9280247cf4",
 			"key": "APM_AAA_AD_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "15388fa1-51b7-478e-ac80-aa43bd2848b2",
+			"id": "37b6731a-a448-4a23-ac1a-1cef1d32a852",
 			"key": "APM_AAA_OCSP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e2518b6c-db95-4455-b705-09b0c469b085",
+			"id": "93b3ffca-a8c8-4cf1-982d-20841b873350",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a1b3ffb9-a8bb-45a4-b984-569ff207ef5d",
+			"id": "0008d772-fbe4-435f-865d-701dc5292e8e",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "fc0dd44b-9a94-4fd9-8f53-da0c38f0f6f9",
+			"id": "a6677298-cf28-40d6-8510-f53fcdcb21ef",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "5a639294-1773-4ca1-990a-c746ecea7b41",
+			"id": "fa03c9d5-d5c0-4e74-86bb-32c67d770af2",
 			"key": "VS_NAME",
 			"value": "",
 			"type": "string"
