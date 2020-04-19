@@ -12,3 +12,4 @@ Welcome
    :glob:
 
    class*/class*
+   labinfo*
