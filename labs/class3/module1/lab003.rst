@@ -1,4 +1,4 @@
-Lab 1.2 - Device Posture 
+Lab 1.3 - Device Posture 
 ------------------------------------------------
 
 In this section, you will configure the IAP to perform posture assessment from client devices.  
