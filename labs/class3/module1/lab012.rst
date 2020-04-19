@@ -1,4 +1,4 @@
-Lab 1.13 - Testing 
+Lab 1.12 - Testing 
 ------------------------------------------------
 
 In this section you will access the application basic-iap.acme.com and watch how the BIG-IP restricts access when a device fails it's posture assessment.
