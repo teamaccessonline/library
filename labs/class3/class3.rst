@@ -14,6 +14,31 @@ Expected time to complete: **1 hour**
 
 UDF blueprint version: **1**
 
+Setup Lab Environment
+----------------------------------------
+
+#. Click the **Command Prompt** shortcut to open the command prompt on the jumphost 
+
+   |image42|
+
+#. Type the command **cd:\\labfiles\\solutions\\postman** to navigate the Postman collection folder.
+
+   |image43|
+
+#. Type the command **newman run "Identity Aware Proxy Labs.json" -e lab-setup.json -k**
+
+   |image44|
+
+#. All Steps in the collection should succeed before moving on to the lab.  If an API call fails run the collection again by repeating the previous step.  
+
+   |image45|
+
+.. |image42| image:: media/image042.png
+.. |image43| image:: media/image043.png
+.. |image44| image:: media/image044.png
+.. |image45| image:: media/image045.png
+
+
 .. toctree::
    :maxdepth: 1
    :glob:
