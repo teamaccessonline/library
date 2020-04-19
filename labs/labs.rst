@@ -11,5 +11,6 @@ Welcome
    :caption: Contents:
    :glob:
 
-   class*/class*
    labinfo*
+   class*/class*
+ 
