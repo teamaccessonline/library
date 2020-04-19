@@ -1,4 +1,4 @@
-Lab 1.7 - Applications
+Lab 1.8 - Applications
 ------------------------------------------------
 
 In this section you will define a single application
