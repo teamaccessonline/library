@@ -15,6 +15,8 @@ During this hands-on lab you will learn how to configure the following:
 
 Expected time to complete: **1 hour**
 
+UDF Blueprint version: **1**
+
 .. toctree::
    :maxdepth: 1
    :glob:
