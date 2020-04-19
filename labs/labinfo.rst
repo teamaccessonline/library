@@ -8,7 +8,7 @@ To access your dedicated student lab environment, you will require a web browser
          - User: **f5lab\\user1**
          - Password: **user1**
 
-2. Access the BIG-IP GUI https://10.1.1.4 (you can double-click on the BIG-IP1 bookmark from Chrome).
+2. BIG-IP1's GUI can be accessed via Chrome using bookmarks or by typing https://10.1.1.4 
 
 3. Login into the BIG-IP Configuration Utility with the following credentials:
          - User: **admin**
