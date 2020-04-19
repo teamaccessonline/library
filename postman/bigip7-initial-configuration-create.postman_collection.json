@@ -1,0 +1,734 @@
+{
+	"info": {
+		"_postman_id": "28618102-8aeb-40b7-abb9-8e414a28225d",
+		"name": "bigip7-initial-configuration-create",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bigip7-create-Test DO is running",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f5d45f3a-532f-4062-8557-a5cff6339233",
+						"exec": [
+							"pm.collectionVariables.set(\"APP_NAME\", \"dns2.acme.com\");",
+							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
+							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e02bd7e3-416a-4d4e-9a8f-add07f65911c",
+						"exec": [
+							"",
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"",
+							"pm.test(\"AS3 is running\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"class\": \"Device\",\r\n    \"async\": true,\r\n    \"label\": \"my BIG-IP declaration for declarative onboarding\",\r\n    \"Common\": {\r\n        \"class\": \"Tenant\",\r\n        \"mySystem\": {\r\n            \"class\": \"System\",\r\n            \"hostname\": \"bigip7.f5lab.local\",\r\n            \"cliInactivityTimeout\": 1200,\r\n            \"consoleInactivityTimeout\": 1200,\r\n            \"autoPhonehome\": false\r\n        },\r\n        \"myLicense\": {\r\n            \"class\": \"License\",\r\n            \"licenseType\": \"regKey\",\r\n            \"regKey\": \"T2370-34614-21034-69709-7532870\"\r\n        },\r\n        \"myDns\": {\r\n            \"class\": \"DNS\",\r\n            \"nameServers\": [\r\n                \"10.1.1.7\"\r\n            ],\r\n \r\n        },\r\n        \"myNtp\": {\r\n            \"class\": \"NTP\",\r\n            \"servers\": [\r\n                \"10.1.20.7\"\r\n            ],\r\n            \"timezone\": \"America/New_York\"\r\n        },\r\n        \"root\": {\r\n            \"class\": \"User\",\r\n            \"userType\": \"root\",\r\n            \"oldPassword\": \"default\",\r\n            \"newPassword\": \"myNewPass1word\"\r\n        },\r\n        \"admin\": {\r\n            \"class\": \"User\",\r\n            \"userType\": \"regular\",\r\n            \"password\": \"admin\",\r\n            \"shell\": \"bash\"\r\n        },\r\n        \"myProvisioning\": {\r\n            \"class\": \"Provision\",\r\n            \"gtm\": \"nominal\"\r\n        },\r\n        \"internal\": {\r\n            \"class\": \"VLAN\",\r\n            \"tag\": 4093,\r\n            \"mtu\": 1500,\r\n            \"interfaces\": [\r\n                {\r\n                    \"name\": \"1.2\",\r\n                    \"tagged\": true\r\n                }\r\n            ],\r\n            \"cmpHash\": \"dst-ip\"\r\n        },\r\n        \"internal-self\": {\r\n            \"class\": \"SelfIp\",\r\n            \"address\": \"10.1.20.12/24\",\r\n            \"vlan\": \"internal\",\r\n            \"allowService\": \"default\",\r\n            \"trafficGroup\": \"traffic-group-local-only\"\r\n        },\r\n        \"external\": {\r\n            \"class\": \"VLAN\",\r\n            \"tag\": 4094,\r\n            \"mtu\": 1500,\r\n            \"interfaces\": [\r\n                {\r\n                    \"name\": \"1.1\",\r\n                    \"tagged\": true\r\n                }\r\n            ],\r\n            \"cmpHash\": \"src-ip\"\r\n        },\r\n        \"external-self\": {\r\n            \"class\": \"SelfIp\",\r\n            \"address\": \"10.1.10.12/24\",\r\n            \"vlan\": \"external\",\r\n            \"allowService\": \"none\",\r\n            \"trafficGroup\": \"traffic-group-local-only\"\r\n        },\r\n        \"default\": {\r\n            \"class\": \"Route\",\r\n            \"gw\": \"10.1.10.1\",\r\n            \"network\": \"default\",\r\n            \"mtu\": 1500\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/shared/declarative-onboarding/info",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"declarative-onboarding",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-create-Perform DO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cb1876f8-ae36-4a64-9de6-51760038953a",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"DO Complete\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"schemaVersion\": \"1.0.0\",\r\n    \"class\": \"Device\",\r\n    \"async\": true,\r\n    \"label\": \"my BIG-IP declaration for declarative onboarding\",\r\n    \"Common\": {\r\n        \"class\": \"Tenant\",\r\n        \"mySystem\": {\r\n            \"class\": \"System\",\r\n            \"hostname\": \"bigip7.f5lab.local\",\r\n            \"cliInactivityTimeout\": 1200,\r\n            \"consoleInactivityTimeout\": 1200,\r\n            \"autoPhonehome\": false\r\n        },\r\n        \"myLicense\": {\r\n            \"class\": \"License\",\r\n            \"licenseType\": \"regKey\",\r\n            \"regKey\": \"T2370-34614-21034-69709-7532870\"\r\n        },\r\n        \"myDns\": {\r\n            \"class\": \"DNS\",\r\n            \"nameServers\": [\r\n                \"10.1.1.7\"\r\n            ]\r\n        },\r\n        \"myNtp\": {\r\n            \"class\": \"NTP\",\r\n            \"servers\": [\r\n                \"10.1.20.7\"\r\n            ],\r\n            \"timezone\": \"America/New_York\"\r\n        },\r\n        \"admin\": {\r\n            \"class\": \"User\",\r\n            \"userType\": \"regular\",\r\n            \"password\": \"admin\",\r\n            \"shell\": \"bash\"\r\n        },\r\n        \"myProvisioning\": {\r\n            \"class\": \"Provision\",\r\n            \"gtm\": \"nominal\"\r\n        },\r\n        \"internal\": {\r\n            \"class\": \"VLAN\",\r\n             \"interfaces\": [\r\n                {\r\n                    \"name\": \"1.2\",\r\n                    \"tagged\": false\r\n                }\r\n            ],\r\n            \"cmpHash\": \"dst-ip\"\r\n        },\r\n        \"internal-self\": {\r\n            \"class\": \"SelfIp\",\r\n            \"address\": \"10.1.20.12/24\",\r\n            \"vlan\": \"internal\",\r\n            \"allowService\": \"default\",\r\n            \"trafficGroup\": \"traffic-group-local-only\"\r\n        },\r\n        \"external\": {\r\n            \"class\": \"VLAN\",\r\n            \"interfaces\": [\r\n                {\r\n                    \"name\": \"1.1\",\r\n                    \"tagged\": false\r\n                }\r\n            ],\r\n            \"cmpHash\": \"src-ip\"\r\n        },\r\n        \"external-self\": {\r\n            \"class\": \"SelfIp\",\r\n            \"address\": \"10.1.10.12/24\",\r\n            \"vlan\": \"external\",\r\n            \"allowService\": \"default\",\r\n            \"trafficGroup\": \"traffic-group-local-only\"\r\n        },\r\n        \"default\": {\r\n            \"class\": \"Route\",\r\n            \"gw\": \"10.1.10.1\",\r\n            \"network\": \"default\",\r\n            \"mtu\": 1500\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/shared/declarative-onboarding",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"declarative-onboarding"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-create-DO Complete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be7144e4-6b1c-4b80-9fac-b9020b469d7e",
+						"exec": [
+							"",
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"",
+							"pm.test(\"AS3 is running\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/shared/declarative-onboarding",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"declarative-onboarding"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-create-gtm_add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c273291-22ab-47f5-81e7-93fc3009920f",
+						"exec": [
+							"",
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"",
+							"pm.test(\"GTM added\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"command\":\"run\",\r\n\t\"options\":[\r\n\t\t{\r\n\t\t\t\"ssh-password\":\"admin\",\r\n\t\t\t\"admin@10.1.10.11\":\"\"\r\n\t\t}\r\n\t]\r\n}"
+				},
+				"url": {
+					"raw": "https://10.1.10.12/mgmt/tm/gtm/gtm_add",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"gtm",
+						"gtm_add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-create-bigip_add to bigip5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21ea13b4-6eba-44d4-9e4f-10c1de1ae21b",
+						"exec": [
+							"",
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"",
+							"pm.test(\"BIG-IP Added\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"command\":\"run\",\r\n\t\"options\":[\r\n\t\t{\r\n\t\t\t\"ssh-password\":\"admin\",\r\n\t\t\t\"admin@10.1.1.11\":\"\"\r\n\t\t}\r\n\t]\r\n} "
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/tm/gtm/bigip_add",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"gtm",
+						"bigip_add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip5-create-Add Server BIG-IP7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "82ad6051-4a25-463a-be06-d08e03bbfe6b",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"BIG-IP Added\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} else ",
+							"pm.test(\"BIG-IP Exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"bigip7.f5lab.local\",\n\t\"datacenter\": \"/Common/DC2\",\n\t\"virtualServerDiscovery\": \"disabled\",\n\t        \"addresses\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\":\"10.1.10.12\",\n\t\t\t\t\t\"deviceName\": \"bigip7.f5lab.local\",\n\t\t\t\t\t\"translation\": \"none\"\n\t\t\t\t}\n\t\t\t]\n\t\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.11/mgmt/tm/gtm/server",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"11"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"gtm",
+						"server"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-create-Add Server BIG-IP7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "836c61b4-8868-4edb-9b22-34cb0fe499b5",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"BIG-IP Created\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} else ",
+							"pm.test(\"BIG-IP Exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"bigip7.f5lab.local\",\n\t\"datacenter\": \"/Common/DC2\",\n\t\"virtualServerDiscovery\": \"disabled\",\n\t        \"addresses\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\":\"10.1.10.12\",\n\t\t\t\t\t\"deviceName\": \"bigip7.f5lab.local\",\n\t\t\t\t\t\"translation\": \"none\"\n\t\t\t\t}\n\t\t\t]\n\t\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/tm/gtm/server",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"gtm",
+						"server"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-create-Add Pool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4d5b3355-ba52-4707-bc76-62ccde7f1090",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"Pool Created\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} else ",
+							"pm.test(\"Pool Exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n\t\"name\":\"ad-dns-pool\",\n\t\"members\":[\n\t\t{\n\t\t\"name\":\"10.1.20.7:53\",\n\t\t\"address\":\"10.1.20.7\"\n\t\t\t\n\t\t}\n\t\t]\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/tm/ltm/pool/",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"ltm",
+						"pool",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-create-Add Listener",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8720c99e-7a03-44dc-a194-94da524ab9c5",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"Listener Created\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} else ",
+							"pm.test(\"Listener Exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"dns2.acme.com\",\n\t\"address\": \"10.1.10.199\",\n\t\"sourcePort\": \"preserve\",\n    \"translateAddress\": \"enabled\",\n    \"translatePort\": \"disabled\",\n    \"sourceAddressTranslation\": {\n        \"type\": \"automap\"\n        },\n    \"pool\": \"/Common/ad-dns-pool\"\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/tm/gtm/listener",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"gtm",
+						"listener"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip7-Restart named",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4555b6e3-1112-4668-ab33-49fe679cbabb",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"named restarted\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"command\":\"restart\"\t\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.12/mgmt/tm/sys/service/named",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"12"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"sys",
+						"service",
+						"named"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "1f687a2b-0e1e-4807-a978-db17a55df6d8",
+			"key": "PRIOR_RESPONSE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "850cc37f-3342-490b-8d18-f8a48cce3ab5",
+			"key": "APP_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "cdba5878-8020-45db-bb67-12e6350578ef",
+			"key": "PARTITION_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ccfcb1b7-d5ed-4421-a3bf-4c20f2d08b1c",
+			"key": "PATH_NAME",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
