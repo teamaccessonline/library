@@ -1,4 +1,4 @@
-Lab 1.3 - Virtual Server
+Lab 1.4 - Virtual Server
 ------------------------------------------------
 
 In this section, you will define the virtual server IP address and its SSL profile settings 
