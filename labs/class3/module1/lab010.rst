@@ -1,4 +1,4 @@
-Lab 1.11 - Customization
+Lab 1.10 - Customization
 ------------------------------------------------
 
 The Customization section allows an administrator to define the images, colors, and messages that are presented to a user.
