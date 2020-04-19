@@ -1,4 +1,4 @@
-Lab 1.12 - Summary
+Lab 1.11 - Summary
 ------------------------------------------------
 
 The **Summary** page allows you to review the configuration that is about to be deployed.  In the event a change is required anywhere in the configuration the **pencil icon** on the right side can be selected to quickly edit the appropriate section.
