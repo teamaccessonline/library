@@ -1,4 +1,4 @@
-Lab 1.4 - User Identity
+Lab 1.5 - User Identity
 ------------------------------------------------
 
 In this section you will configure a single User Identity using Active Directory.  
