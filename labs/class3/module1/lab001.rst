@@ -7,15 +7,15 @@ Task - Run Postman collection using newman
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the **Command Prompt** shortcut to open the command prompt on the jumphost 
-|image042|
+|image42|
 #. Type the command **cd:\\labfiles\\solutions\\postman** to navigate the Postman collection folder.
-|image043|
+|image43|
 #. Type the command **newman run "Identity Aware Proxy Labs.json" -e lab-setup.json -k**
-|image044|
+|image44|
 #. All Steps in the collection should succeed before moving on to the lab.  If an API call fails run the collection again by repeating the previous step.  
-|image045|
+|image45|
 
-.. |image0| image:: media/image042.png
-.. |image0| image:: media/image043.png
-.. |image0| image:: media/image044.png
-.. |image0| image:: media/image045.png
+.. |image42| image:: media/image042.png
+.. |image43| image:: media/image043.png
+.. |image44| image:: media/image044.png
+.. |image45| image:: media/image045.png
