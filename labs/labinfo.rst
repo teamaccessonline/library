@@ -75,5 +75,5 @@ components:
 |                        |	      - 10.1.20.18 |                          |
 +------------------------+-------------------------+--------------------------+      
 
-.. |image0| image:: /_static/class1/image000.png
+.. |image0| image:: media/image000.png
 
