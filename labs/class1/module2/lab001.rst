@@ -143,7 +143,7 @@ Task 3 - Set the WAF policy to Transparent and assign it to the virtual
 3. Click **Update**.
 
 
-.  |module2Lab1Task3-image2| image:: media/module2Lab1Task3-image2.png
+..  |module2Lab1Task3-image2| image:: media/module2Lab1Task3-image2.png
         :width: 800
 ..  |module2Lab1Task3-image1| image:: media/module2Lab1Task3-image1.png
         :width: 800
