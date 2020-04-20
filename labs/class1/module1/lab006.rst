@@ -65,7 +65,7 @@ Task 2 - Define the rate limiting keys
 
 7. Click **api-protection_auto_rate_limiting_key2**
 
-8. Enter the Key Value **%{ubsession.oauth.scope.last.jwt.groupid}**
+8. Enter the Key Value **%{subsession.oauth.scope.last.jwt.groupid}**
 
 9. Click **Edit**
 
