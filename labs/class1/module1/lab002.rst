@@ -7,72 +7,69 @@ The API Protection profile is a combination of APM and AWAF features to protect 
 Task 1 - Create an API Protection Profile
 -------------------------------------------
 
-1. From the web browser, click on the **Access** tab located on the left side
 
-|image0|
+#. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
 
-2. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
-
-|image11|
+   |image11|
 
 .. note :: json file is located on the jumpbox in c:\\Labfiles\\Agility2020-API Protection
 
-3. Enter the following parameters:
+#. Enter the following parameters:
 
-- Name: **api-protection**
-- OpenAPI File: **Active Directory OpenAPI.json**
-- DNS Resolver: **internal-dns-resolver**
-- Authorization: **OAuth 2.0**
+   - Name: **api-protection**
+   - OpenAPI File: **Active Directory OpenAPI.json**
+   - DNS Resolver: **internal-dns-resolver**
+   - Authorization: **OAuth 2.0**
 
-4. Click **Add**
+#. Click **Add**
 
-5. Click **Save**
+#. Click **Save**
 
-|image12|
+   |image12|
 
 
 Task 2 - Explore the Path Configuration
 -----------------------------------------
 
-6. Note the Spec file contained four paths to various URIs
+#. Note the Spec file contained four paths to various URIs
 
-7. Each URI only supports the Method GET
+#. Each URI only supports the Method GET
 
-8. The APIs server URL is http://adapi.f5lab.local:81
+#. The APIs server URL is http://adapi.f5lab.local:81
 
-|image13|
+   |image13|
 
 
 Task 3 - Associate a JWT Provider
 ----------------------------------
 
-9. Click **Access Control** from the top ribbon
+#. Click **Access Control** from the top ribbon
 
-10. Click **Edit (Per Request Policy)**
+#. Click **Edit (Per Request Policy)**
 
-|image14|
+   |image14|
 
-11. Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access control.  We will implement it later in the lab
+#. Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access    control.  We will implement it later in the lab
 
-12. Click the **+ (plus symbol)** next the Subroutine **OAuth Scope Check AuthZ** to expand its properties:
+#. Click the **+ (plus symbol)** next the Subroutine **OAuth Scope Check AuthZ** to expand its properties:
 
-|image15|
+   |image15|
 
-.. note :: The OAuth scope agent currently has a red asterisk since no provider is associated with it.
+   .. note :: The OAuth scope agent currently has a red asterisk since no provider is associated with it.
 
-13. Click **OAuth Scope**
+#. Click **OAuth Scope**
 
-|image16|
+   |image16|
 
-14. Enter the following parameters:
+#. Enter the following parameters:
 
-- Token Validation Mode: **Internal**
-- JWT Provider List: **as-jwt-provider**
-- Response: **api-protection_auto_response1**
+   - Token Validation Mode: **Internal**
+   - JWT Provider List: **as-jwt-provider**
+   - Response: **api-protection_auto_response1**
 
-15. Click **Save**
+#. Click **Save**
 
-|image17|
+   |image17|
 
 .. |image0| image:: media/image000.png
 	:width: 800px
