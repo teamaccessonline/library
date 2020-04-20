@@ -7,8 +7,8 @@ Task - Create Contextual Access for basic-iap.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#. Enter **basic-iap.acme.com** for the contextual access name
-#. Select **basic-iap.acme.com** from the Resource dropdown box
+#. Enter **basic.acme.com** for the contextual access name
+#. Select **basic.acme.com** from the Resource dropdown box
 #. Select **fw_check** from the Device Posture dropdown box
 #. Select **ad** from the Primary Authentication dropdown box
 #. Select **basic_sso** from the Single Sign-On dropdown box
