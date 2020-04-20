@@ -21,7 +21,7 @@ Task 1 - Create a virtual server
 - Destination Address/Mask: **10.1.10.102**
 - Service Port: **443**
 - HTTP Profile (Client): **http**
-- SSL Profile(Client): **f5demo**
+- SSL Profile(Client): **acme.com**
 - Source Address Translation: **Auto Map**
 - API Protection: **api-protection**
 
