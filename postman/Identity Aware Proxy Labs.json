@@ -91,6 +91,78 @@
 							"response": []
 						},
 						{
+							"name": "bigip1-create-Add Pool",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4d5b3355-ba52-4707-bc76-62ccde7f1090",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"Pool Created\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} else ",
+											"pm.test(\"Pool Exists\", function () {",
+											"    pm.response.to.have.status(409);",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n\t\"name\":\"ad-pool\",\n\t\"members\":[\n\t\t{\n\t\t\"name\":\"10.1.20.7:0\",\n\t\t\"address\":\"10.1.20.7\",\n\t\t\"monitor\": \"/Common/gateway_icmp\"\n\t\t\t\n\t\t}\n\t\t]\n}"
+								},
+								"url": {
+									"raw": "https://10.1.1.4/mgmt/tm/ltm/pool/",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"1",
+										"4"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"ltm",
+										"pool",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "bigip1-Create-APM AAA Active Directory",
 							"event": [
 								{
@@ -155,7 +227,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"{{APM_AAA_AD_NAME}}\",\r\n    \"adminEncryptedPassword\": \"admin\",\r\n    \"adminName\": \"admin\",\r\n    \"cleanupCache\": \"none\",\r\n    \"domain\": \"f5lab.local\",\r\n    \"groupCacheTtl\": 30,\r\n    \"kdcLockoutDuration\": 0,\r\n    \"locationSpecific\": \"true\",\r\n    \"padata\": \"none\",\r\n    \"pool\": \"/Common/prebuilt-ad-pool\",  \r\n    \"psoCacheTtl\": 30,\r\n    \"timeout\": 15,\r\n    \"usePool\": \"enabled\",\r\n    \"domainControllers\": [\r\n        {\r\n            \"name\": \"dc1.f5lab.local\",\r\n            \"ip\": \"10.1.20.7\"\r\n        }\r\n    ]\r\n}"
+									"raw": "{\r\n    \"name\": \"{{APM_AAA_AD_NAME}}\",\r\n    \"adminEncryptedPassword\": \"admin\",\r\n    \"adminName\": \"admin\",\r\n    \"cleanupCache\": \"none\",\r\n    \"domain\": \"f5lab.local\",\r\n    \"groupCacheTtl\": 30,\r\n    \"kdcLockoutDuration\": 0,\r\n    \"locationSpecific\": \"true\",\r\n    \"padata\": \"none\",\r\n    \"pool\": \"/Common/ad-pool\",  \r\n    \"psoCacheTtl\": 30,\r\n    \"timeout\": 15,\r\n    \"usePool\": \"enabled\",\r\n    \"domainControllers\": [\r\n        {\r\n            \"name\": \"dc1.f5lab.local\",\r\n            \"ip\": \"10.1.20.7\"\r\n        }\r\n    ]\r\n}"
 								},
 								"url": {
 									"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/active-directory",
@@ -1332,6 +1404,78 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "bigip1-delete-Add Pool",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4d5b3355-ba52-4707-bc76-62ccde7f1090",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"Pool Deleted\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} else ",
+											"pm.test(\"Pool Does not Exist\", function () {",
+											"    pm.response.to.have.status(409);",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://10.1.1.4/mgmt/tm/ltm/pool/ad-pool",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"1",
+										"4"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"ltm",
+										"pool",
+										"ad-pool"
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -1343,43 +1487,43 @@
 	],
 	"variable": [
 		{
-			"id": "62905bc1-70d9-462e-9753-b68c5c79a74f",
+			"id": "3eec28ed-29ae-4ae9-94cb-3b03e1c7cb69",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "dfb7f250-bd73-4894-a307-fa9280247cf4",
+			"id": "cb0292aa-600c-4bdc-9fb6-5a6b8fc74520",
 			"key": "APM_AAA_AD_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "37b6731a-a448-4a23-ac1a-1cef1d32a852",
+			"id": "620b799b-7e71-4fc8-b541-293daefea49e",
 			"key": "APM_AAA_OCSP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "93b3ffca-a8c8-4cf1-982d-20841b873350",
+			"id": "d6a1b354-6b18-41ee-a689-ea6428e0f86d",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0008d772-fbe4-435f-865d-701dc5292e8e",
+			"id": "e546233d-1d09-4ade-bea9-979bba7d75bc",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a6677298-cf28-40d6-8510-f53fcdcb21ef",
+			"id": "ed348eb8-c242-4245-b9bd-ec75fc47397b",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "fa03c9d5-d5c0-4e74-86bb-32c67d770af2",
+			"id": "28d2bff8-1b93-461d-8130-fd7ee66a4867",
 			"key": "VS_NAME",
 			"value": "",
 			"type": "string"
