@@ -18,9 +18,6 @@ Task - Login to header-iap.acme.com using user1
    |image31|
 
 #. Access the **admin** portion of the website https://header.acme.com/admin.php
-
-   |image32|
-
 #. Select the certificate **user1**
 #. Click **OK**
 
