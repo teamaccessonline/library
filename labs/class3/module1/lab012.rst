@@ -79,6 +79,8 @@ Task - Enable Windows Firewall
 #. Click **Ok**
 
    |image41|
+   
+#. From the jumpbox, browse to https://basic.acme.com to sure you can connect. 
 
 
 .. |image32| image:: media/image032.png
