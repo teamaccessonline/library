@@ -109,6 +109,7 @@ Task - Open Visual Policy Editor
    |image21|
 
 #. Click **Apply Access Policy** located in the top left corner to commit the policy changes
+
 .. |image0| image:: media/image000.png
 	:width: 800px
 .. |image1| image:: media/image001.png
