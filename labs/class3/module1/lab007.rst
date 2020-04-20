@@ -3,7 +3,7 @@ Lab 1.7 - Applications
 
 In this section you will define a single application
 
-Task - Create basic-iap.acme.com application
+Task - Create basic.acme.com application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Enter the **basic.acme.com** for the application name
