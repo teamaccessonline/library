@@ -3,7 +3,7 @@ Lab 3.3 - Testing
 
 In this section you will test how HTTP connector can influence policy changes dynamically as conditions change in the network .
 
-Task - Access basic-iap.acme.com
+Task - Access basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the jump box open Chrome and open Developer Tools 
@@ -14,7 +14,7 @@ Task - Access basic-iap.acme.com
 
    |image22|
 
-#. Access the site **https://basic-iap.acme.com**
+#. Access the site **https://basic.acme.com**
 #. Login with the Username: **user2** and Password: **user2**
 
    |image23|
@@ -72,7 +72,7 @@ Task - Access basic-iap.acme.com
 
    |image32|
 
-#. Return to your existing https://basic-iap.acme.com session.
+#. Return to your existing https://basic.acme.com session.
 #. Click on one of the links for the website.  You will receive a **Deny Page**.
 
 
