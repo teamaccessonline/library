@@ -21,7 +21,7 @@ Task 1 - Create an API Protection Profile
 
 - Name: **api-protection**
 - OpenAPI File: **Active Directory OpenAPI.json**
-- DNS Resolver: **prebuilt-dns-resolver**
+- DNS Resolver: **internal-dns-resolver**
 - Authorization: **OAuth 2.0**
 
 4. Click **Add**
