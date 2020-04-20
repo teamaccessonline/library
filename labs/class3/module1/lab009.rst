@@ -3,7 +3,7 @@ Lab 1.9 - Contextual Access
 
 In this section you will define contextual access for the previously created application.  Context access is where all of the previously created objects are put together to provide fine-grain access control.
 
-Task - Create Contextual Access for basic-iap.acme.com
+Task - Create Contextual Access for basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
