@@ -3,7 +3,7 @@ Lab 2.5 - Application Groups
 
 In this section you will configure two Application groups to enforce different policies on parts of the header-iap.acme.com website.  
 
-Task - Create adauth_header Group
+Task - Create header-ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Application Groups** from the ribbon.
@@ -14,20 +14,20 @@ Task - Create adauth_header Group
  
   |image16|
 
-#. Enter Name **adauth_header-iap.acme.com**
+#. Enter Name **header.acme.com-ad**
 #. Under Applications List, select **/** and click the arrow to move it into the Selected box
 #. Click **Save** 
  
    |image17|
 
-Task - Create ocspauth_header Group
+Task - Create header-ocsp Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add** to create a second application group
 
    |image18|
 
-#. Enter Name **ocspauth_header-iap.acme.com**
+#. Enter Name **header.acme.com-ocsp**
 #. Under Applications List, select **/admin.php** and click the arrow to move it into the Selected box
 #. Click **Save** 
 
