@@ -13,9 +13,9 @@ Task - Create an HTTP Connector Transport
 
 #. Enter Name **demo-http-connector**
 
-#. Select **prebuilt-dns-resolver** from the **DNS Resolver** dropdown
+#. Select **internal-dns-resolver** from the **DNS Resolver** dropdown
 
-#. Select **prebuilt-adpiadmin-serverssl** from the **Server SSL Profile**
+#. Select **apiadmin-serverssl** from the **Server SSL Profile**
 
 #. Click **Save**
 
