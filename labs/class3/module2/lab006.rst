@@ -17,7 +17,7 @@ Task - Configure Contextual Access for header_ad Group
 
 #. Enter Name **header-ad**
 #. Select **Application Group** from the Resource Type dropdown
-#. Select **header-iap.acme.com-ad** from the Resource dropdown
+#. Select **header.acme.com-ad** from the Resource dropdown
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
 #. Click **Save**
