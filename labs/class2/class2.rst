@@ -12,6 +12,33 @@ This class covers the following topics related to Ephemeral Authentication:
 
 Expected time to complete: **1 hour**
 
+
+UDF blueprint version: **1**
+
+Setup Lab Environment
+----------------------------------------
+
+#. Click the **Command Prompt** shortcut to open the command prompt on the jumphost 
+
+   |image1|
+
+#. Type the command **cd:\\labfiles\\solutions\\postman** to navigate the Postman collection folder.
+
+   |image2|
+
+#. Type the command **newman run "Ephemeral Authentication Labs.json" -e lab-setup.json -k**
+
+   |image3|
+
+#. All Steps in the collection should succeed before moving on to the lab.  If an API call fails run the collection again by repeating the previous step.  
+
+   |image4|
+
+.. |image1| image:: media/image001.png
+.. |image2| image:: media/image002.png
+.. |image3| image:: media/image003.png
+.. |image4| image:: media/image004.png
+
 .. toctree::
    :maxdepth: 1
    :glob:
