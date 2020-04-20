@@ -1,14 +1,14 @@
 Lab 1.12 - Testing 
 ------------------------------------------------
 
-In this section you will access the application basic-iap.acme.com and watch how the BIG-IP restricts access when a device fails it's posture assessment.
+In this section you will access the application basic.acme.com and watch how the BIG-IP restricts access when a device fails it's posture assessment.
 
-Task - Access basic-iap.acme.com
+Task - Access basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE:: Posture Assessments in a Per-Request Policy use F5 Access Guard(running on clients) to perform posture assessments prior to accessing an application.  This improves the user experience since posture checks do not introduce any delay when accessing the application. This also improves security by allowing posture assessments to occur continuously throughout the life of the session.
 
-#. From the jumpbox, browse to https://basic-iap.acme.com
+#. From the jumpbox, browse to https://basic.acme.com
 #. At the logon page enter the Username:**user1** and Password:**user1**
 #. Click **Logon**
 
@@ -48,10 +48,10 @@ Task - Disable Windows Firewall
    |image39|
 
 
-Task - See Deny Page basic-iap.acme.com 
+Task - See Deny Page basic.acme.com 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#.  From the jumpbox, browse to https://basic-iap.acme.com
+#.  From the jumpbox, browse to https://basic.acme.com
 
 #. You will receive a deny page from the the IAP stating that you have failed the network firewall check
 
