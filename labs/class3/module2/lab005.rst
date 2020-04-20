@@ -14,7 +14,7 @@ Task - Create header-ad Group
  
   |image16|
 
-#. Enter Name **header.acme.com-ad**
+#. Enter Name **header-ad**
 #. Under Applications List, select **/** and click the arrow to move it into the Selected box
 #. Click **Save** 
  
@@ -27,7 +27,7 @@ Task - Create header-ocsp Group
 
    |image18|
 
-#. Enter Name **header.acme.com-ocsp**
+#. Enter Name **header-ocsp**
 #. Under Applications List, select **/admin.php** and click the arrow to move it into the Selected box
 #. Click **Save** 
 
