@@ -9,7 +9,7 @@ Task - Configure Active Directory AAA
 #. Enter **"ad"** for the name
 #. Ensure the Authentication Type is **AAA**
 #. Ensure the Choose Authentication Server Type is set to **Active Directory**
-#. Select **prebuilt-ad-servers** from the Choose Authentication Server dropdown box
+#. Select **ad-servers** from the Choose Authentication Server dropdown box
 #. Check **Active Directory Query Properties**
 #. Select the **memberOf** in the Required Attributes box 
 #. Click **Save**
