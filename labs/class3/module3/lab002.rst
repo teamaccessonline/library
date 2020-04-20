@@ -19,7 +19,7 @@ Task - Add the HTTP Connector Request
    
    |image15|
 
-#. Click on **basic-iap.acme.com**
+#. Click on **basic.acme.com**
 
    |image16|
 
