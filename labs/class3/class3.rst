@@ -12,7 +12,7 @@ Topics Covered
 
 Expected time to complete: **1 hour**
 
-UDF blueprint version: **1**
+UDF blueprint version: **34**
 
 Setup Lab Environment
 ----------------------------------------
@@ -21,7 +21,7 @@ Setup Lab Environment
 
    |image1|
 
-#. Type the command **cd:\\labfiles\\solutions\\postman** to navigate the Postman collection folder.
+#. Type the command **cd C:\\library\\labs\\class3\\postman** to navigate the Postman collection folder.
 
    |image2|
 
