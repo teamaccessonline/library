@@ -12,13 +12,13 @@ Task 1 - Test pre-rate limiting Access
 
    |image88|
 
-#. Click **Runner** located in the left corner
+#. Click the **arrow** located to the right of the API Portection labs Collection.
 
    |image89|
 
-#. Expand the **API Protection** collection
+#. Click **Run**
 
-   |image90|
+   |image104|
 
 #. Deselect all requests except **JWT-Retrieve User Attributes**
 
@@ -26,11 +26,11 @@ Task 1 - Test pre-rate limiting Access
 
 #. Click **Run API Protection**
 
-|image91|
+   |image105|
 
 #. You receive a **200 OK** for every request. Leave Runner open
 
-|image92|
+   |image92|
 
 
 Task 2 - Define the rate limiting keys
@@ -311,6 +311,8 @@ Task 5 - Test Rate Limiting
 .. |image101| image:: media/image101.png
 .. |image103| image:: media/image103.png
 	:width: 800px
+.. |image104| image:: media/image104.png
+.. |image105| image:: media/image105.png
 
 
 
