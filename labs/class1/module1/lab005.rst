@@ -1,7 +1,7 @@
 Lab 1.5 - Implement Fine-Grained Access Controls
 ==================================================
 
-Up to this point any authenticated user to the API is authorized to use them. In this section we will restrict user1's ability to create users, but will still be able to modify the user's employee number.
+Up to this point any authenticated user to the API is authorized to use them. In this section we will restrict user1's ability to create users, but will still be able to modify a user's employee number.
 
 Task 1 - Retrieve Group Membership Subsession Variable
 --------------------------------------------------------
@@ -22,10 +22,7 @@ Task 1 - Retrieve Group Membership Subsession Variable
 |image84|
 
 
-4. From Postman, Select the request **GET-Retrieve User Attributes-JWT-Pass**.  The Authorization field should already be populated with User1's token.
-
-|image42|
-
+4. From Postman, Select the request **JWT-Retrieve User Attributes**.  The Authorization field should already be populated with User1's token.
 
 5. Click **Send**
 
@@ -112,6 +109,8 @@ Task 2 - Edit the per-request policy
 .. Note :: 
 
 	expr {[mcget {subsession.oauth.scope.last.jwt.groups}] contains "CreateUser"}
+	
+	
 
 |image55|
 
@@ -139,14 +138,11 @@ Task 3 - Test the Fine-Grained Access Control with user1
 -----------------------------------------------------------
 
 
-1. From Postman select the request **GET-Create User-JWT-Pass**
-
-|image45|
+1. From Postman select the request **JWT-Create User**
 
 2. Select the **Authorization** Tab
 
 |image43|
-
 
 3. Select the previously created **User1** token from the **Available Tokens** dropdown
 
@@ -162,9 +158,7 @@ Task 3 - Test the Fine-Grained Access Control with user1
 Task 4 - Test the Fine-Grained Access Control with user2
 -----------------------------------------------------------
 
-1. Select the request **GET-Create User-JWT-Pass**
-
-|image45|
+1. Select the request **JWT-Create User**
 
 2. Select the **Authorization** tab
 
