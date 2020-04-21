@@ -48,7 +48,7 @@ block bot traffic. What do you expect? Keep in mind that the bot profile allows 
 
    |module2Lab2Task2-image1| 
 
-#. Go back to Postman once again and select the request **Retrieve Phone and Mail Attributes** and click **Send** another time.
+#. Go back to **Postman** once again and select the request **Retrieve Phone and Mail Attributes** and click **Send** another time.
 
    |module2Lab2Task2-image2|
 
@@ -100,9 +100,7 @@ block bot traffic. What do you expect? Keep in mind that the bot profile allows 
 
 #. Click **Save**.
 
-#. Go back to Postman once again and select the request **Get-Retrieve Phone and Mail Attributes** and click **Send** another time. Note this is done at the main Postman window, not in Runner.
-
-   |module2Lab2Task2-image10|
+#. Go back to Postman once again and select the request **Retrieve Phone and Mail Attributes** and click **Send** another time. Note this is done at the main Postman window, not in Runner.
 
 
 #. Navigate to **Security -> Event Logs -> Bot Defense -> Bot Requests** and find the Trusted Bot categorized request to the /vulnerable uri as shown below
