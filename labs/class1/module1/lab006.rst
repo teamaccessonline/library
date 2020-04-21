@@ -6,29 +6,29 @@ The API Protection Profile allows a BIG-IP administrator to throttle the amount 
 Task 1 - Test pre-rate limiting Access
 ---------------------------------------
 
-1. From Postman, Select the request **JWT-Retrieve User Attributes**
+#. From Postman, Select the request **JWT-Retrieve User Attributes**
 
-2. Click **Save**, so the current token is saved as part of the API request.
+#. Click **Save**, so the current token is saved as part of the API request.
 
-|image88|
+   |image88|
 
-8. Click **Runner** located in the left corner
+#. Click **Runner** located in the left corner
 
-|image89|
+   |image89|
 
-9. Expand the **API Protection** collection
+#. Expand the **API Protection** collection
 
-|image90|
+   |image90|
 
-10. Deselect all requests except **JWT-Retrieve User Attributes**
+#. Deselect all requests except **JWT-Retrieve User Attributes**
 
-11. Set the iterations to **100**
+#. Set the iterations to **100**
 
-12. Click **Run API Protection**
+#. Click **Run API Protection**
 
 |image91|
 
-13. You receive a **200 OK** for every request. Leave Runner open
+#. You receive a **200 OK** for every request. Leave Runner open
 
 |image92|
 
@@ -36,142 +36,142 @@ Task 1 - Test pre-rate limiting Access
 Task 2 - Define the rate limiting keys
 -----------------------------------------
 
-1. Navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile.  Not the + Plus symbol.
+#. Navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile.  Not the + Plus symbol.
 
-|image48|
+   |image48|
 
-2. Click **api-protection**
+#. Click **api-protection**
 
-|image64|
+   |image64|
 
-3. Click **Rate Limiting** from the top ribbon
+#. Click **Rate Limiting** from the top ribbon
 
 
-|image69|
+   |image69|
 
-.. Note ::  The API protection profile default settings contains five Key Names created, but their values are empty.  Additional Keys can be created if necessary
+   .. Note ::  The API protection profile default settings contains five Key Names created, but their values are empty.  Additional Keys can be created if necessary
 
-4. Click **api-protection_auto_rate_limiting_key1**
+#. Click **api-protection_auto_rate_limiting_key1**
 
-|image70|
+   |image70|
 
-5. Enter the Key Value **%{subsession.oauth.scope.last.jwt.user}**
+#. Enter the Key Value **%{subsession.oauth.scope.last.jwt.user}**
 
-6. Click **Edit**
+#. Click **Edit**
 
-|image71|
+   |image71|
 
-7. Click **api-protection_auto_rate_limiting_key2**
+#. Click **api-protection_auto_rate_limiting_key2**
 
-8. Enter the Key Value **%{subsession.oauth.scope.last.jwt.groupid}**
+#. Enter the Key Value **%{subsession.oauth.scope.last.jwt.groupid}**
 
-9. Click **Edit**
+#. Click **Edit**
 
-|image73|
+   |image73|
 
-10. Click **api-protection_auto_rate_limiting_key3**
+#. Click **api-protection_auto_rate_limiting_key3**
 
-11. Enter the Key Value **%{subsession.oauth.scope.last.jwt.client}**
+#. Enter the Key Value **%{subsession.oauth.scope.last.jwt.client}**
 
-12. Click **Edit**
+#. Click **Edit**
 
-|image75|
+   |image75|
 
-13. Click **api-protection_auto_rate_limiting_key4**
+#. Click **api-protection_auto_rate_limiting_key4**
 
-14. Enter the Key Value **%{subsession.oauth.scope.last.jwt.tier}**
+#. Enter the Key Value **%{subsession.oauth.scope.last.jwt.tier}**
 
-15. Click **Edit**
+#. Click **Edit**
 
-|image77|
+   |image77|
 
-16. Click **api-protection_auto_rate_limiting_key5**
+#. Click **api-protection_auto_rate_limiting_key5**
 
-17. Enter the Key Value **%{subsession.oauth.scope.last.jwt.org }**
+#. Enter the Key Value **%{subsession.oauth.scope.last.jwt.org }**
 
-18. Click **Edit**
+#. Click **Edit**
 
-|image79|
+   |image79|
 
-19. Click **Save**
+#. Click **Save**
 
-|image80|
+   |image80|
 
 Task 3 - Create a Rate Limiting Policy
 ----------------------------------------
 
-1. Click **Create** in the rate limiting section
+#. Click **Create** in the rate limiting section
 
-|image81|
+   |image81|
 
-2. Enter the Name **acme-rate-limits**
+#. Enter the Name **acme-rate-limits**
 
-3. Move all five keys under **Selected Keys**
+#. Move all five keys under **Selected Keys**
 
-4. Enter **10** for the number of requests per minute
+#. Enter **10** for the number of requests per minute
 
-5. Enter **5** for the number requests per second
+#. Enter **5** for the number requests per second
 
-6. Click **Add**.
+#. Click **Add**.
 
-|image82|
+   |image82|
 
-7. Click **Save**
+#. Click **Save**
 
-|image83|
+   |image83|
 
 
 Task 4 - Apply the Rate Limiting Policy
 -------------------------------------------
 
-1. Click **Rate Limiting** from the ribbon
+#. Click **Rate Limiting** from the ribbon
 
-|image93|
+   |image93|
 
-2. Click **Edit** Per Request Policy
+#. Click **Edit** Per Request Policy
 
-|image94|
+   |image94|
 
-3. Click the **+ (Plus Symbol)** on the **Out** branch of the **OAuth Scope Check AuthZ** Macro
+#. Click the **+ (Plus Symbol)** on the **Out** branch of the **OAuth Scope Check AuthZ** Macro
 
-|image95|
+   |image95|
 
-4. Click the **Traffic Management** tab
+#. Click the **Traffic Management** tab
 
-5. Select **API Rate Limiting**
+#. Select **API Rate Limiting**
 
-6. Click **Add Item**
+#. Click **Add Item**
 
-|image96|
+   |image96|
 
-7. Click **Add new entry**
+#. Click **Add new entry**
 
-8. Select **acme-rate-limits**
+#. Select **acme-rate-limits**
 
-9. Click **Save**
+#. Click **Save**
 
-|image97|
+   |image97|
 
-10. Verify the Rate Limiting agent now appears in the appropriate location
+#. Verify the Rate Limiting agent now appears in the appropriate location
 
-|image98|
+   |image98|
 
 
 Task 5 - Test Rate Limiting
 ------------------------------
 
 
-1. From Postman, return to Runner
+#. From Postman, return to Runner
 
-|image89|
+   |image89|
 
-2. Click **Retry** to rerun the request an additional 100 times.
+#. Click **Retry** to rerun the request an additional 100 times.
 
-|image103|
+   |image103|
 
-3. On the 6th request you begin to receive a **429 Too Many Requests** response status code
+#. On the 6th request you begin to receive a **429 Too Many Requests** response status code
 
-|image99|
+   |image99|
 
 
 
