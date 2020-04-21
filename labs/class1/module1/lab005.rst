@@ -265,9 +265,6 @@ Task 4 - Test the Fine-Grained Access Control with user2
 .. |image84| image:: media/image084.png
 	:width: 800px
 .. |image85| image:: media/image085.png
-	:width: 1200px
 .. |image86| image:: media/image086.png
-	:width: 1200px
 .. |image87| image:: media/image087.png
-	:width: 1200px
 .. |image101| image:: media/image101.png
