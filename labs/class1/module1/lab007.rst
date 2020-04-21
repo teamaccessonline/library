@@ -6,7 +6,7 @@ Organizations change. With this change, new APIs are introduced requiring modifi
 Task 1 - Verify no access to API
 -----------------------------------
 
-1. From Postman, select the request **JWTChange User Password**
+1. From Postman, select the request **JWT-Change User Password**
 
 2. Select the **Authorization** tab
 
