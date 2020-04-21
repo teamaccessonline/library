@@ -3,12 +3,10 @@ Lab 1.6 - Implement Rate Limiting
 
 The API Protection Profile allows a BIG-IP administrator to throttle the amount of connections to an API through the use of Key Names.
 
-Task 1 - Test access pre-ratelimiting
+Task 1 - Test pre-rate limiting Access
 ---------------------------------------
 
-1. From Postman, Select the request **GET-Retrieve User Attributes-JWT-Pass**
-
-|image42|
+1. From Postman, Select the request **JWT-Retrieve User Attributes**
 
 2. Click **Save**, so the current token is saved as part of the API request.
 
@@ -22,7 +20,7 @@ Task 1 - Test access pre-ratelimiting
 
 |image90|
 
-10. Deselect all requests except **GET-Retrieve User Attributes-JWT-Pass**
+10. Deselect all requests except **JWT-Retrieve User Attributes**
 
 11. Set the iterations to **100**
 
