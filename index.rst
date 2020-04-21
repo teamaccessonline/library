@@ -13,10 +13,10 @@ https://github.com/teamaccessonline/solutions/issues
    :caption: Content:
    :glob:
    
-   guides/guides.rst
-   irules/irules.rst
-   policies/policies.rst
-   postman/postman.rst
+
+
+
+ 
    solutions/solutions.rst
    labs/labs.rst
    contribute/contribute.rst
