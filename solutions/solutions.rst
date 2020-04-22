@@ -18,8 +18,9 @@ https://github.com/teamaccessonline/solutions/tree/master/guides/Template
    :caption: Contents:
    :glob:
    
-   labinfo.rst
-   Deploy.rst
-   solution*/guide/guide.rst
-   additional_info.rst
+  
+   deploy.rst
+   Multi-datacenter/multi-datacenter.rst
+   solution*/solution*
+
    
