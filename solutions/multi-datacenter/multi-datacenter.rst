@@ -1,34 +1,43 @@
-How to Deploy a Solution
-==========================
+How to expand the BIG-IP Deployment 
+=======================================
 
 
-To gain access to a live sandboxed environment please contact your F5 Account Team.
+BIG-IP2 Onboarding
+--------------------
 
-To access your dedicated student lab environment, you will require a web browser
-and Remote Desktop Protocol (RDP) client software. The web browser will be used to
-access the Lab Environement. The RDP client will be used to connect to the Jump
-Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
-+-----------------------------------------------------------------------------------------------+
-| 1. Establish a RDP connection to **jumphost.f5lab.local**  with the following credentials:    |                           
-|                                                                                               |
-|    - **UserID: f5lab\\user1** / **Password: user1**                                           |
-|                                                                                               |
-| 2. Open the Command Prompt                                                                    |
-|                                                                                               |
-| 3. Type **cd c:\\labfiles\\solutions\\postman**                                               |
-|                                                                                               |
-| 4. Type **Newman run [name of postman collection] -e [name of environment variables] -k**     |
-|                                                                                               |
-| ..note::  Reference each Solution Guide's Postman Collection section to deploy to determine   |
-|           the appropriate Postman Collection to run                                           |
-|                                                                                               |
-| 5. Access the appropriate BIG-IP using the credentials below                                  |
-|                                                                                               |
-|    - **UserID: admin** / **Password: admin**                                                  |
-|                                                                                               |
-+-----------------------------------------------------------------------------------------------+
-| Note: All work for this lab will be performed exclusively from the provided lab environment.  |
-|                                                                                               |
-|       No installation or interaction with your local system is required.                      |
-+-----------------------------------------------------------------------------------------------+
+**In Development**
+This BIG-IP will support either a HA configuration to BIG-IP1 or be a standalone until
+
+
+
+BIG-IP3 onboarding
+--------------------
+
+
+
+BIG-IP3 resides in Data Center 2.
+
+The setup wizard has already been configured.
+
+BIG-IP3 is configured to support LTM, APM, and Advanced WAF
+
+
+A Postman collection is available to add BIG-IP3 to BIG-IP DNS Sync Cluster
+
+https://github.com/teamaccessonline/library/tree/master/solutions/multi-datacenter/APM/postman
+
+
+BIG-IP7 onboarding
+--------------------
+
+BIG-IP7 resides in Data Center2.  No configuration has been performed on BIG-IP7. 
+
+To onboard BIG-IP7 and sync it's configuration with the BIG-IP5's DNS configuration run the below Postman Collection. 
+
+https://github.com/teamaccessonline/library/tree/master/solutions/multi-datacenter/GSLB/postman
+
+
+
+
+
