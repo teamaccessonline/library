@@ -12,7 +12,7 @@ Task 1 - Create an API Protection Profile
 
    |image11|
 
-.. note :: json file is located on the jumpbox in c:\\Labfiles\\Agility2020-API Protection
+.. note :: json file is located on the jumpbox in c:\\library\\labs\\class1\\student_files
 
 #. Enter the following parameters:
 
