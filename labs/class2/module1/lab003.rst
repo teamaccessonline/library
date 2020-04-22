@@ -82,7 +82,7 @@ Task - Open Visual Policy Editor
 
    |image38|
 
-#. Locate the **F5CertSSO.f5lab.local.txt** file in the **C:\\Labfiles\\Agility2020-Ephemeral Authentication** directory. 
+#. Locate the **F5CertSSO.f5lab.local.txt** file in the **C:\\library\\labs\\class2\\student_files** directory. 
 
    |image39|
 

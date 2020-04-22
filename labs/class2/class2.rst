@@ -22,7 +22,7 @@ Setup Lab Environment
 
    |image1|
 
-#. Type the command **cd:\\labfiles\\solutions\\postman** to navigate the Postman collection folder.
+#. Type the command **cd c:\\library\\labs\\class2\\postman** to navigate the Postman collection folder.
 
    |image2|
 
