@@ -10,7 +10,7 @@ If a given topic is not highlighted currently on this page or something is incor
 
 If you would like to contribue, a RST template is available for download on Github at the link below.
 
-https://github.com/teamaccessonline/solutions/tree/master/guides/Template
+https://github.com/teamaccessonline/library/tree/master/solutions/template
 
 
 .. toctree::
@@ -20,7 +20,7 @@ https://github.com/teamaccessonline/solutions/tree/master/guides/Template
    
   
    deploy.rst
-   Multi-datacenter/multi-datacenter.rst
+   multi-datacenter/multi-datacenter.rst
    solution*/solution*
 
    
