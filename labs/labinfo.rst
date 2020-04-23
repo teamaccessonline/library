@@ -19,7 +19,7 @@ To access your dedicated student lab environment, you will require a web browser
          - User: **f5lab\\user1**
          - Password: **user1**
 
-#. Once logged on to the jumphost, you can accessB IG-IP1's GUI via Chrome using bookmarks or by typing https://10.1.1.4 
+#. Once logged on to the jumphost, you can access BIG-IP1's GUI via Chrome using bookmarks or by typing https://10.1.1.4 
 
 #. Login into the BIG-IP Configuration Utility with the following credentials:
          - User: **admin**
