@@ -8,7 +8,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumpbox.f5lab.local
 
-|image001|
+|image1|
 
 
 #. Select your RDP solution.  
