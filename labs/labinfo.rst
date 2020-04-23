@@ -4,9 +4,9 @@ Getting Started
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
-#. Click the link **DEPLOYMENT** located on the top left corner to display the environment
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click the link **ACCESS** next to jumpbox.f5lab.local
+#. Click **ACCESS** next to jumpbox.f5lab.local
 
 |image001|
 
