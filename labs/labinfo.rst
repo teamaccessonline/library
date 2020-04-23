@@ -4,13 +4,24 @@ Getting Started
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
-1. Establish an RDP connection to your Jump Host and login with the following credentials:
+#. Click the link **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click the link **ACCESS** next to jumpbox.f5lab.local
+
+|image001|
+
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#.  login with the following credentials:
          - User: **f5lab\\user1**
          - Password: **user1**
 
-2. BIG-IP1's GUI can be accessed via Chrome using bookmarks or by typing https://10.1.1.4 
+#. Once logged on to the jumphost, you can accessB IG-IP1's GUI via Chrome using bookmarks or by typing https://10.1.1.4 
 
-3. Login into the BIG-IP Configuration Utility with the following credentials:
+#. Login into the BIG-IP Configuration Utility with the following credentials:
          - User: **admin**
          - Password: **admin**
 
@@ -76,4 +87,5 @@ components:
 +------------------------+-------------------------+--------------------------+      
 
 .. |image0| image:: media/image000.png
+.. |image1| image:: media/image001.png
 
