@@ -9,11 +9,9 @@ assignees: ''
 
 This issue template is used to track requests for common or unique deployment scenarios.  Issues submitted using this form will be evaluated and then considered for future projects.  During the evaluation SMEs will look at the requirements outlined below to determine if the requirement is duplicate, should be part of an existing solution , or become a new project.
 
-**Does this solution highlight a common deployment model for BIG-IP?**
-If yes, describe the basic components of the solution.  
 
-**Does this solution address a unique issue in configuring BIG-IP?
-Ff yes, describe the problem that you would like to be solved in the solution
+**Is there a similar solution documented today**
+If yes, provide solution name.  This is important because it allows us to decide if it is better to create a new solution or augment an existing solution.
 
 **What is solution trying to demonstrate?**
 Tell some basic basic requirements for what problem the solution is trying to solution is trying
