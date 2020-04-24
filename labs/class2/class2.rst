@@ -26,7 +26,7 @@ Setup Lab Environment
 
    |image2|
 
-#. Type the command **newman run "Ephemeral Authentication Labs.json" -e lab-setup.json -k**
+#. Type the command **newman run "Ephemeral Authentication Labs.postman_collection.json" -e lab-setup.json -k**
 
    |image3|
 
