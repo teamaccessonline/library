@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f23ba16d-d285-4b5e-aa4d-240f84de56ad",
+		"_postman_id": "28c879cc-81ec-4aba-acd3-056596509612",
 		"name": "vpn.acme.com-1-delete",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -193,7 +193,7 @@
 							"if (DC2_APM === 'true') {",
 							"",
 							"} else {",
-							"postman.setNextRequest(null);",
+							"postman.setNextRequest(\"bigip1-Test AS3 is running\");",
 							"pm.test(\"Environment Variable set to Single Data Center APM \", function () {",
 							"    pm.expect(pm.environment.get(\"DC2_APM\")).to.equal(\"false\");",
 							"});",
@@ -911,31 +911,31 @@
 	],
 	"variable": [
 		{
-			"id": "b372ec5f-0aa2-4dbd-baa5-e096ce669ab5",
+			"id": "67321b21-5ca5-4745-ace0-5d617357302b",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "f0564178-b776-450b-9cdf-550059962441",
+			"id": "e151a1fa-f202-4663-acba-3a2456d48805",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "9cb5c5f8-8d6b-4b7e-b5c4-355503b5c119",
+			"id": "d04b886c-8d42-4c0a-a9b6-56f009c190e3",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "37e2069b-ebb8-42e2-990b-29da3a5532ff",
+			"id": "bae52778-bcee-42fb-95bf-bfb5e3d153e4",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "d5cedaf6-075b-4091-8afb-7fd7874039ed",
+			"id": "690f9371-7db4-4b44-ae35-a604b82018f7",
 			"key": "PARITITION_NAME",
 			"value": "",
 			"type": "string"
