@@ -1,0 +1,978 @@
+{
+	"info": {
+		"_postman_id": "bc243657-e70d-472c-8e58-d3e904d506b6",
+		"name": "ad_adpi_test_pattern",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bigip1-Test AS3 running",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f744343-77b8-4988-81fb-9f21956821a0",
+						"exec": [
+							"",
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"",
+							"pm.test(\"AS3 is running\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d013692e-90c3-4e9f-aee9-8fca2bab94f1",
+						"exec": [
+							"pm.collectionVariables.set(\"APP_NAME\", \"api.acme.com\");",
+							"pm.collectionVariables.set(\"PATH_NAME\", \"api\");",
+							"pm.collectionVariables.set(\"PARTITION_NAME\", \"api\");",
+							"pm.collectionVariables.set('HTTPS_RUN', 'FALSE' );",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/shared/appsvcs/info",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"appsvcs",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_vs_http_server_pool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f802c522-801e-43ed-87cf-4174b31e24ef",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"pm.test(\"BEGINNING HTTP TESTS\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"class\": \"ADC\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n       \"class\": \"ADC\",\r\n       \"schemaVersion\": \"3.14.0\",\r\n       \"id\": \"APM\",\r\n       \"{{PARTITION_NAME}}\": {\r\n          \"class\": \"Tenant\",\r\n          \"{{PATH_NAME}}\": {\r\n             \"class\": \"Application\",\r\n             \"template\": \"generic\",\r\n             \"{{APP_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                   \"{{BIGIP1_VIP1}}\"\r\n                ],\r\n                \"virtualPort\": 443,\r\n                \"serverTLS\": \"{{APP_NAME}}-clientssl\",\r\n                \"pool\": \"http-api-pool\",\r\n        \t\t\"snat\": \"auto\"\r\n                },\r\n\r\n                \"{{APP_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                        {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                },\r\n                \"http-api-pool\": {\r\n                    \"class\": \"Pool\",  \r\n                        \"members\": [\r\n                            {\r\n                            \"serverAddresses\": [\r\n                            \"10.1.20.6\"\r\n                            ],\r\n                            \"servicePort\": 81\r\n                            }\r\n                        ],\r\n                    \"monitors\": [\r\n                        \"icmp\"\r\n                    ]\r\n                }\r\n\r\n            }\r\n       }\r\n    }\r\n\r\n}\r\n                \r\n             \r\n          \r\n       \r\n    \r\n"
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/shared/appsvcs/declare",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"appsvcs",
+						"declare"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5021ba36-b351-4f09-80ce-d011463cfe0a",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"pm.test(\"OK\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"API Server is running\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /aduser/get",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "96559c43-af44-4ed9-b6db-fca0aa44a0f0",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fed0b15-a90f-42fd-bc9d-3a9bebaffcce",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"}",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.sAMAccountName).to.eql(\"user1\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/aduser/get?useridentity=user1",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"aduser",
+						"get"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /aduser/unlock",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f0774c0-a0cd-43a2-903a-ef1bd4470f7a",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.sAMAccountName).to.eql(\"user1\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/aduser/unlock?useridentity=user1",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"aduser",
+						"unlock"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /aduser/set",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6403ada3-d6f5-4d97-a863-11e83cc717e7",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.sAMAccountName).to.eql(\"user1\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/aduser/set?useridentity=user1&DriverLicense=123456",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"aduser",
+						"set"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "user1"
+						},
+						{
+							"key": "DriverLicense",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /aduser/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "243fcdf2-ccb8-46df-9249-807f413fa924",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.sAMAccountName).to.eql(\"smith\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/aduser/create?userIdentity=smith&employeeNumber=100&Name='Bob A. Smith'&Givenname=Bob&Surname=Smith&UserPrincipalName=smith@f5lab.local&OU=IT&Password=F@k3P@assw0rd&email=b.smith@acme.com",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"aduser",
+						"create"
+					],
+					"query": [
+						{
+							"key": "userIdentity",
+							"value": "smith"
+						},
+						{
+							"key": "employeeNumber",
+							"value": "100"
+						},
+						{
+							"key": "Name",
+							"value": "'Bob A. Smith'"
+						},
+						{
+							"key": "Givenname",
+							"value": "Bob"
+						},
+						{
+							"key": "Surname",
+							"value": "Smith"
+						},
+						{
+							"key": "UserPrincipalName",
+							"value": "smith@f5lab.local"
+						},
+						{
+							"key": "OU",
+							"value": "IT"
+						},
+						{
+							"key": "Password",
+							"value": "F@k3P@assw0rd"
+						},
+						{
+							"key": "email",
+							"value": "b.smith@acme.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /aduser/cert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25aa2950-57ff-4627-9b32-792c555e6110",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test('OK', function() {",
+							"  pm.expect(jsonData).to.have.property('certificate');",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/aduser/cert?useridentity=user1",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"aduser",
+						"cert"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "user1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /aduser/create",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2065865-8ddb-4601-9d0f-ef5e1d3b3e67",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.sAMAccountName).to.eql(\"Testuser\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Username\":\"Testuser\",\n\"employeeNumber\":\"100\",\n\"GivenName\":\"Jason\",\n\"Surname\":\"Wilburn\",\n\"UPN\":\"12890@f5lab.local\",\n\"OU\":\"IT\",\n\"Password\":\"letmein\",\n\"emailaddress\":\"wilburn@acme.com\"\n}"
+				},
+				"url": {
+					"raw": "https://10.1.10.100/aduser/create",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"aduser",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /aduser/password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "022e005c-7503-4eee-bf2e-de2a3b73e2fd",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.sAMAccountName).to.eql(\"user2\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/aduser/password?useridentity=user2&password=changeme",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"aduser",
+						"password"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "user2"
+						},
+						{
+							"key": "password",
+							"value": "changeme"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /vulnerable - External Response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9eb7132e-9f10-4a09-8a59-80564da4e588",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"pm.test(\"OK\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Tiger\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/vulnerable?useridentity=hackeduser&uri=http://dummy.restapiexample.com/api/v1/employees",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"vulnerable"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "hackeduser"
+						},
+						{
+							"key": "uri",
+							"value": "http://dummy.restapiexample.com/api/v1/employees"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /vulnerable - Internal Response",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ae215353-74d1-4938-8068-8d1bbb8169c9",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"pm.test(\"OK\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"AccessKeyId\");",
+							"});",
+							"",
+							"",
+							"var HTTPS_RUN = pm.collectionVariables.get(\"HTTPS_RUN\");",
+							"",
+							"if (HTTPS_RUN === \"TRUE\") {",
+							"postman.setNextRequest(\"delete_vs\");",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/vulnerable?useridentity=hackeduser&uri=http://unprotected-json.f5lab.local/",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"vulnerable"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "hackeduser"
+						},
+						{
+							"key": "uri",
+							"value": "http://unprotected-json.f5lab.local/"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_vs_https_server_pool",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b0350b88-5e93-44e9-9adb-097d87b0a6b7",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"pm.test(\"BEGINNING HTTPS TESTS\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.collectionVariables.set('HTTPS_RUN', 'TRUE' );",
+							"",
+							"postman.setNextRequest(\"GET /\");",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"class\": \"ADC\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n       \"class\": \"ADC\",\r\n       \"schemaVersion\": \"3.14.0\",\r\n       \"id\": \"APM\",\r\n       \"{{PARTITION_NAME}}\": {\r\n          \"class\": \"Tenant\",\r\n          \"{{PATH_NAME}}\": {\r\n             \"class\": \"Application\",\r\n             \"template\": \"generic\",\r\n             \"{{APP_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                   \"{{BIGIP1_VIP1}}\"\r\n                ],\r\n                \"virtualPort\": 443,\r\n                \"serverTLS\": \"{{APP_NAME}}-clientssl\",\r\n                \"clientTLS\": \"{{APP_NAME}}-serverssl\",\r\n                \"pool\": \"https-api-pool\",\r\n        \t\t\"snat\": \"auto\"\r\n                },\r\n\r\n                \"{{APP_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                        {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                },\r\n                \"{{APP_NAME}}-serverssl\": {\r\n                    \"class\": \"TLS_Client\"\r\n                },\r\n                \"https-api-pool\": {\r\n                    \"class\": \"Pool\",  \r\n                        \"members\": [\r\n                            {\r\n                            \"serverAddresses\": [\r\n                            \"10.1.20.6\"\r\n                            ],\r\n                            \"servicePort\": 8443\r\n                            }\r\n                        ],\r\n                    \"monitors\": [\r\n                        \"icmp\"\r\n                    ]\r\n                }\r\n\r\n            }\r\n       }\r\n    }\r\n\r\n}\r\n                \r\n             \r\n          \r\n       \r\n    \r\n"
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/shared/appsvcs/declare",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"appsvcs",
+						"declare"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_vs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b0350b88-5e93-44e9-9adb-097d87b0a6b7",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"}",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/shared/appsvcs/declare/{{PARTITION_NAME}}",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"appsvcs",
+						"declare",
+						"{{PARTITION_NAME}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "41d3b96e-857e-4c18-814b-539721b1e146",
+			"key": "APP_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "321c74f3-bcdb-486e-8203-395531b870f6",
+			"key": "PARTITION_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "a82d0610-b537-4b94-8f51-5247c6ace99e",
+			"key": "PATH_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "4d85aced-caec-44ae-aabc-2ea5d494250c",
+			"key": "PRIOR_RESPONSE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ad56bae2-1834-4b2b-86b1-2e3d480e65df",
+			"key": "HTTPS_RUN",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
