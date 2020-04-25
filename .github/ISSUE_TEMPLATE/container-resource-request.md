@@ -2,7 +2,7 @@
 name: Container Resource Request
 about: Used when you need help building a container.
 title: ''
-labels: ''
+labels: container
 assignees: ''
 
 ---
