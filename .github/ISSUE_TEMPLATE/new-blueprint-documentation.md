@@ -2,7 +2,7 @@
 name: New Blueprint Documentation
 about: Suggest how we can better allow you our content
 title: ''
-labels: ''
+labels: documentation
 assignees: ''
 
 ---

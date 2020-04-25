@@ -2,7 +2,7 @@
 name: Existing Documentation Update
 about: 'Suggest needed documenation modifications '
 title: ''
-labels: ''
+labels: documentation
 assignees: ''
 
 ---

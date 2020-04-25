@@ -2,7 +2,7 @@
 name: New Solution Idea
 about: Suggest a solution for a project
 title: ''
-labels: ''
+labels: NS
 assignees: ''
 
 ---
@@ -14,7 +14,7 @@ This issue template is used to track requests for common or unique deployment sc
 If yes, provide solution name.  This is important because it allows us to decide if it is better to create a new solution or augment an existing solution.
 
 **What is solution trying to demonstrate?**
-Tell some basic basic requirements for what problem the solution is trying to solution is trying
+Describe some basic requirements for what problem the solution is trying to solve
 
 **Describe alternatives you've considered**
 A clear and concise description of any alternative solutions or features you've considered.
