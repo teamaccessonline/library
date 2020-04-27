@@ -7,7 +7,7 @@ The F5 AccessGuardServiceConfig.xml file defines the settings used by the Access
 Task - Explore the configuration file setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-	.. note :: Additional settings can be configured in the XML file beyond this 		example.  For further information see the article **Configuring F5 AccessGuard** 	on askf5.com - https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-		manager-access-guard-config/configuring-f5-access-guard.html
+	.. note :: Additional settings can be configured in the XML file beyond this 		example.  For further information see the article **Configuring F5 AccessGuard** 	on askf5.com - https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-access-guard-config/configuring-f5-access-guard.html
 
 #. Open the 88F5 Access Guard** Config file shortcut located on the desktop by right clicking it and opening with notepad++
 
