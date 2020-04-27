@@ -21,8 +21,8 @@ Task - Create an Active Directory AAA Object
    - Domain Controller Pool Name: **ad_pool**
    - Domain Controller IP address: **10.1.20.7**
    - Domain Controller Hostname: **dc.f5lab.local**
-   - admin name: **admin**
-   - admin Password: **admin**
+   - Admin name: **admin**
+   - Admin Password: **admin**
 
    |image2|
 
