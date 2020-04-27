@@ -1,5 +1,5 @@
-How to contribute a Postman collectionaaaaa
-========================================
+How to contribute a Postman collection
+======================================
 
 Naming Conventions
 ---------------------
