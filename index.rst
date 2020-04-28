@@ -14,7 +14,7 @@ https://github.com/teamaccessonline/library/issues
    :glob:
   
 
- 
+   Environment/environment.rst
    solutions/solutions.rst
    labs/labs.rst
    contribute/contribute.rst
