@@ -126,6 +126,11 @@ Authentication method: - Anonymous
 mtls.acme.com
 ^^^^^^^^^^^^^^^^^
 
+Authentication method: - Mutual TLS
+
+|image16|
+
+
 
 
 
@@ -142,3 +147,4 @@ mtls.acme.com
 .. |image13| image:: media/image013.png
 .. |image14| image:: media/image014.png
 .. |image15| image:: media/image015.png
+.. |image16| image:: media/image016.png
