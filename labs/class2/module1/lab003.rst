@@ -60,7 +60,7 @@ Task - Open Visual Policy Editor
 
    |image18|
 
-#. Click the **+** (plus symbol) located on the Successful branch located between **AD Auth** and **Deny** box
+#. Click the **+** (plus symbol) located on the **Successful** branch located between **AD Auth** and **Deny** box
 #. Click **Add Item**
 
    |image10|
