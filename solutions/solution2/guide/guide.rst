@@ -11,9 +11,9 @@ Policy Walk-Through
 2. The AD Auth Agent validates the the username and password session variables against the configured AD Domain Controller.
  1. If successful, the user proceeds down the Successful Branch
   1. The AD Query Agent connects to the AD Server to retrieve user attributes (Specificially memberOf)
-    1. If query succeeds, the user is assigned resourced defined in the AD Group Resource Assign
-      1. The user is granted access via the Allow Terminal
-    2. If the query fails,  the user is denied access via the Deny Terminal
+   1. If query succeeds, the user is assigned resourced defined in the AD Group Resource Assign
+    1. The user is granted access via the Allow Terminal
+   2. If the query fails,  the user is denied access via the Deny Terminal
  2. If unsuccessful, the user proceeds down the failback branch
   1. The user is denied access via the Deny Terminal                                         
 
@@ -59,7 +59,7 @@ The Properties page contains the Caption name **VPN**.  This is the name display
 
 
 - The Network Settings tab assigns the **lease pool** of ip addresses that will be used for the VPN                         
-- Split Tunneling is configured to permit only the **10.1.20.0/24 subnet range inside the VPN                            
+- Split Tunneling is configured to permit only the **10.1.20.0/24** subnet range inside the VPN                            
 |image008|                                                                                   
 
 
@@ -111,22 +111,22 @@ User1
 
 #. User1 is presented a logon page to collect AD credentials
 
-|image014|
+   |image014|
 
 #. User1 is presented resources based on their **Sales Engineering** group membership
 
-|image015|
+   |image015|
 
 User2
 ^^^^^^
 
 #. User2 is presented a logon page to collect AD Credentials
 
-|image016|
+   |image016|
 
 #. Uesr2 is presented resources based on the **Product Management** group membership
 
-|image017|
+   |image017|
 
 
 .. |image001| image:: media/001.png
