@@ -5,19 +5,21 @@ The Policy
 Policy Walk-Through
 ----------------------
 
-1. In this policy a user enters their credentials in the loogon page agent.  
- 1. Those credentials are collected, stored as the default system session variables of session.logon.last.username and session.logon.last.password.                                
- 2. The user proceeds down the logon page fallback branch to the AD Auth Agent              
-2. The AD Auth Agent validates the the username and password session variables against the configured AD Domain Controller.
- 1. If successful, the user proceeds down the Successful Branch
-  1. The AD Query Agent connects to the AD Server to retrieve user attributes (Specificially memberOf)
-   1. If query succeeds, the user is assigned resourced defined in the AD Group Resource Assign
-    1. The user is granted access via the Allow Terminal
-   2. If the query fails,  the user is denied access via the Deny Terminal
- 2. If unsuccessful, the user proceeds down the failback branch
-  1. The user is denied access via the Deny Terminal                                         
+|image001|  
 
-|image001|                                                                                      
+1. In this policy a user enters their credentials in the logon page agent.  
+  - Those credentials are collected, stored as the default system session variables of session.logon.last.username and session.logon.last.password.                                
+  - The user proceeds down the logon page fallback branch to the AD Auth Agent              
+2. The AD Auth Agent validates the the username and password session variables against the configured AD Domain Controller.
+3. If AD Authentication is successful, the user proceeds down the Successful Branch
+    - The AD Query Agent connects to the AD Server to retrieve user attributes (Specificially memberOf)
+4. If query succeeds, the user is assigned resourced defined in the AD Group Resource Assign
+5. The user is granted access via the Allow Terminal
+6. If the AD query fails,  the user is denied access via the Deny Terminal
+7. If AD Authentication is unsuccessful, the user proceeds down the failback branch to the Deny Terminal
+                                       
+
+                                                                                    
 
 
 
