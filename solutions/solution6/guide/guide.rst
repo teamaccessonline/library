@@ -89,15 +89,24 @@ Certificate Authority Path:  this field is only used if you check the Ignore AIA
 |image010|                                                                                   
 
 
-                                                                                
-
-
+                                                                               
 AAA LDAP Object
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 A single LDAP server of 10.1.20.7 has been configured with a admin service account to support queries                                                   
 
-|image011|                                                                                   
+|image011|    
+
+Kerberos SSO Object
+^^^^^^^^^^^^^^^^^^^^^
+
+- The username Source field has been modified from the default to reference the sAMAccountName stored in session.logon.last.username
+- Kerberos Realm has been set to the Active Directory domain (realms should always be in uppercase)
+- The service account used for Kerberos Contrained Delegation (Service Account Names should be in SPN format)
+- SPN Pattern has been hardcoded to HTTP/kerb.acme.com (This is only necessary if the SPN doesn't match the FQDN typed in the web browser by the user)                                                
+
+|image014| 
+                                                                               
 
 
 

@@ -1,7 +1,7 @@
-(In Development)Solution: LTM+APM - Client Certificate to kerberos SSO 
-=========================================================================
+(In Development)Solution: LTM+APM - Client Certificate to Single Domain kerberos SSO 
+======================================================================================
 
-This solution documents all the necessary pieces required to an APM policy that prompts the user their certificate and then performs kerberos SSO to the application.  
+This solution documents all the necessary pieces required to create an APM policy that prompts the user for their certificate then performs kerberos SSO to an application.  
 
 Objective:
 ----------
