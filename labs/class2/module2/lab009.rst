@@ -4,7 +4,7 @@ Lab 2.9 - Adding Devices to the webtop
 Task - Adding Device to the PUA Webtop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. click **Access >> Webtop >> Webtop Links**
+#. click **Access >> Webtop >> Webtop Links>> click the plus sign**
 
    |image70|
 
@@ -44,7 +44,7 @@ Task - Adding Device to the PUA Webtop
 
 #. Click the **Webtop Links** tab and enable the **/Common/Host1** checkbox
 
-#. Click **Update** and then click **Save**
+#. Click **Update**, and then click **Save**
 
    |image78|
 

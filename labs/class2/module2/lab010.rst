@@ -4,7 +4,7 @@ Lab 2.10 - Modifying Radius Configurations
 Task - Modifying the Radius Server secret password
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Naviage to **Local Traffic >> iRules >> Data Group List**
+#. Navigate to **Local Traffic >> iRules >> Data Group List**
 
    |image80|
 
@@ -14,25 +14,19 @@ Task - Modifying the Radius Server secret password
 
 #. Change the Radius Secret
 
-   - Highlight RADIUS_SECRET in the String Records window
-   - Click Edit
+   - Highlight **RADIUS_SECRET** in the String Records window
+   - Click **Edit**
 
    |image82|
 
-#. Change the Value from radius_secret to **secret**
+#. Change the Value from radius_secret to **secret**, Click **ADD**, and click **Update**
 
    |image83|
-
-#. Click ADD, and Click
-
-.. TODO::
-   Missing step
-
 
 Task - Modifying the BIG-IP radius secret
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. SSH into the BIG-IP and enter traffic manangement shell by typing **tmsh**
+#. SSH into the BIG-IP and enter traffic management shell by typing **tmsh**
 
 #. Enter the following commands
 

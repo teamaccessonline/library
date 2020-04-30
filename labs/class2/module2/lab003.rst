@@ -6,7 +6,7 @@ In this section, you will test the initial installation of the PUA deployment.
 Task - Accessing the BIG-IP via APM Webtop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a web browser and navigate to https://10.1.10.104
+#. Open a web browser and navigate to https://pua.acme.com
 
 #. A Warning Banner page (customizable) should appear, click the **Click here to continue** link.
 
