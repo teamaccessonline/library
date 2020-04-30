@@ -8,11 +8,11 @@ Policy Walk-Through
 |image001|  
 
 1. A user is prompted to select their certificate.  
-  - The certificates that a user can select that results in a successful validation are controlled via CA bundles in the Client-side SSL Profile.                                            
-2. If the user presents a certificate issued by a trusted CA, the certificate is validated by OCSP
-3. The Subject lternative Name Othername field is extracted from the certificate
+  - The validation of the user certificates is controlled via CA bundles selected in the Client-side SSL Profile.                                            
+2. The certificate is validated by OCSP if the user presents a certificate issued by a trusted CA
+3. The Othername field is extracted from the certificate
 4. A LDAP query is performed to collect the sAMAccountName of the user 
-5. The domain variable and username variable are set
+5. The domain and username variables are set
 6. The user is granted access via the Allow Terminal
 7. If the LDAP Query is unsuccessful, the user proceeds down the failback branch to the Deny Terminal
 8. If the OCSP check is unsuccessful, the user proceeds down the failback branch to the Deny Terminal
@@ -34,22 +34,22 @@ Policy Agent Configuration
 
    |image003|     
 
-- The othername field is extracted from the certificate and saved a session varible session.logon.upn  
+- The othername field is extracted from the certificate and saved as session variable session.logon.upn  
 
   |image004|
 
-- The LDAP query connects to the LDAP server and searches the dc=f5lab,dc=local DN for a user that contains the userPrincipalName that matches the value stored in session.custom.upn
-- If the user is found the LDAP query requests the sAMAccountName attribute
+- The LDAP query connects to the LDAP server to the dc=f5lab,dc=local DN for a user that contains the userPrincipalName matching the value stored in session.custom.upn
+- The LDAP query requests the sAMAccountName attribute if the user is found
 
    |image005|                                                                            
 
-- The branch rule was modified to only require that LDAP Query passed
+- The branch rule was modified to only require a LDAP Query passed condition
 
    |image006|
 
 - Two session variables are set
    - session.logon.last.username is populated with the value of the sAMAccountName returned in the LDAP Query
-   - session.logon.last.domain is popullated with a static value for the Active Directory domain F5LAB.LOCAL
+   - session.logon.last.domain is populated with a static value for the Active Directory domain F5LAB.LOCAL
    
    |image007|               
 
@@ -82,9 +82,9 @@ AAA OCSP Responder
 
 The OCSP Responder has been configured with the following settings
 
-URL: this field is only used if you check the Ignore AIA field  
-Certificate Authority File:  contains the root ca bundle
-Certificate Authority Path:  this field is only used if you check the Ignore AIA field                        
+- URL: this field is only used if you check the Ignore AIA field  
+- Certificate Authority File:  contains the root ca bundle
+- Certificate Authority Path:  this field is only used if you check the Ignore AIA field                        
 
 |image010|                                                                                   
 
@@ -100,7 +100,7 @@ A single LDAP server of 10.1.20.7 has been configured with a admin service accou
 Kerberos SSO Object
 ^^^^^^^^^^^^^^^^^^^^^
 
-- The username Source field has been modified from the default to reference the sAMAccountName stored in session.logon.last.username
+- The Username Source field has been modified from the default to reference the sAMAccountName stored in session.logon.last.username
 - Kerberos Realm has been set to the Active Directory domain (realms should always be in uppercase)
 - The service account used for Kerberos Contrained Delegation (Service Account Names should be in SPN format)
 - SPN Pattern has been hardcoded to HTTP/kerb.acme.com (This is only necessary if the SPN doesn't match the FQDN typed in the web browser by the user)                                                

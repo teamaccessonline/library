@@ -10,7 +10,7 @@ Objective:
 
 -  Gain an understanding of a variable assignments
 
--  Gain an initial understanding kerberos SSO
+-  Gain an initial understanding of kerberos SSO
 
 .. toctree::
    :maxdepth: 1
@@ -52,6 +52,7 @@ BIG-IP Components used:
  - Access Profile
       + LDAP AAA Object
       + OCSP Responder AAA Object
+	  + Kerberos SSO
 
 
 
