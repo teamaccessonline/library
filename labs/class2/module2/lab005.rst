@@ -1,21 +1,21 @@
 Lab 2.5 - Creating an APM Policy - LDAP
 ------------------------------------------------
 
-PUA requires a Directory Service to authenticate users. In this section you will build an LDAP macro to perform the authentication function.
+PUA requires a Directory Service to authenticate users. In this section you will build a LDAP macro to perform the authentication function.
 
-Task - Build an LDAP macro
+Task - Build a LDAP macro
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. note::
 
    This lab makes use of APM macros to make policies easy to view and manage.
 
-The LDAP macro will verify that the requesting user has a valid account and the appropiate group premisssion.
+The LDAP macro will verify that the requesting user has a valid account and the appropriate group permission.
 
 #. Click the **Add New Macro** button
 
    |image30|
 
-#. Give the macro a name and click save
+#. Enter **LDAP_Query** for the and click **Save**
 
    |image31|
 
@@ -23,7 +23,7 @@ The LDAP macro will verify that the requesting user has a valid account and the 
 
    |image32|
 
-#. Adding the LDAP Query action by clicking the plus sign
+#. Add the LDAP Query action by clicking the plus sign
 
    |image33|
 
@@ -33,7 +33,7 @@ The LDAP macro will verify that the requesting user has a valid account and the 
 
 #. Update the **Properties** tab by modifying the **Server**, **SearchDN**, **SearchFilter**, and **Fetch Groups** settings
 
-   - Server = **/Common/prebuilt-f5lab.local**
+   - Server = **/Common/ldap-servers**
    - SearchDN = **DC=f5lab,DC=local**
    - SearchFilter = **UserPrincipalName=%{session.custom.ephemeral.upn}**
    - Fetch groups to which the user or group belong = **Direct**
@@ -50,7 +50,7 @@ The LDAP macro will verify that the requesting user has a valid account and the 
 
    |image37|
 
-#. Enter **LDAP Query** in the **Name** field and click the **Change** link
+#. Enter **LDAP Query** in the **Name** field and click the **change** link
 
    |image38|
 
@@ -58,7 +58,7 @@ The LDAP macro will verify that the requesting user has a valid account and the 
 
    |image39|
 
-#. Change the **Context** setting to **LDAP Query** and the **Condition** setting to **LDAP Query Passed**. Ensure that **LDAP Query has** is set to **Passed**
+#. Change the **Context** setting to **LDAP Query** and the **Condition** setting to **LDAP Query Passed**. Ensure that **LDAP Query has** is set to **Passed**. Click th 
 
    |image130|
 
@@ -72,13 +72,11 @@ The LDAP macro will verify that the requesting user has a valid account and the 
 
    |image132|
 
-#. Select the **General Purpose** tab and then select **Message Box** in the main section
+#. Select the **General Purpose** tab and then select **Message Box** in the main section, and Click the **Add Item** button
 
    |image133|
 
-#. Click on the **Add Item** button
-
-#. Enter the following values for the message box agent
+#. Enter the following values for the message box agent, and Click on the **Save** button
 
    .. code-block:: console
 
@@ -86,8 +84,6 @@ The LDAP macro will verify that the requesting user has a valid account and the 
       Message: **LDAP Failure for user %{UserPrincipalName}**
 
    |image134|
-
-#. Click on the **Save** button
 
 #. Click on the **Edit Terminals** button to change the terminals to report Success and Failure
 
@@ -101,12 +97,13 @@ The LDAP macro will verify that the requesting user has a valid account and the 
 
    |image138|
 
-#. Click the terminal for the **LDAP Failure** branch and change the setting from **Success** to **Failure**
+#. Click the terminal for the **LDAP Failure** branch 
 
    |image139|
 
-.. TODO::
-   Image needs to be updated (Message Box is incorrect)
+#. Change the setting from **Success** to **Failure**. and click **Save**
+
+   |image1130|
 
 #. Click **Save**
 
@@ -134,4 +131,5 @@ Here is the completed macro.
 .. |image137| image:: media/image137.png
 .. |image138| image:: media/image138.png
 .. |image139| image:: media/image139.png
+.. |image1130| image:: media/image1130.png
 

@@ -37,7 +37,7 @@ Task - Create a RADIUS AAA Object
 
    |image3|
 
-#. Enter the following information for the AD Authentication Object
+#. Enter the following information for the Radius Authentication Object
 
    - Name: **radius_servers**
    - Server Pool Name: **radius_pool**

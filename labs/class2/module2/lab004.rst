@@ -1,7 +1,7 @@
-Lab 2.4 - Creating an APM Policy - PUA Build Script
+Lab 2.4 -Policy Review
 ----------------------------------------------------
 
-In this section, you will review the inital APM policy created by the PUA Build Script
+In this section, you will review the initial APM policy created by the PUA Build Script
 
 Task - Review the APM Policy Created by the PUA Build Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

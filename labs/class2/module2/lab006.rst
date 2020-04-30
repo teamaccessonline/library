@@ -10,7 +10,7 @@ Task - Build CAC AUTH Macro
 
    |image30|
 
-#. Give the macro a name and click **save**
+#. Name the Macro CAC Auth and click **save**
 
    |image40|
 
@@ -18,47 +18,47 @@ Task - Build CAC AUTH Macro
 
    |image41|
 
-#. Click the Authentication tab across the top, select **On-Demand Cert Auth**, and click **Add Item**
+#. Click the **Authentication** tab across the top, select **On-Demand Cert Auth**, and click **Add Item**
 
    |image42|
 
-#. Leave the Auth mode set to the default Request, and click save
+#. Leave the **Auth Mode** set to the default **Request**, and click **Save**
 
    |image43|
 
-#. Click the plus sign beside the Successful branch
+#. Click the plus sign on the **Successful** branch
 
    |image44|
 
-#. Click the tab **Macros** across the top, select the **GET UPN from CAC** button in the main page, and click Add Item
+#. Click the tab **Macros** across the top, select the **GET UPN from CAC** button in the main page, and click **Add Item**
 
    |image45|
 
-#. Click the plus sign on the found branch
+#. Click the plus sign on the **Found** branch
 
    |image46|
 
-#. Select **Macros** across the top, select the **LDAP_Query** button in the main page, and click Add Item
+#. Select **Macros** across the top, select the **LDAP_Query** button in the main page, and click **Add Item**
 
    |image47|
 
-#. Click the plus sign on the fallback branch after the On-Demand Cert Auth
+#. Click the plus sign on the **fallback** branch after the On-Demand Cert Auth
 
    |image48|
 
-#. Click the tabl **General Purpose** across the top, select **Message Box** in the main page, and click Add Item
+#. Select **General Purpose** across the top, select **Message Box** in the main page, and click **Add Item**
 
    |image49|
 
-#. Provide a name for the message box, enter message, and click save
+#. Name the message box CAC Failure, enter CAC Failure in the **Message** box, and click **Save**
 
    |image140|
 
-#. Click Edit Terminals
+#. Click **Edit Terminals**
 
    |image141|
 
-#. Change the default name from Out to Success, and click **Add Terminal**
+#. Change the default name from Out to **Success**, and click **Add Terminal**
 
    |image142|
 
@@ -66,11 +66,11 @@ Task - Build CAC AUTH Macro
 
    |image143|
 
-#. Click the down arrow beside the Failure box to change the order. The Success terminal should be on top. Click **Save**
+#. Click the down arrow beside the Failure box to change the order. The **Success** terminal should be on top. Click **Save**
 
    |image147|
 
-#. Click the terminals on the Not Found, Failure, Fallback branches and change them from Success to Failure. Remember to click Save!
+#. Click the terminals on the **Not Found**, **Failure**, **Fallback** branches and change them from **Success** to **Failure**. Click **Save**
 
    |image144|
 

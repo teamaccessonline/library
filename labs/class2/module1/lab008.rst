@@ -93,7 +93,7 @@ Task - Create a Per-Request Policy
 #. Change the name for the default branch to **Fail**
 #. Change the default branch text to **Red**
 #. Enter the name **Success** for the new branch
-#. Change the color of the new branch to **Success**
+#. Change the color of the new branch to **Green**
 
    |image69|
 
