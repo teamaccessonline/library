@@ -8,7 +8,7 @@ How to Contribute to a solution
    - Feel free to continue to build your solution until someone responds with the number. These numbers are assigned daily M-F. You need to know the number so you can publish your content in a branch called solution 
 #. Assign your self to a solution idea under the issues tab in the GitHub repo
 #. Select a baseline postman collection to help get you started on building out the basic components of your solution 
-#, Once a number do a get pull to ensure you have the latest master branch
+#. Once a number do a get pull to ensure you have the latest master branch
 #. type git checkout -b [solution#]
 #. Copy the solutions.rst file from the template folder
 #. Customize the template for you solution.  The head name should always contain (In Development) to ensure people do not try to deploy your solution as you are working on it.
@@ -21,7 +21,6 @@ How to Contribute to a solution
 #. git push -u origin solution#
 #. proceed to GitHub and select your branch
 #. Select new pull request 
-:: note .. keep and eye out for comments made on your pull request, bu
 #. git checkout master
 #. git pull
 #. Proceed to policy creation steps
