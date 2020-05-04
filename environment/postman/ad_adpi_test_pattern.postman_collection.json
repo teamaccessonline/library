@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0572308a-d06c-4da9-ac99-ace9b03c3769",
+		"_postman_id": "ab71cafe-e72a-4424-a8cc-a2e641f3a344",
 		"name": "ad_adpi_test_pattern",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c9dace64-19de-458d-b318-4b7483275e95",
+						"id": "b0ca8b95-acc4-4c20-84a7-fbf63bb347b8",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
@@ -31,7 +31,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "33df0247-8e55-4cca-adb1-733d65163e79",
+						"id": "b401b224-049c-4e5f-bf78-93ec5df7977a",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"api.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"api\");",
@@ -88,7 +88,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "736f30f5-f78c-45ef-a859-1424e0037cb5",
+						"id": "a3464db4-9d93-40ad-9bf6-2d2e5bd20c04",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -149,7 +149,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8d888292-fc65-4df3-8a33-cf0034444f0d",
+						"id": "23179ef9-8ee9-40f1-9e14-943b154f4a3b",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -195,7 +195,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c9beee5f-6dbe-40a3-a739-75d4f6390c73",
+						"id": "5944095c-78c1-4616-bde8-1e834ea876fd",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -298,7 +298,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fe74cbcb-ed5f-44b9-867a-e3718494af27",
+						"id": "07cdfb9c-71b4-417e-8a14-cd76b67c352e",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -367,7 +367,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3d10e741-09a3-4655-80f0-b6dc49463bf7",
+						"id": "430d974c-4274-4a7c-952e-0489be37ea6c",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -442,7 +442,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d374632d-cb50-48ab-bc11-b2c77c4da1a9",
+						"id": "161d9a55-fd22-49f2-9aac-364e0c2533c6",
 						"exec": [
 							""
 						],
@@ -452,7 +452,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a64caf96-a607-4023-8047-d522091cd27e",
+						"id": "cb398855-ad71-445c-b2c4-7a951b203b42",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -506,7 +506,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b9c98ad7-112e-456f-ae02-003fb25d63e4",
+						"id": "bd53cf82-13d7-4bf0-9598-a8b87b7c6661",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -560,7 +560,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "11867c4a-ae7f-48a3-bead-f0c95099d8db",
+						"id": "105304e1-b328-402c-a4ae-561e9d0eb2f0",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -630,7 +630,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d16a6ca1-6b4f-44ba-abc3-2bf550da0a15",
+						"id": "f8a70c42-7037-4652-9778-ea9b97fcb070",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -705,7 +705,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7904fc78-0337-480d-b0b4-2de3158bb576",
+						"id": "54e26288-a5e0-47f5-bca4-65d654139f49",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -759,7 +759,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fdc1f77b-b008-442d-afa9-72e523e39149",
+						"id": "341ca6df-e614-4615-9966-bb3afc8ed788",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -773,11 +773,6 @@
 							"});",
 							"",
 							"",
-							"var HTTPS_RUN = pm.collectionVariables.get(\"HTTPS_RUN\");",
-							"",
-							"if (HTTPS_RUN === \"TRUE\") {",
-							"postman.setNextRequest(\"delete_vs\");",
-							"}",
 							""
 						],
 						"type": "text/javascript"
@@ -814,12 +809,271 @@
 			"response": []
 		},
 		{
+			"name": "GET /addr/available",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9e6b87e4-198e-4946-b789-bc99fb4107bc",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.address).to.eql(\"10.1.10.100\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://10.1.10.100/addr/available?scope=10.1.10.0",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"addr",
+						"available"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "10.1.10.0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /addr/checkout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50538755-7b05-413a-b0da-6be743d21922",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"scope\":\"10.1.10.0\",\n\"address\":\"10.1.10.113\",\n\"vs_name\":\"api_testing.acme.com\"\n}"
+				},
+				"url": {
+					"raw": "https://10.1.10.100/addr/checkout",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"addr",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /addr/checkin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d519146e-7f6b-42b9-afc7-7bb38ac7abdf",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"scope\":\"10.1.10.0\",\n\"address\":\"10.1.10.101\",\n\"vs_name\":\"test.acme.com\"\n}"
+				},
+				"url": {
+					"raw": "https://10.1.10.100/addr/checkin?address=10.1.10.113",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"addr",
+						"checkin"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "10.1.10.113"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /user - Delete user GET_API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f580fed1-4245-414a-a474-e6e401946d71",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/user?useridentity=GET_API",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "GET_API"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /user - Delete user POST_API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "616581f9-785d-4cba-8e74-96a7be7ff6d9",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"var HTTPS_RUN = pm.collectionVariables.get(\"HTTPS_RUN\");",
+							"",
+							"if (HTTPS_RUN === \"TRUE\") {",
+							"postman.setNextRequest(\"delete_vs\");",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://10.1.10.100/user?useridentity=POST_API",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "POST_API"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create_vs_https_server_pool",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "be0296a8-650a-4ef5-aaa4-5e9e221aaa73",
+						"id": "451e020f-c8f0-4168-b33f-e1788e8b2296",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -885,7 +1139,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3f1ffb82-a6d3-4dbf-a927-5e7658600302",
+						"id": "d8b35d70-9e13-4f55-8b55-b64623e1ec81",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -944,31 +1198,31 @@
 	],
 	"variable": [
 		{
-			"id": "38af9fcc-9254-46ae-8392-afe1f45284f3",
+			"id": "db7c8499-3bbd-4e8c-ab21-635ff9b1fb32",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "c0805be5-ea77-499b-84e4-7c7f031cbb35",
+			"id": "219ace5c-9f27-40ab-aa72-a49b08a3c1ba",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "01efbd6f-9e7e-4456-a08b-4956b7c3f45b",
+			"id": "b06184b3-910b-4d15-a6c3-661ae6d2183e",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "3642c0fb-78c6-482d-adce-3f95901c3629",
+			"id": "b3ad0ffa-fd13-445a-868e-99b5789256ec",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "ef5b9793-8c37-40e3-8eb2-872b00b5a02d",
+			"id": "10d1beb4-111f-4b54-b97e-2e256cb8d181",
 			"key": "HTTPS_RUN",
 			"value": "",
 			"type": "string"
