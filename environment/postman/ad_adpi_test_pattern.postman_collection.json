@@ -975,6 +975,73 @@
 			"response": []
 		},
 		{
+			"name": "GET /addr/scope-status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "281a1865-ad3e-43ce-a3bf-08f6a249815b",
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"if (!jsonData.length) {",
+							"\tif (jsonData.Description === \"api_testing.acme.com\") {",
+							"\t\t\tpm.test(\"Scope Request successful\", function () {",
+							"\t\t    pm.response.to.have.status(200);",
+							"\t});",
+							"\t\t",
+							"\t}",
+							"} else {",
+							"",
+							"",
+							"\tfor (var i = 0; i < jsonData.length; i++) {",
+							"",
+							"\t\tif (jsonData[i].Description === \"api_testing.acme.com\") {",
+							"\t\t\tpm.test(\"Scope Request successful\", function () {",
+							"\t\t    pm.response.to.have.status(200);",
+							"\t});",
+							"\t\t}",
+							"\t}",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://10.1.10.100/addr/scope-status?scope={{BIGIP1_SCOPE}}",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"10",
+						"100"
+					],
+					"path": [
+						"addr",
+						"scope-status"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "{{BIGIP1_SCOPE}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "POST /dns",
 			"event": [
 				{
@@ -1504,31 +1571,31 @@
 	],
 	"variable": [
 		{
-			"id": "d2eec79c-99fe-4681-ac99-e02d9eaee409",
+			"id": "fd477ea0-5fb6-4f38-9f89-9d106ef5985c",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "52b03541-17c2-456e-b2b4-15e817df787d",
+			"id": "81ce4f7c-2794-4559-9010-85b450b58be9",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e42c09f5-9d6e-4c20-b5ff-7dc6eb5fd3d8",
+			"id": "b5fdaa32-aade-4213-bcba-5f017b0051f1",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "42d5039d-b106-43c9-88f0-9e7f5fd26248",
+			"id": "7472dd9c-5214-44b0-b632-315115202ec2",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "730a4216-e870-4bad-9312-8d24be1956ad",
+			"id": "90d2de52-a705-435f-9c8a-59514a87c3c7",
 			"key": "HTTPS_RUN",
 			"value": "",
 			"type": "string"
