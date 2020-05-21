@@ -1,0 +1,2457 @@
+{
+	"info": {
+		"_postman_id": "d3462907-94e4-4411-9ea1-5e2591356952",
+		"name": "API  library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BIGIP",
+			"item": [
+				{
+					"name": "bigip1-Create-Test AS3 is running",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "087eda30-b9d8-45d6-ab1d-64e8217cca5a",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"",
+									"}",
+									"",
+									"",
+									"pm.test(\"AS3 is Running\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "59368344-a518-4499-8cae-a4d331bd2d7e",
+								"exec": [
+									"pm.collectionVariables.set(\"DNS1_NAME\", \"solution7.acme.com\");",
+									"pm.collectionVariables.set(\"VS1_NAME\", \"solution7\");",
+									"pm.collectionVariables.set(\"PATH_NAME\", \"solution7\");",
+									"pm.collectionVariables.set(\"PARTITION_NAME\", \"solution7\");",
+									"pm.collectionVariables.set(\"VS2_NAME\", \"idp\");",
+									"pm.collectionVariables.set(\"DNS2_NAME\", \"idp.acme.com\");",
+									"",
+									"pm.collectionVariables.set(\"DNS2_NAME\", \"idp.acme.com\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/shared/appsvcs/info",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"appsvcs",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-create-radius Server Pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b94d071a-4fda-4ee6-9318-9a89cb240572",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"Pool Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"Pool Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"name\":\"radius-pool\",\n\t\"members\":[\n\t\t{\n\t\t\"name\":\"10.1.20.8:1812\",\n\t\t\"address\":\"10.1.20.8\",\n\t\t\"monitor\": \"/Common/gateway_icmp\"\n\t\t\t\n\t\t}\n\t\t]\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/ltm/pool/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm",
+								"pool",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-APM AAA RADIUS Object",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "01ff93a6-039f-4f3d-be12-4dbbff1a478f",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"APM AAA AD Object Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"APM AAA AD Object Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3d7f63bd-2f06-442d-86b1-29d19f1c402c",
+								"exec": [
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"radius-servers\",\r\n    \"authPort\": 1812,\r\n    \"locationSpecific\": \"true\",\r\n    \"mode\": \"auth\",\r\n    \"pool\": \"/Common/radius-pool\",\r\n    \"radiusCharset\": \"cp1252\",\r\n    \"retries\": 3,\r\n    \"secret\": \"secret\",\r\n    \"serviceType\": \"default\",\r\n    \"timeout\": 5,\r\n    \"usePool\": \"enabled\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/radius/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"aaa",
+								"radius",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-create-AD Server Pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4ec0d436-4b7b-49bb-aa7e-c0442a3232da",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"Pool Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"Pool Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"name\":\"ad-pool\",\n\t\"members\":[\n\t\t{\n\t\t\"name\":\"10.1.20.7:0\",\n\t\t\"address\":\"10.1.20.7\",\n\t\t\"monitor\": \"/Common/gateway_icmp\"\n\t\t\t\n\t\t}\n\t\t]\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/ltm/pool/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm",
+								"pool",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-create-kerberos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "384c6aff-587d-4904-a3f1-53d654d3d243",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"Pool Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"Pool Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n            \"name\": \"kerbsso\",\r\n            \"accountName\": \"HOST/kerbsso.f5lab.local\",\r\n            \"accountPassword\": \"kerbsso\",\r\n            \"realm\": \"F5LAB.LOCAL\",\r\n            \"sendAuthorization\": \"always\",\r\n            \"spnPattern\": \"HTTP/solution7.acme.com\",\r\n            \"ticketLifetime\": 600,\r\n            \"upnSupport\": \"disabled\",\r\n            \"userRealmSource\": \"session.logon.last.domain\",\r\n            \"usernameSource\": \"session.logon.last.username\"\r\n            \r\n   }"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/apm/sso/kerberos",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"sso",
+								"kerberos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-APM AAA Active Directory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27b021f4-dafa-45d3-a3ae-efb75dd928b4",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"APM AAA AD Object Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"APM AAA AD Object Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "344e3906-4726-4002-971d-4d62606768a1",
+								"exec": [
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ad-servers\",\r\n    \"adminEncryptedPassword\": \"admin\",\r\n    \"adminName\": \"admin\",\r\n    \"cleanupCache\": \"none\",\r\n    \"domain\": \"f5lab.local\",\r\n    \"groupCacheTtl\": 30,\r\n    \"kdcLockoutDuration\": 0,\r\n    \"locationSpecific\": \"true\",\r\n    \"padata\": \"none\",\r\n    \"pool\": \"/Common/ad-pool\",  \r\n    \"psoCacheTtl\": 30,\r\n    \"timeout\": 15,\r\n    \"usePool\": \"enabled\",\r\n    \"domainControllers\": [\r\n        {\r\n            \"name\": \"dc1.f5lab.local\",\r\n            \"ip\": \"10.1.20.7\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/active-directory",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"aaa",
+								"active-directory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-APM Webtop",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a97f24b0-5601-4ccf-938b-b8896f464971",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"APM AAA AD Object Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"APM AAA AD Object Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "aae418dc-f28f-4451-9a8a-b0207ab3f613",
+								"exec": [
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"webtop\",\r\n    \"webtopType\": \"full\",\r\n    \"minimizeToTray\": \"false\"\r\n \r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/apm/resource/webtop",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"resource",
+								"webtop"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-APM AAA OCSP Responder",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3d520683-df71-4e57-a2db-7b70889e1ede",
+								"exec": [
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ebc08145-8bb6-473e-a4d5-0e4a0595be92",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"APM AAA OCSP Responder Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"APM AAA OCSP Responder Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{APM_AAA_OCSP_NAME}}\",\r\n    \"allowCerts\": \"true\",\r\n    \"caFile\": \"/Common/ca.f5lab.local.crt\",\r\n    \"caPath\": \"/ocsp\",\r\n    \"certIdDigest\": \"sha1\",\r\n    \"chain\": \"true\",\r\n    \"checkCerts\": \"true\",\r\n    \"explicitOcsp\": \"true\",\r\n    \"ignoreAia\": \"false\",\r\n    \"intern\": \"true\",\r\n    \"locationSpecific\": \"true\",\r\n    \"nonce\": \"false\",\r\n    \"signDigest\": \"sha1\",\r\n    \"statusAge\": 0,\r\n    \"trustOther\": \"false\",\r\n    \"url\": \"http://dc1.f5lab.local\",\r\n    \"validityPeriod\": 300,\r\n    \"verify\": \"true\",\r\n    \"verifyCert\": \"true\",\r\n    \"verifySig\": \"true\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"aaa",
+								"ocsp",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-DNS Resolver",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6e2a5047-2569-4a69-985f-3baad5d2ef89",
+								"exec": [
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fa278fd2-66f8-46a0-a385-48066b9acfe4",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"DNS Resolver Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"DNS Resolver Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\":\"{{DNS_RESOLVER_NAME}}\", \r\n \"forwardZones\": [\r\n                {\r\n                    \"name\": \".\",\r\n                    \"nameservers\": [\r\n                        {\r\n                            \"name\": \"10.1.20.7:53\"\r\n                        }\r\n                    ]\r\n                }\r\n            ]\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/net/dns-resolver",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"net",
+								"dns-resolver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-APIadmin Serverside SSL Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f07a7c3d-ffb5-45f2-97bb-aebbaa1f5107",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"Server-Side SSL Profile Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"Server-Side SSL Profile Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2bab7ec1-abee-4a54-a86f-6534e180215f",
+								"exec": [
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"{{SERVER_SSL_NAME}}\",\r\n \"cert\": \"/Common/apiadmin.crt\",\r\n \"key\": \"/Common/apiadmin.key\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/ltm/profile/server-ssl/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm",
+								"profile",
+								"server-ssl",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-irule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0779902-dc55-43b4-a945-6260a2bccfe3",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"iRule Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"iRule Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b1e79202-ff7d-4143-9e57-cec5617b8eed",
+								"exec": [
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"Cert_SSO\",\r\n\r\n    \"apiAnonymous\": \"when SERVERSSL_CLIENTHELLO_SEND {\\n\\nset username [ACCESS::session data get \\\"session.logon.last.username\\\"]\\nset domain [ACCESS::session data get \\\"session.ad.last.actualdomain\\\"]\\n  SSL::c3d extension 1.1.1.1 \\\"Minted Extension=$username@$domain\\\"\\n}\\n\\nwhen ACCESS_PER_REQUEST_AGENT_EVENT {\\n set cert [ACCESS::session data get {session.ssl.cert.whole}]\\n log local0. \\\"My cert: $cert\\\"\\n SSL::c3d cert [X509::pem2der $cert]\\n}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/ltm/rule/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm",
+								"rule",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-LDAP Server Pool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "65807f62-49f9-4060-98ab-e50851ba281b",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"Pool Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"Pool Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n\t\"name\":\"ldap-pool\",\n\t\"members\":[\n\t\t{\n\t\t\"name\":\"10.1.20.7:0\",\n\t\t\"address\":\"10.1.20.7\",\n\t\t\"monitor\": \"/Common/gateway_icmp\"\n\t\t\t\n\t\t}\n\t\t]\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/ltm/pool/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm",
+								"pool",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-APM AAA LDAP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1286550a-efbd-4e9f-9073-6337b603258d",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"APM AAA LDAP Object Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"APM AAA LDAP Object Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e7e826d6-6f56-4421-a5f5-7e8825467741",
+								"exec": [
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"name\": \"ldap-servers\",\r\n    \"adminDn\": \"CN=Admin,CN=Users,DC=f5lab,DC=local\",\r\n    \"adminEncryptedPassword\": \"admin\",\r\n    \"isLdaps\": \"false\",\r\n    \"locationSpecific\": \"true\",\r\n    \"pool\": \"/Common/ldap-pool\",\r\n    \"port\": 389,\r\n    \"schemaAttr\": {\r\n        \"groupMember\": \"member\",\r\n        \"groupMemberValue\": \"dn\",\r\n        \"groupMemberof\": \"memberOf\",\r\n        \"groupObjectClass\": \"group\",\r\n        \"userMemberof\": \"memberOf\",\r\n        \"userObjectClass\": \"user\"\r\n    },\r\n    \"timeout\": 15,\r\n    \"usePool\": \"enabled\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/ldap/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"aaa",
+								"ldap",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip1-Create-Client Side SSL Profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e71c5a8b-79bd-4790-876c-5fc78388df8f",
+								"exec": [
+									"if (responseCode.code === 200) {",
+									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+									"pm.test(\"Client-side SSL Profile Created\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"} else ",
+									"pm.test(\"Client-Side Profile Exists\", function () {",
+									"    pm.response.to.have.status(409);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2b679cbf-f992-4842-8cbd-db78ac29065e",
+								"exec": [
+									"",
+									"",
+									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
+									"",
+									"if (PRIOR_RESPONSE === 'OK') {",
+									"",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"name\": \"{{CLIENT_SSL_NAME}}\",\r\n   \"cert\": \"/Common/acme.com-wildcard\",\r\n   \"key\": \"/Common/acme.com-wildcard\",\r\n   \"clientCertCa\": \"/Common/ca.f5lab.local.crt\",\r\n   \"caFile\": \"/Common/ca.f5lab.local.crt\"\r\n}"
+						},
+						"url": {
+							"raw": "https://10.1.1.4/mgmt/tm/ltm/profile/client-ssl/",
+							"protocol": "https",
+							"host": [
+								"10",
+								"1",
+								"1",
+								"4"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"ltm",
+								"profile",
+								"client-ssl",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Microsoft",
+			"item": [
+				{
+					"name": "DNS",
+					"item": [
+						{
+							"name": "POST /dns",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "96b62f46-4fbe-41df-a953-5a8a779544c3",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"A Record Created\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"record_type\":\"a\",\n\"hostname\":\"API_TEST\",\n\"zone\":\"acme.com\",\n\"computer_ip\":\"10.1.20.250\"\n}"
+								},
+								"url": {
+									"raw": "https://10.1.20.6:81/dns",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"dns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE /dns",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "396ff398-0125-435e-8e14-67456b9b2c4a",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"A Record Deleted\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"record_type\":\"a\",\n\"hostname\":\"API_TEST\",\n\"zone\":\"acme.com\",\n\"computer_ip\":\"10.1.20.250\" \n}"
+								},
+								"url": {
+									"raw": "https://10.1.20.6:81/dns",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"dns"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Websites",
+					"item": [
+						{
+							"name": "POST /website",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "53366fe8-c0c4-47ce-ad7b-6609baef60c9",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"for (var i = 0; i < jsonData.length; i++) {",
+											"",
+											"\t\tif (jsonData[i].status === \"Success\") {",
+											"\t\t\t",
+											"                pm.test(\"Website Created\", function () {",
+											"                pm.expect(jsonData[i].status).to.eql(\"Success\");",
+											"});",
+											"\t\t\t",
+											"\t\t}",
+											"\t}",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"site_name\":\"apitesting.acme.com\",\n\"http_port\":\"80\",\n\"https_port\":\"443\",\n\"computer_ip\":\"10.1.20.6\",\n\"authentication\": \"saml\",\n\"idp_name\": \"idp.acme.com\"\n}"
+								},
+								"url": {
+									"raw": "https://10.1.20.6:81/website",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"website"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE /website",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1f6c081b-80f9-4692-806b-2c2f62276c5b",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"Website Deleted\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"site_name\":\"apitesting.acme.com\" \n}"
+								},
+								"url": {
+									"raw": "https://10.1.20.6:81/website",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"website"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "UserAccounts",
+					"item": [
+						{
+							"name": "GET /aduser/create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9a358618-2bcd-490d-aea2-a0320c8a0e43",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} ",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.sAMAccountName).to.eql(\"GET_API\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/create?userIdentity=GET_API&employeeNumber=100&Name='Post API'&Givenname=POST&Surname=API&UserPrincipalName=postapi@f5lab.local&OU=IT&Password=F@k3P@assw0rd&email=postapi@acme.com",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"create"
+									],
+									"query": [
+										{
+											"key": "userIdentity",
+											"value": "GET_API"
+										},
+										{
+											"key": "employeeNumber",
+											"value": "100"
+										},
+										{
+											"key": "Name",
+											"value": "'Post API'"
+										},
+										{
+											"key": "Givenname",
+											"value": "POST"
+										},
+										{
+											"key": "Surname",
+											"value": "API"
+										},
+										{
+											"key": "UserPrincipalName",
+											"value": "postapi@f5lab.local"
+										},
+										{
+											"key": "OU",
+											"value": "IT"
+										},
+										{
+											"key": "Password",
+											"value": "F@k3P@assw0rd"
+										},
+										{
+											"key": "email",
+											"value": "postapi@acme.com"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /aduser/create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "39e95a35-7039-45dd-9670-02c7a3bb3f7c",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} ",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.sAMAccountName).to.eql(\"POST_API\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"Username\":\"POST_API\",\n\"employeeNumber\":\"100\",\n\"GivenName\":\"post\",\n\"Surname\": \"api\",\n\"UPN\":\"12890@f5lab.local\",\n\"OU\":\"IT\",\n\"Password\":\"letmein\",\n\"emailaddress\":\"postapi@acme.com\"\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/create",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /aduser/delegation",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "47b447fc-cbc9-489b-9146-16869c2aff92",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"    pm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
+											"    pm.test(\"OK\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"}",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											"",
+											"    pm.expect(jsonData.sAMAccountName).to.eql(\"DELEGATION_API\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"Username\":\"DELEGATION_API\",\n\"UPN\":\"HOST/DELEGATION.f5lab.local\",\n\"ou\":\"IT\",\n\"Password\":\"kerbaccount\",\n\"app_spn\": \"HTTP/delegatedapp.acme.com\"\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/delegation",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"delegation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /aduser/set",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "836c88e3-3d1c-42af-8e37-0e274864ea28",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} ",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.sAMAccountName).to.eql(\"POST_API\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/set?useridentity=POST_API&DriverLicense=123456",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"set"
+									],
+									"query": [
+										{
+											"key": "useridentity",
+											"value": "POST_API"
+										},
+										{
+											"key": "DriverLicense",
+											"value": "123456"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /aduser/get",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5d5fec8e-1333-4107-8c7b-b5cc37ca52b3",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "929cc141-b10b-4555-992a-cea2b66e4695",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"}",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.sAMAccountName).to.eql(\"POST_API\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/get?useridentity=POST_API",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"get"
+									],
+									"query": [
+										{
+											"key": "useridentity",
+											"value": "POST_API"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /aduser/unlock",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9267e1c8-6a0f-4328-9d14-4c82319e92c3",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} ",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.sAMAccountName).to.eql(\"POST_API\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/unlock?useridentity=POST_API",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"unlock"
+									],
+									"query": [
+										{
+											"key": "useridentity",
+											"value": "POST_API"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /aduser/cert",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7dbf184d-c320-4cd9-81ae-d96455929ac2",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} ",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test('OK', function() {",
+											"  pm.expect(jsonData).to.have.property('certificate');",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/cert?useridentity=user1",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"cert"
+									],
+									"query": [
+										{
+											"key": "useridentity",
+											"value": "user1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PATCH /aduser/password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e9058faa-9b39-4bbd-81af-29a3d788aa61",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} ",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.sAMAccountName).to.eql(\"POST_API\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "oauth2",
+									"oauth2": [
+										{
+											"key": "accessToken",
+											"value": "ewogICJhbGciOiJIUzI1NiIsCiAgImtpZCI6ImxhYiIKfQ.ewogICJ0b2tlbl90eXBlIjoiQmVhcmVyIiwKICAiaXNzIjoiaHR0cHM6Ly9wcmVidWlsdC1hcy5hY21lLmNvbSIsCiAgImNsaWVudCI6IjMwMzJmZDEyMWY5ZGZjNjY1ZDVjM2Y1ZjllOWUwNjExMTcxZjJmNmU4MTdiMTg1ZSIsCiAgImdyb3VwaWQiOiJTZW5pb3IgU3lzdGVtcyBFbmdpbmVlciIsCiAgImdyb3VwcyI6InwgQ049bWVtYmVyLXNlcnZpY2VzLUEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049c3lzYWRtaW5zLE9VPUdyb3VwcyxEQz1mNWxhYixEQz1sb2NhbCB8IENOPWFwcDEsT1U9R3JvdXBzLERDPWY1bGFiLERDPWxvY2FsIHwgQ049RWRpdFVzZXIsT1U9SVQsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1XZWJzaXRlIEFkbWluLE9VPVNhbGVzIEVuZ2luZWVyaW5nLERDPWY1bGFiLERDPWxvY2FsIHwgQ049U2FsZXMgRW5naW5lZXJpbmcsQ049VXNlcnMsREM9ZjVsYWIsREM9bG9jYWwgfCBDTj1Eb21haW4gQWRtaW5zLENOPVVzZXJzLERDPWY1bGFiLERDPWxvY2FsIHwiLAogICJvcmciOiJGNSIsCiAgInRpZXIiOiJTYWxlcyBFbmdpbmVlcmluZyIsCiAgInVzZXIiOiJ1c2VyMSIsCiAgInN1YiI6Ii9wcmVidWlsdC9wcmVidWlsdC1hcy1wc3AudXNlcjEiLAogICJqdGkiOiJlM2Y1YzRiYzBkZTRjYzBmOWVkMTdiZjU5YzI5NzMzMDZkNmNmODNmNzA2ZmM3NzM0YTdjNGNmNTQ0MzRkM2JjIiwKICAiaWF0IjoxNTg3NDcwMzAzLAogICJleHAiOjE1ODc0Nzc1MDMsCiAgIm5iZiI6MTU4NzQ3MDAwMwp9.PizJFgeQiYuaR5ZBN5_GAo9QuA0jSkUXlsPu-OL8fl8",
+											"type": "string"
+										},
+										{
+											"key": "tokenType",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "http://10.1.20.6:81/aduser/password?useridentity=POST_API&password=changeme",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"aduser",
+										"password"
+									],
+									"query": [
+										{
+											"key": "useridentity",
+											"value": "POST_API"
+										},
+										{
+											"key": "password",
+											"value": "changeme"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE /user - Delete user GET_API",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a3aa64a4-7e53-459e-930b-acacd7e0e818",
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+											"pm.test(\"OK\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} ",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://10.1.20.6:81/user?useridentity=GET_API",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"user"
+									],
+									"query": [
+										{
+											"key": "useridentity",
+											"value": "GET_API"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "IP Addresses",
+					"item": [
+						{
+							"name": "GET /addr/available",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3a4588b0-9e30-43d6-a09e-e5bb653efe34",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.address).to.eql(\"10.1.10.100\");",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://10.1.20.6:81/addr/available?scope={{BIGIP1_SCOPE}}",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"addr",
+										"available"
+									],
+									"query": [
+										{
+											"key": "scope",
+											"value": "{{BIGIP1_SCOPE}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST /addr/checkout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "296588bf-311e-49de-a7cf-3bf4465ceb80",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											" ",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"10.1.10.113\",\n\"vs_name\":\"api_testing.acme.com\"\n}"
+								},
+								"url": {
+									"raw": "https://10.1.20.6:81/addr/checkout",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"addr",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE /addr/checkin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "505c82fb-d963-4fe4-a4a1-f6e2d0d54f01",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"OK\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"10.1.10.101\",\n\"vs_name\":\"test.acme.com\"\n}"
+								},
+								"url": {
+									"raw": "https://10.1.20.6:81/addr/checkin?address=10.1.10.113",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"addr",
+										"checkin"
+									],
+									"query": [
+										{
+											"key": "address",
+											"value": "10.1.10.113"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /addr/scope-status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "281a1865-ad3e-43ce-a3bf-08f6a249815b",
+										"exec": [
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (!jsonData.length) {",
+											"\tif (jsonData.Description === \"api_testing.acme.com\") {",
+											"\t\t\tpm.test(\"Scope Request successful\", function () {",
+											"\t\t    pm.response.to.have.status(200);",
+											"\t});",
+											"\t\t",
+											"\t}",
+											"} else {",
+											"",
+											"",
+											"\tfor (var i = 0; i < jsonData.length; i++) {",
+											"",
+											"\t\tif (jsonData[i].Description === \"api_testing.acme.com\") {",
+											"\t\t\tpm.test(\"Scope Request successful\", function () {",
+											"\t\t    pm.response.to.have.status(200);",
+											"\t});",
+											"\t\t}",
+											"\t}",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://10.1.20.6:81/addr/scope-status?scope={{BIGIP1_SCOPE}}",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"addr",
+										"scope-status"
+									],
+									"query": [
+										{
+											"key": "scope",
+											"value": "{{BIGIP1_SCOPE}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Desktop",
+					"item": [
+						{
+							"name": "Create Desktop files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "268a38f0-3a56-46fe-bc3d-23714aea4bd6",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"Files Copied\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"repo\":\"solutions\",\n\"number\":\"7\",\n\"user\": \"user1\"\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/desktop",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"desktop"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Desktop Files",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8b43eaf5-0f16-410b-bd6d-7cf62ccc5ac6",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"Files Deleted\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"repo\":\"solutions\",\n\"number\":\"7\",\n\"user\": \"user1\"\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/desktop",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"desktop"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "computer",
+					"item": [
+						{
+							"name": "Delete SPN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "95911c65-1dc3-44db-88af-584a2585bb69",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"SPN Deleted\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/apitesting.acme.com\"\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/computer",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"computer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create SPN",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1920573a-fcde-493a-8963-a111cd9ae213",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"SPN Created\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/apitesting.acme.com\"\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/computer",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"computer"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "2ade0f86-17fb-41b7-9eab-cb9b624db36b",
+			"key": "PRIOR_RESPONSE",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

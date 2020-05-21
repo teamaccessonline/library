@@ -1281,6 +1281,188 @@
 			"response": []
 		},
 		{
+			"name": "POST /desktop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "05b23220-d9ad-4a5c-9a64-279f8702c444",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Files Copied\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"repo\":\"solutions\",\n\"number\":\"7\",\n\"user\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/desktop",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /desktop",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f48dad81-e8ec-4b14-8389-6b13ae56b4d1",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Files Deleted\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"repo\":\"solutions\",\n\"number\":\"7\",\n\"user\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/desktop",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /SPN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec93216c-81f6-4861-a975-492755d09bc7",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"SPN Created\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/apitesting.acme.com\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/computer",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"computer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete /SPN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d59f2d10-8fa4-4d10-936f-c960cbea19f8",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"SPN Deleted\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/apitesting.acme.com\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/computer",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"computer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "DELETE /user - Delete user GET_API",
 			"event": [
 				{
@@ -1571,31 +1753,31 @@
 	],
 	"variable": [
 		{
-			"id": "fd477ea0-5fb6-4f38-9f89-9d106ef5985c",
+			"id": "f8e37bad-90fd-40d0-b977-b46e9111539f",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "81ce4f7c-2794-4559-9010-85b450b58be9",
+			"id": "e7145a0a-a02e-48ce-bfda-e8ac6060d043",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "b5fdaa32-aade-4213-bcba-5f017b0051f1",
+			"id": "a6758c20-c364-4ebe-841d-27c0d88fe27a",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "7472dd9c-5214-44b0-b632-315115202ec2",
+			"id": "0799996c-1e69-4f77-a376-fd02c88c4535",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "90d2de52-a705-435f-9c8a-59514a87c3c7",
+			"id": "4187f30e-4eb8-456c-a738-8820124178e9",
 			"key": "HTTPS_RUN",
 			"value": "",
 			"type": "string"
