@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6117e12f-6b0f-498e-9b73-0f2ffe8e9390",
+		"_postman_id": "b1cb30aa-4c92-48a7-88f2-93eac03be89a",
 		"name": "ad_adpi_test_pattern",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "db65d208-e21a-447a-8edf-005175cfe408",
+						"id": "94ef4327-e12f-4ed4-aa29-d2efbdccce39",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
@@ -31,13 +31,13 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "93541abe-a38a-48b6-9f55-d93055837471",
+						"id": "1a626a1b-23c6-454a-a93e-a21d0af46760",
 						"exec": [
-							"pm.collectionVariables.set(\"APP_NAME\", \"api.acme.com\");",
-							"pm.collectionVariables.set(\"PATH_NAME\", \"api\");",
-							"pm.collectionVariables.set(\"PARTITION_NAME\", \"api\");",
+							"pm.collectionVariables.set(\"DNS1_NAME\", \"testapp.acme.com\");",
+							"pm.collectionVariables.set(\"VS1_NAME\", \"testvs\");",
+							"pm.collectionVariables.set(\"PATH_NAME\", \"testpath\");",
+							"pm.collectionVariables.set(\"PARTITION_NAME\", \"testpartition\");",
 							"pm.collectionVariables.set('HTTPS_RUN', 'FALSE' );",
-							"",
 							"",
 							""
 						],
@@ -83,12 +83,186 @@
 			"response": []
 		},
 		{
+			"name": "GET /addr/scope-status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bde5ff32-bd03-4155-94cc-2d6f967990cd",
+						"exec": [
+							"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
+							"",
+							"",
+							"if (responseCode.code === 200) {",
+							"\tpm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
+							"\tpm.test(\"Scope Request successful\", function () {",
+							"\t\tpm.response.to.have.status(200);",
+							"\t});",
+							"}",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"if (!jsonData.length) {",
+							"\tif (jsonData.Description === VS_NAME) {",
+							"\t\tpm.collectionVariables.set(\"BIGIP1_ADDRESS1\", jsonData.IPAddress.IPAddressToString);",
+							"\t\tpostman.setNextRequest(\"create_vs_http_server_pool\");",
+							"\t}",
+							"} else {",
+							"",
+							"",
+							"\tfor (var i = 0; i < jsonData.length; i++) {",
+							"",
+							"\t\tif (jsonData[i].Description === VS_NAME) {",
+							"\t\t\tpm.collectionVariables.set(\"BIGIP1_ADDRESS1\", jsonData[i].IPAddress.IPAddressToString);",
+							"\t\t\tpostman.setNextRequest(\"create_vs_http_server_pool\");",
+							"\t\t}",
+							"\t}",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://10.1.20.6:81/addr/scope-status?scope={{BIGIP1_SCOPE}}",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"addr",
+						"scope-status"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "{{BIGIP1_SCOPE}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /addr/available",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7152535-485e-4be3-baa4-65456b56d95c",
+						"exec": [
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.collectionVariables.set(\"BIGIP1_ADDRESS1\", jsonData.address);",
+							"",
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test('Next Available Address Found', function () {",
+							"  pm.expect(jsonData).to.have.property('address');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://10.1.20.6:81/addr/available?scope={{BIGIP1_SCOPE}}",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"addr",
+						"available"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "{{BIGIP1_SCOPE}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /addr/checkout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "759fc1ea-538a-4504-ae7f-f97c37019cc5",
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Address Checked Out\", function () {",
+							" ",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"{{BIGIP1_ADDRESS1}}\",\n\"vs_name\":\"{{VS1_NAME}}\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/addr/checkout",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"addr",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create_vs_http_server_pool",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "b15fcfc5-3af0-4f6b-9b33-6840609ba211",
+						"id": "6f9bfd7e-c408-4bff-810f-ea92d00ac752",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -122,7 +296,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"class\": \"ADC\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n       \"class\": \"ADC\",\r\n       \"schemaVersion\": \"3.14.0\",\r\n       \"id\": \"APM\",\r\n       \"{{PARTITION_NAME}}\": {\r\n          \"class\": \"Tenant\",\r\n          \"{{PATH_NAME}}\": {\r\n             \"class\": \"Application\",\r\n             \"template\": \"generic\",\r\n             \"{{APP_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                   \"10.1.10.100\"\r\n                ],\r\n                \"virtualPort\": 443,\r\n                \"serverTLS\": \"{{APP_NAME}}-clientssl\",\r\n                \"pool\": \"http-api-pool\",\r\n        \t\t\"snat\": \"auto\"\r\n                },\r\n\r\n                \"{{APP_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                        {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                },\r\n                \"http-api-pool\": {\r\n                    \"class\": \"Pool\",  \r\n                        \"members\": [\r\n                            {\r\n                            \"serverAddresses\": [\r\n                            \"10.1.20.6\"\r\n                            ],\r\n                            \"servicePort\": 81\r\n                            }\r\n                        ],\r\n                    \"monitors\": [\r\n                        \"icmp\"\r\n                    ]\r\n                }\r\n\r\n            }\r\n       }\r\n    }\r\n\r\n}\r\n                \r\n             \r\n          \r\n       \r\n    \r\n"
+					"raw": "{\r\n    \"class\": \"ADC\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n       \"class\": \"ADC\",\r\n       \"schemaVersion\": \"3.14.0\",\r\n       \"id\": \"APM\",\r\n       \"{{PARTITION_NAME}}\": {\r\n          \"class\": \"Tenant\",\r\n          \"{{PATH_NAME}}\": {\r\n             \"class\": \"Application\",\r\n             \"template\": \"generic\",\r\n             \"{{VS1_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                   \"{{BIGIP1_ADDRESS1}}\"\r\n                ],\r\n                \"virtualPort\": 443,\r\n                \"serverTLS\": \"{{VS1_NAME}}-clientssl\",\r\n                \"pool\": \"http-api-pool\",\r\n        \t\t\"snat\": \"auto\"\r\n                },\r\n\r\n                \"{{VS1_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                        {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                },\r\n                \"http-api-pool\": {\r\n                    \"class\": \"Pool\",  \r\n                        \"members\": [\r\n                            {\r\n                            \"serverAddresses\": [\r\n                            \"10.1.20.6\"\r\n                            ],\r\n                            \"servicePort\": 81\r\n                            }\r\n                        ],\r\n                    \"monitors\": [\r\n                        \"icmp\"\r\n                    ]\r\n                }\r\n\r\n            }\r\n       }\r\n    }\r\n\r\n}\r\n                \r\n             \r\n          \r\n       \r\n    \r\n"
 				},
 				"url": {
 					"raw": "https://10.1.1.4/mgmt/shared/appsvcs/declare",
@@ -149,7 +323,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "65d8a9ea-0a6d-4007-9e5d-e879d13e32f8",
+						"id": "c53999a8-fa2d-45d8-9a92-8bf209ea9b7f",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -174,13 +348,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						""
@@ -195,7 +366,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9a358618-2bcd-490d-aea2-a0320c8a0e43",
+						"id": "f9daf155-d3d1-43f2-8997-3c1f06a9d7b2",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -238,13 +409,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/aduser/create?userIdentity=GET_API&employeeNumber=100&Name='Post API'&Givenname=POST&Surname=API&UserPrincipalName=postapi@f5lab.local&OU=IT&Password=F@k3P@assw0rd&email=postapi@acme.com",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/aduser/create?userIdentity=GET_API&employeeNumber=100&Name='Post API'&Givenname=POST&Surname=API&UserPrincipalName=postapi@f5lab.local&OU=IT&Password=F@k3P@assw0rd&email=postapi@acme.com",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -298,7 +466,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "39e95a35-7039-45dd-9670-02c7a3bb3f7c",
+						"id": "d2651497-07a4-481a-9ce5-c919892c3877",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -345,13 +513,10 @@
 					"raw": "{\n\"Username\":\"POST_API\",\n\"employeeNumber\":\"100\",\n\"GivenName\":\"post\",\n\"Surname\": \"api\",\n\"UPN\":\"12890@f5lab.local\",\n\"OU\":\"IT\",\n\"Password\":\"letmein\",\n\"emailaddress\":\"postapi@acme.com\"\n}"
 				},
 				"url": {
-					"raw": "https://10.1.10.100/aduser/create",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/aduser/create",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -367,7 +532,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "47b447fc-cbc9-489b-9146-16869c2aff92",
+						"id": "aa5ea761-f64c-4958-830d-47cf51548f5d",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"    pm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
@@ -411,16 +576,13 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"Username\":\"DELEGATION_API\",\n\"UPN\":\"HOST/DELEGATION.f5lab.local\",\n\"ou\":\"IT\",\n\"Password\":\"kerbaccount\",\n\"app_spn\": \"HTTP/delegatedapp.acme.com\"\n}"
+					"raw": "{\n\"Username\":\"DELEGATION_API\",\n\"UPN\":\"HOST/DELEGATION.f5lab.local\",\n\"ou\":\"IT\",\n\"Password\":\"kerbaccount\",\n\"app_spn\": \"HTTP/{{DNS1_NAME}}\"\n}"
 				},
 				"url": {
-					"raw": "https://10.1.10.100/aduser/delegation",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/aduser/delegation",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -436,7 +598,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "836c88e3-3d1c-42af-8e37-0e274864ea28",
+						"id": "618cec34-17f4-470a-a7f1-7ed21946141c",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -479,13 +641,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/aduser/set?useridentity=POST_API&DriverLicense=123456",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/aduser/set?useridentity=POST_API&DriverLicense=123456",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -511,7 +670,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5d5fec8e-1333-4107-8c7b-b5cc37ca52b3",
+						"id": "8456e8e8-5dcc-4502-85ae-0f4c68382fb9",
 						"exec": [
 							""
 						],
@@ -521,7 +680,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "929cc141-b10b-4555-992a-cea2b66e4695",
+						"id": "ed4b304f-c754-4459-b938-7b8768e34f16",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -547,13 +706,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/aduser/get?useridentity=POST_API",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/aduser/get?useridentity=POST_API",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -575,7 +731,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9267e1c8-6a0f-4328-9d14-4c82319e92c3",
+						"id": "16bcd414-9ded-43f1-bb17-0241ff58d25d",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -601,13 +757,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/aduser/unlock?useridentity=POST_API",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/aduser/unlock?useridentity=POST_API",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -629,7 +782,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7dbf184d-c320-4cd9-81ae-d96455929ac2",
+						"id": "cec94815-a5e3-4f53-a9ee-4370a386872b",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -671,13 +824,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/aduser/cert?useridentity=user1",
-					"protocol": "https",
+					"raw": "http://{{BIGIP1_ADDRESS1}}/aduser/cert?useridentity=user1",
+					"protocol": "http",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -699,7 +849,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e9058faa-9b39-4bbd-81af-29a3d788aa61",
+						"id": "47335b07-12c1-4f42-8ab8-fb2b6d398b50",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -742,13 +892,10 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/aduser/password?useridentity=POST_API&password=changeme",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/aduser/password?useridentity=POST_API&password=changeme",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"aduser",
@@ -774,7 +921,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8f34cbc2-db2c-4e1d-8853-eac3c34e0cad",
+						"id": "002ef1ef-a87a-4a46-b37c-7e0630a5fb9c",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -797,13 +944,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/vulnerable?useridentity=hackeduser&uri=http://dummy.restapiexample.com/api/v1/employees",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/vulnerable?useridentity=hackeduser&uri=http://dummy.restapiexample.com/api/v1/employees",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"vulnerable"
@@ -828,7 +972,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a9d5e21c-a525-487b-9810-07c5e8ea5d2f",
+						"id": "1575b695-65cd-455e-8e7b-e50f4d7657f7",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -852,13 +996,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/vulnerable?useridentity=hackeduser&uri=http://unprotected-json.f5lab.local/",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/vulnerable?useridentity=hackeduser&uri=http://unprotected-json.f5lab.local/",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"vulnerable"
@@ -878,129 +1019,38 @@
 			"response": []
 		},
 		{
-			"name": "GET /addr/available",
+			"name": "GET IIS /addr/scope-status",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "3a4588b0-9e30-43d6-a09e-e5bb653efe34",
+						"id": "687a19ab-de4a-432a-a4b4-050d7e1ceca4",
 						"exec": [
+							"var VS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");",
 							"",
 							"",
-							"var jsonData = pm.response.json();",
-							"pm.test(\"OK\", function () {",
-							" ",
-							"    pm.expect(jsonData.address).to.eql(\"10.1.10.100\");",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://10.1.10.100/addr/available?scope={{BIGIP1_SCOPE}}",
-					"protocol": "https",
-					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
-					],
-					"path": [
-						"addr",
-						"available"
-					],
-					"query": [
-						{
-							"key": "scope",
-							"value": "{{BIGIP1_SCOPE}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST /addr/checkout",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "296588bf-311e-49de-a7cf-3bf4465ceb80",
-						"exec": [
-							"",
-							"",
-							"var jsonData = pm.response.json();",
-							"pm.test(\"OK\", function () {",
-							" ",
-							"    pm.expect(jsonData.status).to.eql(\"Success\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"10.1.10.113\",\n\"vs_name\":\"api_testing.acme.com\"\n}"
-				},
-				"url": {
-					"raw": "https://10.1.10.100/addr/checkout",
-					"protocol": "https",
-					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
-					],
-					"path": [
-						"addr",
-						"checkout"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET /addr/scope-status",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "281a1865-ad3e-43ce-a3bf-08f6a249815b",
-						"exec": [
+							"if (responseCode.code === 200) {",
+							"\tpm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
+							"\tpm.test(\"Scope Request successful\", function () {",
+							"\t\tpm.response.to.have.status(200);",
+							"\t});",
+							"}",
 							"",
 							"var jsonData = pm.response.json();",
 							"",
 							"if (!jsonData.length) {",
-							"\tif (jsonData.Description === \"api_testing.acme.com\") {",
-							"\t\t\tpm.test(\"Scope Request successful\", function () {",
-							"\t\t    pm.response.to.have.status(200);",
-							"\t});",
-							"\t\t",
+							"\tif (jsonData.Description === VS_NAME) {",
+							"\t\tpm.collectionVariables.set(\"IIS_ADDRESS1\", jsonData.IPAddress.IPAddressToString);",
+							"\t\tpostman.setNextRequest(\"POST /website\");",
 							"\t}",
 							"} else {",
 							"",
 							"",
 							"\tfor (var i = 0; i < jsonData.length; i++) {",
 							"",
-							"\t\tif (jsonData[i].Description === \"api_testing.acme.com\") {",
-							"\t\t\tpm.test(\"Scope Request successful\", function () {",
-							"\t\t    pm.response.to.have.status(200);",
-							"\t});",
+							"\t\tif (jsonData[i].Description === VS_NAME) {",
+							"\t\t\tpm.collectionVariables.set(\"IIS_ADDRESS1\", jsonData[i].IPAddress.IPAddressToString);",
+							"\t\t\tpostman.setNextRequest(\"POST /website\");",
 							"\t\t}",
 							"\t}",
 							"}"
@@ -1014,19 +1064,20 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"url": {
-					"raw": "https://10.1.10.100/addr/scope-status?scope={{BIGIP1_SCOPE}}",
-					"protocol": "https",
+					"raw": "http://10.1.20.6:81/addr/scope-status?scope={{IIS_SCOPE}}",
+					"protocol": "http",
 					"host": [
 						"10",
 						"1",
-						"10",
-						"100"
+						"20",
+						"6"
 					],
+					"port": "81",
 					"path": [
 						"addr",
 						"scope-status"
@@ -1034,7 +1085,7 @@
 					"query": [
 						{
 							"key": "scope",
-							"value": "{{BIGIP1_SCOPE}}"
+							"value": "{{IIS_SCOPE}}"
 						}
 					]
 				}
@@ -1042,12 +1093,112 @@
 			"response": []
 		},
 		{
-			"name": "POST /dns",
+			"name": "GET IIS /addr/available",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "96b62f46-4fbe-41df-a953-5a8a779544c3",
+						"id": "d7f4da6c-2bbf-4254-9675-91564783010b",
+						"exec": [
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.collectionVariables.set(\"IIS_ADDRESS1\", jsonData.address);",
+							"",
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test('Next Available Address Found', function () {",
+							"  pm.expect(jsonData).to.have.property('address');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://10.1.20.6:81/addr/available?scope={{IIS_SCOPE}}",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"addr",
+						"available"
+					],
+					"query": [
+						{
+							"key": "scope",
+							"value": "{{IIS_SCOPE}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST IIS /addr/checkout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "270f75c3-1657-4377-8bc7-55aaa4036620",
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Address Checked Out\", function () {",
+							" ",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"scope\":\"{{IIS_SCOPE}}\",\n\"address\":\"{{IIS_ADDRESS1}}\",\n\"vs_name\":\"{{DNS1_NAME}}\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/addr/checkout",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"addr",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create A record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c1342e7-5ddc-4c64-985e-210c931caaf7",
 						"exec": [
 							"",
 							"",
@@ -1066,16 +1217,53 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"record_type\":\"a\",\n\"hostname\":\"API_TEST\",\n\"zone\":\"acme.com\",\n\"computer_ip\":\"10.1.20.250\"\n}"
+					"raw": "{\n\"record_type\":\"a\",\n\"fqdn\":\"{{DNS1_NAME}}\",\n\"computer_ip\":\"{{IIS_ADDRESS1}}\"\n}"
 				},
 				"url": {
-					"raw": "https://10.1.10.100/dns",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/dns",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
+					],
+					"path": [
+						"dns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create PTR record",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26a40fa0-20b9-4d63-92c9-0075f6be3df0",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"A Record Created\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"record_type\":\"ptr\",\n\"fqdn\":\"{{DNS1_NAME}}\",\n\"computer_ip\":\"{{IIS_ADDRESS1}}\"\n}"
+				},
+				"url": {
+					"raw": "https://{{BIGIP1_ADDRESS1}}/dns",
+					"protocol": "https",
+					"host": [
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"dns"
@@ -1090,7 +1278,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "53366fe8-c0c4-47ce-ad7b-6609baef60c9",
+						"id": "8a9d0258-02b1-4a57-923f-67912b1c42ab",
 						"exec": [
 							"",
 							"",
@@ -1117,16 +1305,13 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"site_name\":\"apitesting.acme.com\",\n\"http_port\":\"80\",\n\"https_port\":\"443\",\n\"computer_ip\":\"10.1.20.6\",\n\"authentication\": \"saml\",\n\"idp_name\": \"idp.acme.com\"\n}"
+					"raw": "{\n\t\"site_name\":\"{{DNS1_NAME}}\",\n\t\"http_port\":\"80\",\n\t\"https_port\":\"443\",\n\t\"computer_ip\":\"{{IIS_ADDRESS1}}\",\n\t\"template_number\": \"2\",\n\t\"authentication\": \"none\",\n\t\"customization\": {\n\t\t\"background\": \"green\"\n\n\t}\n}"
 				},
 				"url": {
-					"raw": "https://10.1.10.100/website",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/website",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"website"
@@ -1136,22 +1321,13 @@
 			"response": []
 		},
 		{
-			"name": "DELETE /website",
+			"name": "Create SPN",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "1f6c081b-80f9-4692-806b-2c2f62276c5b",
+						"id": "32d3eb01-7610-45ed-a416-0c854aa44055",
 						"exec": [
-							"",
-							"",
-							"var jsonData = pm.response.json();",
-							"pm.test(\"Website Deleted\", function () {",
-							"",
-							"    pm.expect(jsonData.status).to.eql(\"Success\");",
-							"});",
-							"",
-							"",
 							""
 						],
 						"type": "text/javascript"
@@ -1159,134 +1335,32 @@
 				}
 			],
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"site_name\":\"apitesting.acme.com\" \n}"
+					"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/{{DNS1_NAME}}\" \n}"
 				},
 				"url": {
-					"raw": "https://10.1.10.100/website",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/computer",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
-						"website"
+						"computer"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "DELETE /dns",
+			"name": "Create Desktop files",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "396ff398-0125-435e-8e14-67456b9b2c4a",
-						"exec": [
-							"",
-							"",
-							"var jsonData = pm.response.json();",
-							"pm.test(\"A Record Deleted\", function () {",
-							"",
-							"    pm.expect(jsonData.status).to.eql(\"Success\");",
-							"});",
-							"",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"record_type\":\"a\",\n\"hostname\":\"API_TEST\",\n\"zone\":\"acme.com\",\n\"computer_ip\":\"10.1.20.250\" \n}"
-				},
-				"url": {
-					"raw": "https://10.1.10.100/dns",
-					"protocol": "https",
-					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
-					],
-					"path": [
-						"dns"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE /addr/checkin",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "505c82fb-d963-4fe4-a4a1-f6e2d0d54f01",
-						"exec": [
-							"",
-							"",
-							"var jsonData = pm.response.json();",
-							"pm.test(\"OK\", function () {",
-							"",
-							"    pm.expect(jsonData.status).to.eql(\"Success\");",
-							"});",
-							"",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"10.1.10.101\",\n\"vs_name\":\"test.acme.com\"\n}"
-				},
-				"url": {
-					"raw": "https://10.1.10.100/addr/checkin?address=10.1.10.113",
-					"protocol": "https",
-					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
-					],
-					"path": [
-						"addr",
-						"checkin"
-					],
-					"query": [
-						{
-							"key": "address",
-							"value": "10.1.10.113"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "POST /desktop",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "05b23220-d9ad-4a5c-9a64-279f8702c444",
+						"id": "315b3024-86ae-4af9-a53d-4bd716675ebf",
 						"exec": [
 							"",
 							"",
@@ -1305,18 +1379,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"repo\":\"solutions\",\n\"number\":\"7\",\n\"user\": \"user1\"\n}"
+					"raw": "{\n\"repo\":\"labs\",\n\"number\":\"3\",\n\"user\": \"user1\"\n}"
 				},
 				"url": {
-					"raw": "http://10.1.20.6:81/desktop",
-					"protocol": "http",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/desktop",
+					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"20",
-						"6"
+						"{{BIGIP1_ADDRESS1}}"
 					],
-					"port": "81",
 					"path": [
 						"desktop"
 					]
@@ -1325,12 +1395,12 @@
 			"response": []
 		},
 		{
-			"name": "DELETE /desktop",
+			"name": "Delete Desktop Files",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "f48dad81-e8ec-4b14-8389-6b13ae56b4d1",
+						"id": "d927ec1b-3f21-40b5-bc91-eed306e987ac",
 						"exec": [
 							"",
 							"",
@@ -1352,18 +1422,14 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"repo\":\"solutions\",\n\"number\":\"7\",\n\"user\": \"user1\"\n}"
+					"raw": "{\n\"repo\":\"labs\",\n\"number\":\"3\",\n\"user\": \"user1\"\n}"
 				},
 				"url": {
-					"raw": "http://10.1.20.6:81/desktop",
-					"protocol": "http",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/desktop",
+					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"20",
-						"6"
+						"{{BIGIP1_ADDRESS1}}"
 					],
-					"port": "81",
 					"path": [
 						"desktop"
 					]
@@ -1372,61 +1438,17 @@
 			"response": []
 		},
 		{
-			"name": "POST /SPN",
+			"name": "DELETE /website",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "ec93216c-81f6-4861-a975-492755d09bc7",
+						"id": "7d0f4089-35c8-486e-b056-67e682dfe3af",
 						"exec": [
 							"",
 							"",
 							"var jsonData = pm.response.json();",
-							"pm.test(\"SPN Created\", function () {",
-							"",
-							"    pm.expect(jsonData.status).to.eql(\"Success\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/apitesting.acme.com\"\n}"
-				},
-				"url": {
-					"raw": "http://10.1.20.6:81/computer",
-					"protocol": "http",
-					"host": [
-						"10",
-						"1",
-						"20",
-						"6"
-					],
-					"port": "81",
-					"path": [
-						"computer"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete /SPN",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d59f2d10-8fa4-4d10-936f-c960cbea19f8",
-						"exec": [
-							"",
-							"",
-							"var jsonData = pm.response.json();",
-							"pm.test(\"SPN Deleted\", function () {",
+							"pm.test(\"Website Deleted\", function () {",
 							"",
 							"    pm.expect(jsonData.status).to.eql(\"Success\");",
 							"});",
@@ -1443,20 +1465,16 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/apitesting.acme.com\"\n}"
+					"raw": "{\n\"site_name\":\"{{DNS1_NAME}}\" \n}"
 				},
 				"url": {
-					"raw": "http://10.1.20.6:81/computer",
-					"protocol": "http",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/website",
+					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"20",
-						"6"
+						"{{BIGIP1_ADDRESS1}}"
 					],
-					"port": "81",
 					"path": [
-						"computer"
+						"website"
 					]
 				}
 			},
@@ -1468,7 +1486,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a3aa64a4-7e53-459e-930b-acacd7e0e818",
+						"id": "a83d1810-7b70-425a-abdb-131d3c275f19",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1493,13 +1511,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/user?useridentity=GET_API",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/user?useridentity=GET_API",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"user"
@@ -1515,12 +1530,56 @@
 			"response": []
 		},
 		{
+			"name": "DELETE /user - Delete user POST_API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5163aa9a-8222-4b7f-ba1a-8c1c66e5bb19",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"pm.test(\"OK\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} ",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{BIGIP1_ADDRESS1}}/user?useridentity=POST_API",
+					"protocol": "https",
+					"host": [
+						"{{BIGIP1_ADDRESS1}}"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "useridentity",
+							"value": "POST_API"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "DELETE /user - Delete user DELEGATION_API",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "0517926e-5ca2-485e-8014-7bc8d7b1228f",
+						"id": "a4ccbec8-7e94-4ae7-8c7f-a03fbc1333ec",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"    pm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
@@ -1544,13 +1603,10 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://10.1.10.100/user?useridentity=DELEGATION_API",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/user?useridentity=DELEGATION_API",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
 						"user"
@@ -1566,31 +1622,22 @@
 			"response": []
 		},
 		{
-			"name": "DELETE /user - Delete user POST_API",
+			"name": "Delete SPN",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "a231356b-58ce-415f-ba51-cf13e40c5e45",
+						"id": "40ae452f-348e-48db-8944-71cb5c7c4fd5",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"pm.test(\"OK\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"} ",
+							"",
 							"",
 							"var jsonData = pm.response.json();",
-							"pm.test(\"OK\", function () {",
-							" ",
+							"pm.test(\"SPN Deleted\", function () {",
+							"",
 							"    pm.expect(jsonData.status).to.eql(\"Success\");",
 							"});",
 							"",
-							"var HTTPS_RUN = pm.collectionVariables.get(\"HTTPS_RUN\");",
 							"",
-							"if (HTTPS_RUN === \"TRUE\") {",
-							"postman.setNextRequest(\"delete_vs\");",
-							"}",
 							""
 						],
 						"type": "text/javascript"
@@ -1600,22 +1647,117 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/{{DNS1_NAME}}\"\n}"
+				},
 				"url": {
-					"raw": "https://10.1.10.100/user?useridentity=POST_API",
+					"raw": "https://{{BIGIP1_ADDRESS1}}/computer",
 					"protocol": "https",
 					"host": [
-						"10",
-						"1",
-						"10",
-						"100"
+						"{{BIGIP1_ADDRESS1}}"
 					],
 					"path": [
-						"user"
+						"computer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /dns",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "85231e25-6c0a-4994-8607-baa307bca396",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"A Record Deleted\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"record_type\":\"a\",\n\"fqdn\":\"{{DNS1_NAME}}\",\n\"computer_ip\":\"{{IIS_ADDRESS1}}\" \n}"
+				},
+				"url": {
+					"raw": "https://{{BIGIP1_ADDRESS1}}/dns",
+					"protocol": "https",
+					"host": [
+						"{{BIGIP1_ADDRESS1}}"
+					],
+					"path": [
+						"dns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /addr/checkin - IIS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9631a2d4-15d7-4f0a-9ccf-66cdac8a686e",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"",
+							"var HTTPS_RUN = pm.collectionVariables.get(\"HTTPS_RUN\");",
+							"",
+							"if (HTTPS_RUN === \"TRUE\") {",
+							"postman.setNextRequest(\"delete_vs\");",
+							"}",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{BIGIP1_ADDRESS1}}/addr/checkin?address={{IIS_ADDRESS1}}",
+					"protocol": "https",
+					"host": [
+						"{{BIGIP1_ADDRESS1}}"
+					],
+					"path": [
+						"addr",
+						"checkin"
 					],
 					"query": [
 						{
-							"key": "useridentity",
-							"value": "POST_API"
+							"key": "address",
+							"value": "{{IIS_ADDRESS1}}"
 						}
 					]
 				}
@@ -1628,7 +1770,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "befe444a-2f67-47be-bbb9-df5f85694e8b",
+						"id": "a90b69c8-491c-40ef-909b-190bb3cf363d",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"    pm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
@@ -1667,7 +1809,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"class\": \"ADC\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n       \"class\": \"ADC\",\r\n       \"schemaVersion\": \"3.14.0\",\r\n       \"id\": \"APM\",\r\n       \"{{PARTITION_NAME}}\": {\r\n          \"class\": \"Tenant\",\r\n          \"{{PATH_NAME}}\": {\r\n             \"class\": \"Application\",\r\n             \"template\": \"generic\",\r\n             \"{{APP_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                   \"10.1.10.100\"\r\n                ],\r\n                \"virtualPort\": 443,\r\n                \"serverTLS\": \"{{APP_NAME}}-clientssl\",\r\n                \"clientTLS\": \"{{APP_NAME}}-serverssl\",\r\n                \"pool\": \"https-api-pool\",\r\n        \t\t\"snat\": \"auto\"\r\n                },\r\n\r\n                \"{{APP_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                        {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                },\r\n                \"{{APP_NAME}}-serverssl\": {\r\n                    \"class\": \"TLS_Client\"\r\n                },\r\n                \"https-api-pool\": {\r\n                    \"class\": \"Pool\",  \r\n                        \"members\": [\r\n                            {\r\n                            \"serverAddresses\": [\r\n                            \"10.1.20.6\"\r\n                            ],\r\n                            \"servicePort\": 8443\r\n                            }\r\n                        ],\r\n                    \"monitors\": [\r\n                        \"icmp\"\r\n                    ]\r\n                }\r\n\r\n            }\r\n       }\r\n    }\r\n\r\n}\r\n                \r\n             \r\n          \r\n       \r\n    \r\n"
+					"raw": "{\r\n    \"class\": \"ADC\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n       \"class\": \"ADC\",\r\n       \"schemaVersion\": \"3.14.0\",\r\n       \"id\": \"APM\",\r\n       \"{{PARTITION_NAME}}\": {\r\n          \"class\": \"Tenant\",\r\n          \"{{PATH_NAME}}\": {\r\n             \"class\": \"Application\",\r\n             \"template\": \"generic\",\r\n             \"{{VS1_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                   \"{{BIGIP1_ADDRESS1}}\"\r\n                ],\r\n                \"virtualPort\": 443,\r\n                \"serverTLS\": \"{{VS1_NAME}}-clientssl\",\r\n                \"clientTLS\": \"{{VS1_NAME}}-serverssl\",\r\n                \"pool\": \"https-api-pool\",\r\n        \t\t\"snat\": \"auto\"\r\n                },\r\n\r\n                \"{{VS1_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                        {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                },\r\n                \"{{VS1_NAME}}-serverssl\": {\r\n                    \"class\": \"TLS_Client\"\r\n                },\r\n                \"https-api-pool\": {\r\n                    \"class\": \"Pool\",  \r\n                        \"members\": [\r\n                            {\r\n                            \"serverAddresses\": [\r\n                            \"10.1.20.6\"\r\n                            ],\r\n                            \"servicePort\": 8443\r\n                            }\r\n                        ],\r\n                    \"monitors\": [\r\n                        \"icmp\"\r\n                    ]\r\n                }\r\n\r\n            }\r\n       }\r\n    }\r\n\r\n}\r\n                \r\n             \r\n          \r\n       \r\n    \r\n"
 				},
 				"url": {
 					"raw": "https://10.1.1.4/mgmt/shared/appsvcs/declare",
@@ -1694,7 +1836,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f00a3338-80ca-4aee-a0e9-c1db1b0fe8c9",
+						"id": "a230a67e-54af-42c1-adce-2aa44b16e08d",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1749,36 +1891,119 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "DELETE /addr/checkin - BIGIP1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "54c95704-0fd6-4ee0-9df1-d148ce369201",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"OK\", function () {",
+							" ",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/addr/checkin?address={{BIGIP1_ADDRESS1}}",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"addr",
+						"checkin"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "{{BIGIP1_ADDRESS1}}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
 		{
-			"id": "f8e37bad-90fd-40d0-b977-b46e9111539f",
+			"id": "b8bd9984-e650-46c6-94d6-ea42cd2b20f2",
 			"key": "APP_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "e7145a0a-a02e-48ce-bfda-e8ac6060d043",
+			"id": "b4bcbe63-adf7-4fe5-8eca-1b38d70603c0",
 			"key": "PARTITION_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "a6758c20-c364-4ebe-841d-27c0d88fe27a",
+			"id": "fbffc076-a6e8-4b21-a91b-1ab96c832272",
 			"key": "PATH_NAME",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0799996c-1e69-4f77-a376-fd02c88c4535",
+			"id": "2f306ce8-cbb1-4b7e-bb6f-20bf38ff7553",
 			"key": "PRIOR_RESPONSE",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "4187f30e-4eb8-456c-a738-8820124178e9",
+			"id": "26c80ca8-2469-4a60-b4b5-601163228ae7",
 			"key": "HTTPS_RUN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "bfb4f6f2-e552-459c-935b-d1e106ec6a20",
+			"key": "DNS1_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "9a6d4577-7d6e-43ea-8029-79cf1973138b",
+			"key": "VS1_NAME",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "3cac9137-f7b4-477e-91d8-0e68bbed507f",
+			"key": "BIGIP1_ADDRESS1",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "2628adf1-5584-4165-87ff-242473233a6a",
+			"key": "IIS_ADDRESS1",
 			"value": "",
 			"type": "string"
 		}

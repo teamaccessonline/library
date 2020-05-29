@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d3462907-94e4-4411-9ea1-5e2591356952",
+		"_postman_id": "e2274faf-c6c4-4d15-87cd-3f27ca82311d",
 		"name": "API  library",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "087eda30-b9d8-45d6-ab1d-64e8217cca5a",
+								"id": "2be9c0b0-991d-48d6-be4f-9753e2ca01b5",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -34,7 +34,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "59368344-a518-4499-8cae-a4d331bd2d7e",
+								"id": "c60ed594-e773-4f4c-b155-4d178f1b46c5",
 								"exec": [
 									"pm.collectionVariables.set(\"DNS1_NAME\", \"solution7.acme.com\");",
 									"pm.collectionVariables.set(\"VS1_NAME\", \"solution7\");",
@@ -92,7 +92,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b94d071a-4fda-4ee6-9318-9a89cb240572",
+								"id": "ca4dd539-971a-4cc8-8258-8e7060a18c5f",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -164,7 +164,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "01ff93a6-039f-4f3d-be12-4dbbff1a478f",
+								"id": "e96f342e-ba3e-4431-a242-17b3d696d416",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -184,7 +184,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "3d7f63bd-2f06-442d-86b1-29d19f1c402c",
+								"id": "60652177-d84c-419e-b177-ebb315cd5715",
 								"exec": [
 									"",
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
@@ -252,7 +252,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4ec0d436-4b7b-49bb-aa7e-c0442a3232da",
+								"id": "fcb14917-c53a-4a87-9f3e-02d799b3ad54",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -324,7 +324,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "384c6aff-587d-4904-a3f1-53d654d3d243",
+								"id": "4c40a8ec-059c-43ad-aa85-4efec1687814",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -396,7 +396,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "27b021f4-dafa-45d3-a3ae-efb75dd928b4",
+								"id": "767ebb68-bf2e-4fb1-a46a-b1e850472b34",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -416,7 +416,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "344e3906-4726-4002-971d-4d62606768a1",
+								"id": "d6ea509a-c0d5-4ee8-9dd4-bc094a6467be",
 								"exec": [
 									"",
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
@@ -483,7 +483,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a97f24b0-5601-4ccf-938b-b8896f464971",
+								"id": "aaa131b3-ff1a-4ff6-a4d2-38534adc14a0",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -503,7 +503,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "aae418dc-f28f-4451-9a8a-b0207ab3f613",
+								"id": "70374671-0795-4f41-bf4e-5254ed7555df",
 								"exec": [
 									"",
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
@@ -570,7 +570,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "3d520683-df71-4e57-a2db-7b70889e1ede",
+								"id": "24f0efba-2872-4a96-9bfb-b4c2bf8d0f77",
 								"exec": [
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 									"",
@@ -584,7 +584,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ebc08145-8bb6-473e-a4d5-0e4a0595be92",
+								"id": "8b34962b-5bbe-493b-85a0-30fe044f15ff",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -657,7 +657,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "6e2a5047-2569-4a69-985f-3baad5d2ef89",
+								"id": "d8d44fc0-41fe-4d58-95fe-04db172077d2",
 								"exec": [
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 									"",
@@ -671,7 +671,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fa278fd2-66f8-46a0-a385-48066b9acfe4",
+								"id": "d19af3d2-4f11-4e51-a9ab-ddd54bcc5683",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -742,7 +742,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f07a7c3d-ffb5-45f2-97bb-aebbaa1f5107",
+								"id": "6a69a872-eb08-43f8-aef2-df95ef89e0c6",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -762,7 +762,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2bab7ec1-abee-4a54-a86f-6534e180215f",
+								"id": "e2c3441a-5c5d-4aa2-b0a2-998d746450cf",
 								"exec": [
 									"",
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
@@ -830,7 +830,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c0779902-dc55-43b4-a945-6260a2bccfe3",
+								"id": "fc10afb7-6079-43de-ac80-13ee3e660c72",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -850,7 +850,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "b1e79202-ff7d-4143-9e57-cec5617b8eed",
+								"id": "40e2aae7-4aa6-473c-9aaa-e5eea5125a44",
 								"exec": [
 									"",
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
@@ -917,7 +917,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "65807f62-49f9-4060-98ab-e50851ba281b",
+								"id": "d71d2e45-d195-4cf1-a672-7bcbca52995c",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -989,7 +989,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1286550a-efbd-4e9f-9073-6337b603258d",
+								"id": "8868e51a-1d03-4355-bc17-7cbeb5c0ce59",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1009,7 +1009,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e7e826d6-6f56-4421-a5f5-7e8825467741",
+								"id": "c01235f2-3bf6-419f-b99b-05dbb11d5530",
 								"exec": [
 									"",
 									"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
@@ -1077,7 +1077,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e71c5a8b-79bd-4790-876c-5fc78388df8f",
+								"id": "f4d752f1-3721-4ea9-8319-da564924f1ec",
 								"exec": [
 									"if (responseCode.code === 200) {",
 									"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1097,7 +1097,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2b679cbf-f992-4842-8cbd-db78ac29065e",
+								"id": "d73d0e7d-ca94-4c07-b488-61980af9a273",
 								"exec": [
 									"",
 									"",
@@ -1170,12 +1170,12 @@
 					"name": "DNS",
 					"item": [
 						{
-							"name": "POST /dns",
+							"name": "POST Create A record",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "96b62f46-4fbe-41df-a953-5a8a779544c3",
+										"id": "27d7bbcd-7c4b-4934-ac2b-3c6d676ebd13",
 										"exec": [
 											"",
 											"",
@@ -1194,11 +1194,11 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"record_type\":\"a\",\n\"hostname\":\"API_TEST\",\n\"zone\":\"acme.com\",\n\"computer_ip\":\"10.1.20.250\"\n}"
+									"raw": "{\n\"record_type\":\"a\",\n\"fqdn\":\"{{DNS1_NAME}}\",\n\"computer_ip\":\"{{IIS_ADDRESS1}}\"\n}"
 								},
 								"url": {
-									"raw": "https://10.1.20.6:81/dns",
-									"protocol": "https",
+									"raw": "http://10.1.20.6:81/dns",
+									"protocol": "http",
 									"host": [
 										"10",
 										"1",
@@ -1214,12 +1214,56 @@
 							"response": []
 						},
 						{
-							"name": "DELETE /dns",
+							"name": "POST Create PTR record",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "396ff398-0125-435e-8e14-67456b9b2c4a",
+										"id": "47a74e46-32ca-49dc-bd4d-4582866961f5",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"A Record Created\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"record_type\":\"ptr\",\n\"fqdn\":\"{{DNS1_NAME}}\",\n\"computer_ip\":\"{{IIS_ADDRESS1}}\"\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/dns",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"dns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE bigip1 address",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "beb4454e-20d9-4622-a621-e64d809f7ba1",
 										"exec": [
 											"",
 											"",
@@ -1241,11 +1285,58 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"record_type\":\"a\",\n\"hostname\":\"API_TEST\",\n\"zone\":\"acme.com\",\n\"computer_ip\":\"10.1.20.250\" \n}"
+									"raw": "{\n\"record_type\":\"a\",\n\"fqdn\":\"{{DNS1_NAME}}\",\n\"computer_ip\":\"{{BIGIP1_ADDRESS1}}\" \n}"
 								},
 								"url": {
-									"raw": "https://10.1.20.6:81/dns",
-									"protocol": "https",
+									"raw": "http://10.1.20.6:81/dns",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"dns"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE iis address",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8cf6a40d-784c-4a0a-a0c9-d65b02fb41dd",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test(\"A Record Deleted\", function () {",
+											"",
+											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"record_type\":\"a\",\n\"fqdn\":\"{{DNS1_NAME}}\",\n\"computer_ip\":\"{{IIS_ADDRESS1}}\" \n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/dns",
+									"protocol": "http",
 									"host": [
 										"10",
 										"1",
@@ -1268,12 +1359,12 @@
 					"name": "Websites",
 					"item": [
 						{
-							"name": "POST /website",
+							"name": "POST saml website",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "53366fe8-c0c4-47ce-ad7b-6609baef60c9",
+										"id": "2e552533-7a73-4ffc-b775-d076c5cb3e1d",
 										"exec": [
 											"",
 											"",
@@ -1300,11 +1391,63 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"site_name\":\"apitesting.acme.com\",\n\"http_port\":\"80\",\n\"https_port\":\"443\",\n\"computer_ip\":\"10.1.20.6\",\n\"authentication\": \"saml\",\n\"idp_name\": \"idp.acme.com\"\n}"
+									"raw": "{\n\t\"site_name\":\"{{DNS1_NAME}}\",\n\t\"http_port\":\"80\",\n\t\"https_port\":\"443\",\n\t\"computer_ip\":\"{{IIS_IPADDRESS1}}\",\n\t\"template_number\": \"1\",\n\t\"authentication\": \"saml\",\n\t\"saml\": {\n\t\t\"idp_hostname\": \"idp.acme.com\",\n\t\t\"idp_entityid\": \"https://idp.acme.com\",\n\t\t\"nameidpolicy\": \"urn:oasis:names:tc:SAML:2.0:nameid-format:transient\"\n\t}\n}"
 								},
 								"url": {
-									"raw": "https://10.1.20.6:81/website",
-									"protocol": "https",
+									"raw": "http://10.1.20.6:81/website",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"website"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST create customized Website",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e8520c1-752e-4997-9c03-e5fecbfdde01",
+										"exec": [
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"for (var i = 0; i < jsonData.length; i++) {",
+											"",
+											"\t\tif (jsonData[i].status === \"Success\") {",
+											"\t\t\t",
+											"                pm.test(\"Website Created\", function () {",
+											"                pm.expect(jsonData[i].status).to.eql(\"Success\");",
+											"});",
+											"\t\t\t",
+											"\t\t}",
+											"\t}",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"site_name\":\"{{DNS1_NAME}}\",\n\t\"http_port\":\"80\",\n\t\"https_port\":\"443\",\n\t\"computer_ip\":\"{{IIS_IPADDRESS1}}\",\n\t\"template_number\": \"2\",\n\t\"authentication\": \"none\",\n\t\"customization\": {\n\t\t\"background\": \"green\"\n\n\t}\n}"
+								},
+								"url": {
+									"raw": "http://10.1.20.6:81/website",
+									"protocol": "http",
 									"host": [
 										"10",
 										"1",
@@ -1325,7 +1468,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1f6c081b-80f9-4692-806b-2c2f62276c5b",
+										"id": "beef2998-345b-4d8b-b5f6-e80868e11d0e",
 										"exec": [
 											"",
 											"",
@@ -1347,11 +1490,11 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"site_name\":\"apitesting.acme.com\" \n}"
+									"raw": "{\n\"site_name\":\"{{DNS1_NAME}}\" \n}"
 								},
 								"url": {
-									"raw": "https://10.1.20.6:81/website",
-									"protocol": "https",
+									"raw": "http://10.1.20.6:81/website",
+									"protocol": "http",
 									"host": [
 										"10",
 										"1",
@@ -1379,7 +1522,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9a358618-2bcd-490d-aea2-a0320c8a0e43",
+										"id": "e0eab6db-fd7b-4f48-80ae-3e7d2499b7cf",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1483,7 +1626,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "39e95a35-7039-45dd-9670-02c7a3bb3f7c",
+										"id": "41856b6b-dce4-4a45-a119-fd8a3fc8aa38",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1553,7 +1696,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "47b447fc-cbc9-489b-9146-16869c2aff92",
+										"id": "b014c6a3-cd23-4577-a62a-61969fca2f1e",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"    pm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
@@ -1597,7 +1740,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"Username\":\"DELEGATION_API\",\n\"UPN\":\"HOST/DELEGATION.f5lab.local\",\n\"ou\":\"IT\",\n\"Password\":\"kerbaccount\",\n\"app_spn\": \"HTTP/delegatedapp.acme.com\"\n}"
+									"raw": "{\n\"Username\":\"{{PARTITION_NAME}}\",\n\"UPN\":\"HOST/{{PARTITION_NAME}}.f5lab.local\",\n\"ou\":\"IT\",\n\"Password\":\"{{PARTITION_NAME}}\",\n\"app_spn\": \"HTTP/{{DNS1_NAME}}\"\n}"
 								},
 								"url": {
 									"raw": "http://10.1.20.6:81/aduser/delegation",
@@ -1623,7 +1766,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "836c88e3-3d1c-42af-8e37-0e274864ea28",
+										"id": "d440361e-8305-4b62-b404-a12480870442",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1699,7 +1842,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5d5fec8e-1333-4107-8c7b-b5cc37ca52b3",
+										"id": "75270131-d024-45cb-aa67-707a2f802f2a",
 										"exec": [
 											""
 										],
@@ -1709,7 +1852,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "929cc141-b10b-4555-992a-cea2b66e4695",
+										"id": "814e3d89-b4f6-41fc-8a51-69a86915ec32",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1764,7 +1907,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9267e1c8-6a0f-4328-9d14-4c82319e92c3",
+										"id": "7ee3528b-5520-404a-b07d-a05c92e0f2fe",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1819,7 +1962,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7dbf184d-c320-4cd9-81ae-d96455929ac2",
+										"id": "414640e0-a969-4e1d-a3be-7fb2c285d787",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1890,7 +2033,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e9058faa-9b39-4bbd-81af-29a3d788aa61",
+										"id": "442d398b-e6ec-4561-8a42-4ef9d6f8f594",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -1966,7 +2109,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a3aa64a4-7e53-459e-930b-acacd7e0e818",
+										"id": "38d24d89-fbf8-4d69-85a9-292680ed3c12",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -2021,21 +2164,41 @@
 					"name": "IP Addresses",
 					"item": [
 						{
-							"name": "GET /addr/available",
+							"name": "GET /addr/scope-status",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "3a4588b0-9e30-43d6-a09e-e5bb653efe34",
+										"id": "d9601628-47b6-42b2-a5b8-d42168bb747a",
 										"exec": [
+											"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
 											"",
+											"",
+											"if (responseCode.code === 200) {",
+											"\tpm.collectionVariables.set('PRIOR_RESPONSE', 'OK');",
+											"\tpm.test(\"Scope Request successful\", function () {",
+											"\t\tpm.response.to.have.status(200);",
+											"\t});",
+											"}",
 											"",
 											"var jsonData = pm.response.json();",
-											"pm.test(\"OK\", function () {",
-											" ",
-											"    pm.expect(jsonData.address).to.eql(\"10.1.10.100\");",
-											"});",
-											""
+											"",
+											"if (!jsonData.length) {",
+											"\tif (jsonData.Description === VS_NAME) {",
+											"\t\tpm.collectionVariables.set(\"BIGIP1_ADDRESS1\", jsonData.IPAddress.IPAddressToString);",
+											"\t\tpostman.setNextRequest(\"bigip1-Create Applications using AS3\");",
+											"\t}",
+											"} else {",
+											"",
+											"",
+											"\tfor (var i = 0; i < jsonData.length; i++) {",
+											"",
+											"\t\tif (jsonData[i].Description === VS_NAME) {",
+											"\t\t\tpm.collectionVariables.set(\"BIGIP1_ADDRESS1\", jsonData[i].IPAddress.IPAddressToString);",
+											"\t\t\tpostman.setNextRequest(\"bigip1-Create Applications using AS3\");",
+											"\t\t}",
+											"\t}",
+											"}"
 										],
 										"type": "text/javascript"
 									}
@@ -2051,8 +2214,64 @@
 									}
 								],
 								"url": {
-									"raw": "https://10.1.20.6:81/addr/available?scope={{BIGIP1_SCOPE}}",
-									"protocol": "https",
+									"raw": "http://10.1.20.6:81/addr/scope-status?scope={{BIGIP1_SCOPE}}",
+									"protocol": "http",
+									"host": [
+										"10",
+										"1",
+										"20",
+										"6"
+									],
+									"port": "81",
+									"path": [
+										"addr",
+										"scope-status"
+									],
+									"query": [
+										{
+											"key": "scope",
+											"value": "{{BIGIP1_SCOPE}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET /addr/available",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "743bd6a9-c803-4daf-b1bb-2a99097fc364",
+										"exec": [
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.collectionVariables.set(\"BIGIP1_ADDRESS1\", jsonData.address);",
+											"",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"pm.test('Next Available Address Found', function () {",
+											"  pm.expect(jsonData).to.have.property('address');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://10.1.20.6:81/addr/available?scope={{BIGIP1_SCOPE}}",
+									"protocol": "http",
 									"host": [
 										"10",
 										"1",
@@ -2080,12 +2299,11 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "296588bf-311e-49de-a7cf-3bf4465ceb80",
+										"id": "fc1a9308-e8ea-486e-8d7e-5189f810ca6c",
 										"exec": [
 											"",
-											"",
 											"var jsonData = pm.response.json();",
-											"pm.test(\"OK\", function () {",
+											"pm.test(\"Address Checked Out\", function () {",
 											" ",
 											"    pm.expect(jsonData.status).to.eql(\"Success\");",
 											"});"
@@ -2099,11 +2317,11 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"10.1.10.113\",\n\"vs_name\":\"api_testing.acme.com\"\n}"
+									"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"{{BIGIP1_ADDRESS1}}\",\n\"vs_name\":\"{{VS1_NAME}}\"\n}"
 								},
 								"url": {
-									"raw": "https://10.1.20.6:81/addr/checkout",
-									"protocol": "https",
+									"raw": "http://10.1.20.6:81/addr/checkout",
+									"protocol": "http",
 									"host": [
 										"10",
 										"1",
@@ -2125,17 +2343,23 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "505c82fb-d963-4fe4-a4a1-f6e2d0d54f01",
+										"id": "95a0e75d-5af5-4229-8fe5-32b40f43c6fd",
 										"exec": [
-											"",
-											"",
 											"var jsonData = pm.response.json();",
-											"pm.test(\"OK\", function () {",
 											"",
-											"    pm.expect(jsonData.status).to.eql(\"Success\");",
+											"",
+											"",
+											"  if(jsonData.status === \"Success\") {",
+											"pm.test(\"Address returned to Scope\", function () {",
+											"    pm.response.to.have.status(200);",
+											"",
 											"});",
+											"} else {",
 											"",
-											"",
+											"pm.test(\"Address not assigned in Scope\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"}",
 											""
 										],
 										"type": "text/javascript"
@@ -2147,11 +2371,11 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"scope\":\"{{BIGIP1_SCOPE}}\",\n\"address\":\"10.1.10.101\",\n\"vs_name\":\"test.acme.com\"\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "https://10.1.20.6:81/addr/checkin?address=10.1.10.113",
-									"protocol": "https",
+									"raw": "http://10.1.20.6:81/addr/checkin?address={{BIGIP1_ADDRESS1}}",
+									"protocol": "http",
 									"host": [
 										"10",
 										"1",
@@ -2166,75 +2390,7 @@
 									"query": [
 										{
 											"key": "address",
-											"value": "10.1.10.113"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "GET /addr/scope-status",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "281a1865-ad3e-43ce-a3bf-08f6a249815b",
-										"exec": [
-											"",
-											"var jsonData = pm.response.json();",
-											"",
-											"if (!jsonData.length) {",
-											"\tif (jsonData.Description === \"api_testing.acme.com\") {",
-											"\t\t\tpm.test(\"Scope Request successful\", function () {",
-											"\t\t    pm.response.to.have.status(200);",
-											"\t});",
-											"\t\t",
-											"\t}",
-											"} else {",
-											"",
-											"",
-											"\tfor (var i = 0; i < jsonData.length; i++) {",
-											"",
-											"\t\tif (jsonData[i].Description === \"api_testing.acme.com\") {",
-											"\t\t\tpm.test(\"Scope Request successful\", function () {",
-											"\t\t    pm.response.to.have.status(200);",
-											"\t});",
-											"\t\t}",
-											"\t}",
-											"}"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://10.1.20.6:81/addr/scope-status?scope={{BIGIP1_SCOPE}}",
-									"protocol": "https",
-									"host": [
-										"10",
-										"1",
-										"20",
-										"6"
-									],
-									"port": "81",
-									"path": [
-										"addr",
-										"scope-status"
-									],
-									"query": [
-										{
-											"key": "scope",
-											"value": "{{BIGIP1_SCOPE}}"
+											"value": "{{BIGIP1_ADDRESS1}}"
 										}
 									]
 								}
@@ -2254,7 +2410,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "268a38f0-3a56-46fe-bc3d-23714aea4bd6",
+										"id": "6aafbd9e-4bcf-4bf1-bf16-68f1fed11952",
 										"exec": [
 											"",
 											"",
@@ -2298,7 +2454,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8b43eaf5-0f16-410b-bd6d-7cf62ccc5ac6",
+										"id": "d052605e-793d-4ebb-91f2-a42d03bca226",
 										"exec": [
 											"",
 											"",
@@ -2347,34 +2503,31 @@
 					"name": "computer",
 					"item": [
 						{
-							"name": "Delete SPN",
+							"name": "Create SPN",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "95911c65-1dc3-44db-88af-584a2585bb69",
+										"id": "ddc01278-3995-4599-8063-660171f81f10",
 										"exec": [
 											"",
 											"",
 											"var jsonData = pm.response.json();",
-											"pm.test(\"SPN Deleted\", function () {",
+											"pm.test(\"SPN Created\", function () {",
 											"",
 											"    pm.expect(jsonData.status).to.eql(\"Success\");",
-											"});",
-											"",
-											"",
-											""
+											"});"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
 							"request": {
-								"method": "DELETE",
+								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/apitesting.acme.com\"\n}"
+									"raw": "{\n\"computer\":\"IIS\",\n\"spn\":\"HTTP/{{DNS1_NAME}}\"\n}"
 								},
 								"url": {
 									"raw": "http://10.1.20.6:81/computer",
@@ -2394,27 +2547,30 @@
 							"response": []
 						},
 						{
-							"name": "Create SPN",
+							"name": "Delete SPN",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "1920573a-fcde-493a-8963-a111cd9ae213",
+										"id": "31738f72-6d96-4d67-800e-91dbe5c7c1a1",
 										"exec": [
 											"",
 											"",
 											"var jsonData = pm.response.json();",
-											"pm.test(\"SPN Created\", function () {",
+											"pm.test(\"SPN Deleted\", function () {",
 											"",
 											"    pm.expect(jsonData.status).to.eql(\"Success\");",
-											"});"
+											"});",
+											"",
+											"",
+											""
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
 							"request": {
-								"method": "POST",
+								"method": "DELETE",
 								"header": [],
 								"body": {
 									"mode": "raw",
