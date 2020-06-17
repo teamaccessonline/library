@@ -10,8 +10,8 @@ IIS
 app.acme.com
 ^^^^^^^^^^^^^^^
 
-Authentication method: Anonymous
-IP Address: 10.1.20.6
+ - Authentication method: Anonymous
+ - IP Address: 10.1.20.6
 
 |image3|
 
