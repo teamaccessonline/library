@@ -18,8 +18,8 @@ app.acme.com
 basic.acme.com
 ^^^^^^^^^^^^^^^
 
-Authentication method: Basic
-IP Address: 10.1.20.6
+ - Authentication method: Basic
+ - IP Address: 10.1.20.6
 
 
 |image4|
@@ -28,8 +28,8 @@ IP Address: 10.1.20.6
 header.acme.com
 ^^^^^^^^^^^^^^^
 
-Authentication method: Anonymous
-IP Address: 10.1.20.6
+ - Authentication method: Anonymous
+ - IP Address: 10.1.20.6
 
 
 |image5|
@@ -39,8 +39,8 @@ IP Address: 10.1.20.6
 Kerb.acme.com
 ^^^^^^^^^^^^^^
 
-Authentication method: Kerberos
-IP Address: 10.1.20.16
+ - Authentication method: Kerberos
+ - IP Address: 10.1.20.16
 
 
 |image6|
@@ -49,8 +49,8 @@ IP Address: 10.1.20.16
 mTLS.acme.com 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: Mutual TLS
-IP Address: 10.1.20.6
+ - Authentication method: Mutual TLS
+ - IP Address: 10.1.20.6
 
 
 
@@ -60,9 +60,8 @@ IP Address: 10.1.20.6
 ntlm.acme.com -untested
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: NTLM
-IP Address: 10.1.20.6
-
+ - Authentication method: NTLM
+ - IP Address: 10.1.20.6
 
 
 |image8|
@@ -71,10 +70,8 @@ IP Address: 10.1.20.6
 portal.acme.com 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Local Database(NonAD) Forms
-IP Address: 10.1.20.6
-
-
+ - Authentication method: - Local Database(NonAD) Forms
+ - IP Address: 10.1.20.6
 
 |image9|
 
@@ -82,8 +79,8 @@ IP Address: 10.1.20.6
 server1.acme.com 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Anonymous
-IP Address: 10.1.20.6
+ - Authentication method: - Anonymous
+ - IP Address: 10.1.20.6
 
 
 
@@ -92,8 +89,8 @@ IP Address: 10.1.20.6
 server2.acme.com 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Anonymous
-
+ - Authentication method: - Anonymous
+ - IP Address: 10.1.20.6
 
 |image11|
 
@@ -102,22 +99,18 @@ Authentication method: - Anonymous
 server3.acme.com 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Anonymous
-IP Address: 10.1.20.6
-
+ - Authentication method: - Anonymous
+ - IP Address: 10.1.20.6
 
 
 |image12|
 
 
-
 server4.acme.com 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Anonymous
-IP Address: 10.1.20.6
-
-
+ - Authentication method: - Anonymous
+ - IP Address: 10.1.20.6
 
 |image13|
 
@@ -125,10 +118,8 @@ IP Address: 10.1.20.6
 Unprotected-json.f5lab.local 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Anonymous
-IP Address: 10.1.20.6
-
-
+ - Authentication method: - Anonymous
+ - IP Address: 10.1.20.6
 
 |image14|
 
@@ -139,29 +130,26 @@ NGINX
 files-dev.f5lab.local
 ^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Anonymous
-IP Address: 10.1.20.9
+ - Authentication method: - Anonymous
+ - IP Address: 10.1.20.9
 
 |image15|
 
 files-master.f5lab.local
 ^^^^^^^^^^^^^^^^^^^
 
-Authentication method: - Anonymous
-IP Address: 10.1.20.9
+ - Authentication method: - Anonymous
+ - IP Address: 10.1.20.9
 
 |image15|
 
 mtls.acme.com
 ^^^^^^^^^^^^^^^^^
 
-Authentication method: - Mutual TLS
-IP Address: 10.1.20.9
+ - Authentication method: - Mutual TLS
+ - IP Address: 10.1.20.9
 
 |image16|
-
-
-
 
 
 .. |image3| image:: media/image003.png
