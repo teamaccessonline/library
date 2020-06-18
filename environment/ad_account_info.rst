@@ -9,15 +9,15 @@ OU Structure
 
 - F5lab.local
    - Computers
-  - Domain Controllers
-  - Users
-  - Groups
-  - IT
-  - Human Resources
-  - Sales
-  - Sales Engineering
-  - Product Development
-  - Product Management
+   - Domain Controllers
+   - Users
+   - Groups
+   - IT
+   - Human Resources
+   - Sales
+   - Sales Engineering
+   - Product Development
+   - Product Management
 
 
 OU Groups and Accounts
