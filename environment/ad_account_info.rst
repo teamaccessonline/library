@@ -8,22 +8,29 @@ OU Structure
 ~~~~~~~~~~~~~
 
 - F5lab.local
-  - Computers
-  - Domain Controllers
-  - Users
-  - Groups
-  - IT
-  - Human Resources
-  - Sales
-  - Sales Engineering
-  - Product Development
-  - Product Management
+   - Computers
+   - Domain Controllers
+   - Users
+   - Groups
+   - IT
+   - Human Resources
+   - Sales
+   - Sales Engineering
+   - Product Development
+   - Product Management
 
 
 OU Groups and Accounts
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The below table displays the groups and accounts contained in each OU.
+======================= ====================== ==================
+ OU                     GROUPS                 ACCOUNT NAME           
+======================= ====================== ==================
+Groups                  app1
+                        app2
+======================= ====================== ==================
+
 
 
 +----------------------+----------------------+------------------+
