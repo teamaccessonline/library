@@ -24,8 +24,9 @@ OU Groups and Accounts
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The below table displays the groups and accounts contained in each OU.
+
 ======================= ====================== ==================
- OU                     GROUPS                 ACCOUNT NAME           
+OU                      GROUPS                 ACCOUNT NAME           
 ======================= ====================== ==================
 Groups                  app1
                         app2
