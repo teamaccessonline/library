@@ -25,50 +25,48 @@ OU Groups and Accounts
 
 The below table displays the groups and accounts contained in each OU.
 
+======================= ====================== ==================
+OU                      GROUPS                 ACCOUNT NAME           
+======================= ====================== ==================
+Groups                  - app1
+                        - app2
+                        - app3
+                        - app4
+                        - app5
+                        - sysadmin
+                        - member-services-A
+                        - member-services-B
+                        - sysadmins
+----------------------- ---------------------- ------------------
+Human Resources
+----------------------- ---------------------- ------------------
+IT                      Createuser             hackeduser
+                        EditUser
+----------------------- ---------------------- ------------------
+Product Development                            user2
+----------------------- ---------------------- ------------------
+Product Management
+----------------------- ---------------------- ------------------
+Sales
+----------------------- ---------------------- ------------------
+Sales Engineering       Website Admin          user1
+----------------------- ---------------------- ------------------
+Computers                                      - IIS
+                                               - JUMPBOX
+----------------------- ---------------------- ------------------
+Domain Controllers                             DC1
+----------------------- ---------------------- ------------------
+Users                   - Sales Engineering    - kerbsso
+                        - Product Development  - admin
+                        - Product Management
+                        - IT
+======================= ====================== ==================
 
-+----------------------+----------------------+------------------+
-| OU                   |  Groups              | Account Name     |    
-+======================+======================+==================+
-| Groups               | app1                 |                  |
-|                      | app2                 |                  |
-|                      | app3                 |                  |
-|                      | app4                 |                  |
-|                      | app5                 |                  |
-|                      | sysadmin             |                  |
-|                      | member-services-A    |                  |
-|                      | member-services-B    |                  |
-|                      | sysadmins            |                  |
-+----------------------+----------------------+------------------+
-| Human Resources      |                      |                  |
-+----------------------+----------------------+------------------+
-| IT                   | CreateUser           | hackeduser       |
-|                      | EditUser             |                  |
-+----------------------+----------------------+------------------+
-| Product Development  |                      |  user2           |
-+----------------------+----------------------+------------------+
-| Product Management   |                      |                  |
-+----------------------+----------------------+------------------+
-| Sales                |                      |                  |
-+----------------------+----------------------+------------------+
-| Sales Engineering    | Website Admin        | user1            |
-+----------------------+----------------------+------------------+
-| Computers            |                      | IIS              |
-|                      |                      | JUMPBOX          |       
-+----------------------+----------------------+------------------+
-| Domain Controllers   |                      | DC1              |
-+----------------------+----------------------+------------------+
-| Users                |  Sales Engineering   | kerbsso          |
-|                      |  Product Development | admin            | 
-|                      |  Product Management  |                  |
-|                      |  IT                  |                  |        
-+----------------------+----------------------+------------------+
 
 Account Details
 ~~~~~~~~~~~~~~~~~
 
 The below tables show the nonstandard values for each attribute of a user account
-
-
 
 User1
 ^^^^^^^^^^^^^
@@ -100,9 +98,14 @@ Password: **user1**
 +----------------------+----------------------------------------------------+
 | mail                 | coyote@acme.com                                    |                   
 +----------------------+----------------------------------------------------+
-| memberOf             | app1, Domain Admins, Domain Users, EditUser,       |
-|                      | member-services-A, Sales Engineering, sysadmins,   |
-|                      | Website Admin                                      |                   
+| memberOf             | - app1                                             |
+|                      | - Domain Admins                                    |
+|                      | - Domain Users                                     |
+|                      | - EditUser                                         |
+|                      | - member-services-A                                |
+|                      | - Sales Engineering                                |
+|                      | - sysadmins                                        |
+|                      | - Website Admin                                    |                   
 +----------------------+----------------------------------------------------+
 | name                 | user1                                              |                   
 +----------------------+----------------------------------------------------+
@@ -159,8 +162,10 @@ Password: **user2**
 +----------------------+----------------------------------------------------+
 | mobile               | 1234567890                                         |                   
 +----------------------+----------------------------------------------------+
-| memberOf             | CreateUser, Domain Admins, Domain Users,           |
-|                      | Product Management                                 |                   
+| memberOf             | - CreateUser                                       |
+|                      | - Domain Admins                                    |
+|                      | - Domain Users                                     |
+|                      | - Product Management                               |                   
 +----------------------+----------------------------------------------------+
 | PostalCode           | 98101                                              |                   
 +----------------------+----------------------------------------------------+
